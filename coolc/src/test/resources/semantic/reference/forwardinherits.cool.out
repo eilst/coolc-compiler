@@ -1,0 +1,23 @@
+
+  >- AProgram
+     |- AClassDecl
+     |  |- A
+     |  |- B
+     |  `- AAttributeFeature
+     |     |- foo
+     |     `- Int
+     |- AClassDecl
+     |  |- B
+     |  |- Object
+     |  `- AAttributeFeature
+     |     |- bar
+     |     `- Int
+     `- AClassDecl
+        |- Main
+        |- Object
+        `- AMethodFeature
+           |- main
+           |- Int
+           `- AIntExpr:Int
+              `- 6
+

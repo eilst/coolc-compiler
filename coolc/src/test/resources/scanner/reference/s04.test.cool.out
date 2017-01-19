@@ -1,0 +1,7 @@
+#name src/test/resources/scanner/input/s04.test.cool
+#2 TIntConst "0"
+#4 TIntConst "1"
+#6 TIntConst "2"
+#9 TIntConst "3"
+#11 TIntConst "4"
+#13 TIntConst "5"

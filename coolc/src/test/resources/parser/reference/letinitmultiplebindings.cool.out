@@ -1,0 +1,27 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Test
+        |- AAttributeFeature
+        |  |- foo
+        |  `- Test
+        `- AMethodFeature
+           |- baz
+           |- String
+           `- ALetExpr
+              |- ALetDecl
+              |  |- x
+              |  |- Int
+              |  `- AIntExpr
+              |     `- 5
+              |- ALetDecl
+              |  |- y
+              |  |- String
+              |  `- AStrExpr
+              |     `- biddle
+              |- ALetDecl
+              |  |- z
+              |  `- Int
+              `- AObjectExpr
+                 `- x
+

@@ -1,0 +1,8 @@
+#name src/test/resources/scanner/input/backslash2.cool
+#1 ERROR Unterminated string constant, EOL found.
+#2 ERROR Unterminated string constant, EOL found.
+#4 ERROR Unterminated string constant, EOL found.
+#5 ERROR Unterminated string constant, EOL found.
+#7 TStrConst "This is, though \\\n"
+#10 TStrConst "\\"
+#12 TStrConst "It's fine to have this: \n in a string"

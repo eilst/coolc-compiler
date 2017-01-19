@@ -1,0 +1,4 @@
+#name src/test/resources/scanner/input/lineno2.cool
+#5 ERROR "!".
+#6 TObjectId "fjdk"
+#7 TStrConst ""

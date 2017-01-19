@@ -1,0 +1,145 @@
+
+  >- AProgram
+     |- AClassDecl
+     |  |- Main
+     |  |- IO
+     |  `- AMethodFeature
+     |     |- main
+     |     |- SELF_TYPE
+     |     `- ALetExpr
+     |        |- ALetDecl
+     |        |  |- c
+     |        |  |- Complex
+     |        |  `- AAtExpr
+     |        |     |- ANewExpr
+     |        |     |  `- Complex
+     |        |     |- init
+     |        |     |- AIntExpr
+     |        |     |  `- 1
+     |        |     `- AIntExpr
+     |        |        `- 1
+     |        `- AIfExpr
+     |           |- AEqExpr
+     |           |  |- AAtExpr
+     |           |  |  |- AAtExpr
+     |           |  |  |  |- AObjectExpr
+     |           |  |  |  |  `- c
+     |           |  |  |  `- reflect_X
+     |           |  |  `- reflect_Y
+     |           |  `- AAtExpr
+     |           |     |- AObjectExpr
+     |           |     |  `- c
+     |           |     `- reflect_0
+     |           |- ACallExpr
+     |           |  |- out_string
+     |           |  `- AStrExpr
+     |           |     `- =)
+
+     |           `- ACallExpr
+     |              |- out_string
+     |              `- AStrExpr
+     |                 `- =(
+
+     `- AClassDecl
+        |- Complex
+        |- IO
+        |- AAttributeFeature
+        |  |- x
+        |  `- Int
+        |- AAttributeFeature
+        |  |- y
+        |  `- Int
+        |- AMethodFeature
+        |  |- init
+        |  |- AFormal
+        |  |  |- a
+        |  |  `- Int
+        |  |- AFormal
+        |  |  |- b
+        |  |  `- Int
+        |  |- Complex
+        |  `- AListExpr
+        |     |- AEqExpr
+        |     |  |- AObjectExpr
+        |     |  |  `- x
+        |     |  `- AObjectExpr
+        |     |     `- a
+        |     |- AEqExpr
+        |     |  |- AObjectExpr
+        |     |  |  `- y
+        |     |  `- AObjectExpr
+        |     |     `- b
+        |     `- AObjectExpr
+        |        `- self
+        |- AMethodFeature
+        |  |- print
+        |  |- Object
+        |  `- AIfExpr
+        |     |- AEqExpr
+        |     |  |- AObjectExpr
+        |     |  |  `- y
+        |     |  `- AIntExpr
+        |     |     `- 0
+        |     |- ACallExpr
+        |     |  |- out_int
+        |     |  `- AObjectExpr
+        |     |     `- x
+        |     `- AAtExpr
+        |        |- AAtExpr
+        |        |  |- AAtExpr
+        |        |  |  |- ACallExpr
+        |        |  |  |  |- out_int
+        |        |  |  |  `- AObjectExpr
+        |        |  |  |     `- x
+        |        |  |  |- out_string
+        |        |  |  `- AStrExpr
+        |        |  |     `- +
+        |        |  |- out_int
+        |        |  `- AObjectExpr
+        |        |     `- y
+        |        |- out_string
+        |        `- AStrExpr
+        |           `- I
+        |- AMethodFeature
+        |  |- reflect_0
+        |  |- Complex
+        |  `- AListExpr
+        |     |- AEqExpr
+        |     |  |- AObjectExpr
+        |     |  |  `- x
+        |     |  `- ANegExpr
+        |     |     `- AObjectExpr
+        |     |        `- x
+        |     |- AEqExpr
+        |     |  |- AObjectExpr
+        |     |  |  `- y
+        |     |  `- ANegExpr
+        |     |     `- AObjectExpr
+        |     |        `- y
+        |     `- AObjectExpr
+        |        `- self
+        |- AMethodFeature
+        |  |- reflect_X
+        |  |- Complex
+        |  `- AListExpr
+        |     |- AEqExpr
+        |     |  |- AObjectExpr
+        |     |  |  `- y
+        |     |  `- ANegExpr
+        |     |     `- AObjectExpr
+        |     |        `- y
+        |     `- AObjectExpr
+        |        `- self
+        `- AMethodFeature
+           |- reflect_Y
+           |- Complex
+           `- AListExpr
+              |- AEqExpr
+              |  |- AObjectExpr
+              |  |  `- x
+              |  `- ANegExpr
+              |     `- AObjectExpr
+              |        `- x
+              `- AObjectExpr
+                 `- self
+

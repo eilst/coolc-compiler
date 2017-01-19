@@ -1,0 +1,30 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Foo
+        `- AMethodFeature
+           |- bar
+           |- Int
+           `- AListExpr
+              |- APlusExpr
+              |  |- AIsvoidExpr
+              |  |  `- AObjectExpr
+              |  |     `- a
+              |  `- AMultExpr
+              |     |- AObjectExpr
+              |     |  `- b
+              |     `- AObjectExpr
+              |        `- c
+              |- ANotExpr
+              |  `- ALtExpr
+              |     |- AObjectExpr
+              |     |  `- a
+              |     `- AObjectExpr
+              |        `- b
+              `- APlusExpr
+                 |- ANegExpr
+                 |  `- AObjectExpr
+                 |     `- a
+                 `- AObjectExpr
+                    `- b
+

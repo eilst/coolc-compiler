@@ -1,0 +1,31 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Test
+        |- AAttributeFeature
+        |  |- foo
+        |  `- Test
+        `- AMethodFeature
+           |- bar
+           |- Int
+           `- AIfExpr
+              |- AEqExpr
+              |  |- AObjectExpr
+              |  |  `- x
+              |  `- AIntExpr
+              |     `- 3
+              |- AListExpr
+              |  `- AIfExpr
+              |     |- ALtExpr
+              |     |  |- AObjectExpr
+              |     |  |  `- x
+              |     |  `- AIntExpr
+              |     |     `- 2
+              |     |- ANewExpr
+              |     |  `- Foo
+              |     `- AIsvoidExpr
+              |        `- AObjectExpr
+              |           `- baz
+              `- ABoolExpr
+                 `- false
+

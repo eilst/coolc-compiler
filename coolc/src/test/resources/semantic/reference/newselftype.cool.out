@@ -1,0 +1,30 @@
+
+  >- AProgram
+     |- AClassDecl
+     |  |- A
+     |  |- Object
+     |  |- AAttributeFeature
+     |  |  |- bar
+     |  |  |- Int
+     |  |  `- ACallExpr:Int
+     |  |     |- foo
+     |  |     `- ANewExpr:SELF_TYPE of A
+     |  |        `- SELF_TYPE
+     |  `- AMethodFeature
+     |     |- foo
+     |     |- AFormal
+     |     |  |- a
+     |     |  `- A
+     |     |- Int
+     |     `- ANegExpr:Int
+     |        `- AIntExpr:Int
+     |           `- 7
+     `- AClassDecl
+        |- Main
+        |- Object
+        `- AMethodFeature
+           |- main
+           |- Int
+           `- AIntExpr:Int
+              `- 6
+

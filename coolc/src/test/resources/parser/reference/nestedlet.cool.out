@@ -1,0 +1,45 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- A
+        `- AMethodFeature
+           |- f
+           |- AFormal
+           |  |- x
+           |  `- Int
+           |- Object
+           `- ALetExpr
+              |- ALetDecl
+              |  |- x
+              |  |- Int
+              |  `- AIntExpr
+              |     `- 3
+              `- ALetExpr
+                 |- ALetDecl
+                 |  |- y
+                 |  `- Bool
+                 |- ALetDecl
+                 |  |- z
+                 |  `- Object
+                 `- ALetExpr
+                    |- ALetDecl
+                    |  |- a
+                    |  `- Object
+                    |- ALetDecl
+                    |  |- b
+                    |  `- Object
+                    |- ALetDecl
+                    |  |- c
+                    |  `- Object
+                    `- ALetExpr
+                       |- ALetDecl
+                       |  |- d
+                       |  |- Int
+                       |  `- AIntExpr
+                       |     `- 6
+                       `- APlusExpr
+                          |- AObjectExpr
+                          |  `- d
+                          `- AIntExpr
+                             `- 5
+

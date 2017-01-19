@@ -1,0 +1,18 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Main
+        |- IO
+        `- AMethodFeature
+           |- main
+           |- Object
+           `- AListExpr:Int
+              `- ALetExpr:Int
+                 |- ALetDecl
+                 |  |- x
+                 |  |- Int
+                 |  `- AIntExpr:Int
+                 |     `- 5
+                 `- AObjectExpr:Int
+                    `- x
+

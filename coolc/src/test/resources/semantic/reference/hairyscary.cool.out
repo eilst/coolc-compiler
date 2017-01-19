@@ -1,0 +1,216 @@
+
+  >- AProgram
+     |- AClassDecl
+     |  |- Foo
+     |  |- Bazz
+     |  |- AAttributeFeature
+     |  |  |- a
+     |  |  |- Razz
+     |  |  `- ACaseExpr:Razz
+     |  |     |- AObjectExpr:SELF_TYPE of Foo
+     |  |     |  `- self
+     |  |     |- ABranch
+     |  |     |  |- n
+     |  |     |  |- Razz
+     |  |     |  `- ANewExpr:Bar
+     |  |     |     `- Bar
+     |  |     |- ABranch
+     |  |     |  |- n
+     |  |     |  |- Foo
+     |  |     |  `- ANewExpr:Razz
+     |  |     |     `- Razz
+     |  |     `- ABranch
+     |  |        |- n
+     |  |        |- Bar
+     |  |        `- AObjectExpr:Bar
+     |  |           `- n
+     |  |- AAttributeFeature
+     |  |  |- b
+     |  |  |- Int
+     |  |  `- APlusExpr:Int
+     |  |     |- APlusExpr:Int
+     |  |     |  |- APlusExpr:Int
+     |  |     |  |  |- AAtExpr:Int
+     |  |     |  |  |  |- AObjectExpr:Razz
+     |  |     |  |  |  |  `- a
+     |  |     |  |  |  `- doh
+     |  |     |  |  `- AAtExpr:Int
+     |  |     |  |     |- AObjectExpr:Foo
+     |  |     |  |     |  `- g
+     |  |     |  |     `- doh
+     |  |     |  `- ACallExpr:Int
+     |  |     |     `- doh
+     |  |     `- ACallExpr:Int
+     |  |        `- printh
+     |  `- AMethodFeature
+     |     |- doh
+     |     |- Int
+     |     `- ALetExpr:Int
+     |        |- ALetDecl
+     |        |  |- i
+     |        |  |- Int
+     |        |  `- AObjectExpr:Int
+     |        |     `- h
+     |        `- AListExpr:Int
+     |           |- AAssignExpr:Int
+     |           |  |- h
+     |           |  `- APlusExpr:Int
+     |           |     |- AObjectExpr:Int
+     |           |     |  `- h
+     |           |     `- AIntExpr:Int
+     |           |        `- 2
+     |           `- AObjectExpr:Int
+     |              `- i
+     |- AClassDecl
+     |  |- Bar
+     |  |- Razz
+     |  |- AAttributeFeature
+     |  |  |- c
+     |  |  |- Int
+     |  |  `- ACallExpr:Int
+     |  |     `- doh
+     |  `- AAttributeFeature
+     |     |- d
+     |     |- Object
+     |     `- ACallExpr:Int
+     |        `- printh
+     |- AClassDecl
+     |  |- Razz
+     |  |- Foo
+     |  |- AAttributeFeature
+     |  |  |- e
+     |  |  |- Bar
+     |  |  `- ACaseExpr:Bar
+     |  |     |- AObjectExpr:SELF_TYPE of Razz
+     |  |     |  `- self
+     |  |     |- ABranch
+     |  |     |  |- n
+     |  |     |  |- Razz
+     |  |     |  `- ANewExpr:Bar
+     |  |     |     `- Bar
+     |  |     `- ABranch
+     |  |        |- n
+     |  |        |- Bar
+     |  |        `- AObjectExpr:Bar
+     |  |           `- n
+     |  `- AAttributeFeature
+     |     |- f
+     |     |- Int
+     |     `- APlusExpr:Int
+     |        |- APlusExpr:Int
+     |        |  |- APlusExpr:Int
+     |        |  |  |- APlusExpr:Int
+     |        |  |  |  |- AAtExpr:Int
+     |        |  |  |  |  |- AObjectExpr:Razz
+     |        |  |  |  |  |  `- a
+     |        |  |  |  |  |- Bazz
+     |        |  |  |  |  `- doh
+     |        |  |  |  `- AAtExpr:Int
+     |        |  |  |     |- AObjectExpr:Foo
+     |        |  |  |     |  `- g
+     |        |  |  |     `- doh
+     |        |  |  `- AAtExpr:Int
+     |        |  |     |- AObjectExpr:Bar
+     |        |  |     |  `- e
+     |        |  |     `- doh
+     |        |  `- ACallExpr:Int
+     |        |     `- doh
+     |        `- ACallExpr:Int
+     |           `- printh
+     |- AClassDecl
+     |  |- Bazz
+     |  |- IO
+     |  |- AAttributeFeature
+     |  |  |- h
+     |  |  |- Int
+     |  |  `- AIntExpr:Int
+     |  |     `- 1
+     |  |- AAttributeFeature
+     |  |  |- g
+     |  |  |- Foo
+     |  |  `- ACaseExpr:Foo
+     |  |     |- AObjectExpr:SELF_TYPE of Bazz
+     |  |     |  `- self
+     |  |     |- ABranch
+     |  |     |  |- n
+     |  |     |  |- Bazz
+     |  |     |  `- ANewExpr:Foo
+     |  |     |     `- Foo
+     |  |     |- ABranch
+     |  |     |  |- n
+     |  |     |  |- Razz
+     |  |     |  `- ANewExpr:Bar
+     |  |     |     `- Bar
+     |  |     |- ABranch
+     |  |     |  |- n
+     |  |     |  |- Foo
+     |  |     |  `- ANewExpr:Razz
+     |  |     |     `- Razz
+     |  |     `- ABranch
+     |  |        |- n
+     |  |        |- Bar
+     |  |        `- AObjectExpr:Bar
+     |  |           `- n
+     |  |- AAttributeFeature
+     |  |  |- i
+     |  |  |- Object
+     |  |  `- ACallExpr:Int
+     |  |     `- printh
+     |  |- AMethodFeature
+     |  |  |- printh
+     |  |  |- Int
+     |  |  `- AListExpr:Int
+     |  |     |- ACallExpr:SELF_TYPE of Bazz
+     |  |     |  |- out_int
+     |  |     |  `- AObjectExpr:Int
+     |  |     |     `- h
+     |  |     `- AIntExpr:Int
+     |  |        `- 0
+     |  `- AMethodFeature
+     |     |- doh
+     |     |- Int
+     |     `- ALetExpr:Int
+     |        |- ALetDecl
+     |        |  |- i
+     |        |  |- Int
+     |        |  `- AObjectExpr:Int
+     |        |     `- h
+     |        `- AListExpr:Int
+     |           |- AAssignExpr:Int
+     |           |  |- h
+     |           |  `- APlusExpr:Int
+     |           |     |- AObjectExpr:Int
+     |           |     |  `- h
+     |           |     `- AIntExpr:Int
+     |           |        `- 1
+     |           `- AObjectExpr:Int
+     |              `- i
+     `- AClassDecl
+        |- Main
+        |- Object
+        |- AAttributeFeature
+        |  |- a
+        |  |- Bazz
+        |  `- ANewExpr:Bazz
+        |     `- Bazz
+        |- AAttributeFeature
+        |  |- b
+        |  |- Foo
+        |  `- ANewExpr:Foo
+        |     `- Foo
+        |- AAttributeFeature
+        |  |- c
+        |  |- Razz
+        |  `- ANewExpr:Razz
+        |     `- Razz
+        |- AAttributeFeature
+        |  |- d
+        |  |- Bar
+        |  `- ANewExpr:Bar
+        |     `- Bar
+        `- AMethodFeature
+           |- main
+           |- String
+           `- AStrExpr:String
+              `- do nothing
+

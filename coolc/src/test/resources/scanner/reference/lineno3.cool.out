@@ -1,0 +1,5 @@
+#name src/test/resources/scanner/input/lineno3.cool
+#7 TPlus "+"
+#8 TObjectId "abc"
+#12 TTypeId "DEF"
+#13 TStrConst "string"

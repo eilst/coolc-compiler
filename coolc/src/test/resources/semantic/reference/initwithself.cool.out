@@ -1,0 +1,17 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Main
+        |- IO
+        |- AAttributeFeature
+        |  |- x
+        |  |- Main
+        |  `- AObjectExpr:SELF_TYPE of Main
+        |     `- self
+        `- AMethodFeature
+           |- main
+           |- Object
+           `- AListExpr:SELF_TYPE of Main
+              `- AObjectExpr:SELF_TYPE of Main
+                 `- self
+

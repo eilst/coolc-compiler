@@ -1,0 +1,11 @@
+class Main {
+  main():Int {{ new Mains; "Mains"; 0;}};
+};
+
+class Mains {
+  w: Int <- 2 + 2;
+  x: Int <- w * 4;
+  y: Int <- x / 2;
+  z: Int <- y - 2;
+  m():Int {{ 10 + 10; "Hola"; 4; 23;}};
+};

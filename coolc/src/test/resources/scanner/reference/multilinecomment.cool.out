@@ -1,0 +1,12 @@
+#name src/test/resources/scanner/input/multilinecomment.cool
+#3 TNot "not"
+#3 TIn "in"
+#3 TObjectId "a"
+#3 TObjectId "comment"
+#10 TLparen "("
+#10 TMult "*"
+#10 TNot "not"
+#10 TObjectId "a"
+#10 TObjectId "comment"
+#10 TMult "*"
+#10 TRparen ")"

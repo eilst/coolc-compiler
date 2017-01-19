@@ -1,0 +1,41 @@
+
+  >- AProgram
+     |- AClassDecl
+     |  |- Main
+     |  |- Object
+     |  `- AMethodFeature
+     |     |- main
+     |     |- Int
+     |     `- AIntExpr:Int
+     |        `- 0
+     |- AClassDecl
+     |  |- A
+     |  |- Object
+     |  `- AMethodFeature
+     |     |- inky
+     |     |- Int
+     |     `- AIntExpr:Int
+     |        `- 1
+     |- AClassDecl
+     |  |- B
+     |  |- A
+     |  `- AMethodFeature
+     |     |- binky
+     |     |- String
+     |     `- AStrExpr:String
+     |        `- hello
+     `- AClassDecl
+        |- C
+        |- Object
+        |- AAttributeFeature
+        |  |- b
+        |  `- B
+        `- AMethodFeature
+           |- winky
+           |- Int
+           `- AAtExpr:Int
+              |- AObjectExpr:B
+              |  `- b
+              |- B
+              `- inky
+

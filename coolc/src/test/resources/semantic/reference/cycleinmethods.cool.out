@@ -1,0 +1,44 @@
+
+  >- AProgram
+     |- AClassDecl
+     |  |- Main
+     |  |- Object
+     |  `- AMethodFeature
+     |     |- main
+     |     |- Int
+     |     `- AIntExpr:Int
+     |        `- 0
+     `- AClassDecl
+        |- A
+        |- Object
+        |- AMethodFeature
+        |  |- f
+        |  |- AFormal
+        |  |  |- a
+        |  |  `- Int
+        |  |- Int
+        |  `- ACallExpr:Int
+        |     |- g
+        |     `- AIntExpr:Int
+        |        `- 0
+        |- AMethodFeature
+        |  |- g
+        |  |- AFormal
+        |  |  |- a
+        |  |  `- Int
+        |  |- Int
+        |  `- ACallExpr:Int
+        |     |- h
+        |     `- AIntExpr:Int
+        |        `- 0
+        `- AMethodFeature
+           |- h
+           |- AFormal
+           |  |- a
+           |  `- Int
+           |- Int
+           `- ACallExpr:Int
+              |- f
+              `- AIntExpr:Int
+                 `- 0
+

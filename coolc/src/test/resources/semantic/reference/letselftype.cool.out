@@ -1,0 +1,22 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Main
+        |- IO
+        `- AMethodFeature
+           |- main
+           |- Object
+           `- AListExpr:SELF_TYPE of Main
+              `- ALetExpr:SELF_TYPE of Main
+                 |- ALetDecl
+                 |  |- y
+                 |  |- SELF_TYPE
+                 |  `- ALetExpr:SELF_TYPE of Main
+                 |     |- ALetDecl
+                 |     |  |- x
+                 |     |  `- SELF_TYPE
+                 |     `- AObjectExpr:SELF_TYPE of Main
+                 |        `- x
+                 `- AObjectExpr:SELF_TYPE of Main
+                    `- y
+

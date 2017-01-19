@@ -1,0 +1,169 @@
+
+  >- AProgram
+     |- AClassDecl
+     |  |- List
+     |  |- Object
+     |  |- AMethodFeature
+     |  |  |- isNil
+     |  |  |- Bool
+     |  |  `- ABoolExpr:Bool
+     |  |     `- true
+     |  |- AMethodFeature
+     |  |  |- head
+     |  |  |- Int
+     |  |  `- AListExpr:Int
+     |  |     |- ACallExpr:Object
+     |  |     |  `- abort
+     |  |     `- AIntExpr:Int
+     |  |        `- 0
+     |  |- AMethodFeature
+     |  |  |- tail
+     |  |  |- List
+     |  |  `- AListExpr:SELF_TYPE of List
+     |  |     |- ACallExpr:Object
+     |  |     |  `- abort
+     |  |     `- AObjectExpr:SELF_TYPE of List
+     |  |        `- self
+     |  `- AMethodFeature
+     |     |- cons
+     |     |- AFormal
+     |     |  |- i
+     |     |  `- Int
+     |     |- List
+     |     `- AAtExpr:List
+     |        |- ANewExpr:Cons
+     |        |  `- Cons
+     |        |- init
+     |        |- AObjectExpr:Int
+     |        |  `- i
+     |        `- AObjectExpr:SELF_TYPE of List
+     |           `- self
+     |- AClassDecl
+     |  |- Cons
+     |  |- List
+     |  |- AAttributeFeature
+     |  |  |- car
+     |  |  `- Int
+     |  |- AAttributeFeature
+     |  |  |- cdr
+     |  |  `- List
+     |  |- AMethodFeature
+     |  |  |- isNil
+     |  |  |- Bool
+     |  |  `- ABoolExpr:Bool
+     |  |     `- false
+     |  |- AMethodFeature
+     |  |  |- head
+     |  |  |- Int
+     |  |  `- AObjectExpr:Int
+     |  |     `- car
+     |  |- AMethodFeature
+     |  |  |- tail
+     |  |  |- List
+     |  |  `- AObjectExpr:List
+     |  |     `- cdr
+     |  `- AMethodFeature
+     |     |- init
+     |     |- AFormal
+     |     |  |- i
+     |     |  `- Int
+     |     |- AFormal
+     |     |  |- rest
+     |     |  `- List
+     |     |- List
+     |     `- AListExpr:SELF_TYPE of Cons
+     |        |- AAssignExpr:Int
+     |        |  |- car
+     |        |  `- AObjectExpr:Int
+     |        |     `- i
+     |        |- AAssignExpr:List
+     |        |  |- cdr
+     |        |  `- AObjectExpr:List
+     |        |     `- rest
+     |        `- AObjectExpr:SELF_TYPE of Cons
+     |           `- self
+     `- AClassDecl
+        |- Main
+        |- IO
+        |- AAttributeFeature
+        |  |- mylist
+        |  `- List
+        |- AMethodFeature
+        |  |- print_list
+        |  |- AFormal
+        |  |  |- l
+        |  |  `- List
+        |  |- Object
+        |  `- AIfExpr:Object
+        |     |- AAtExpr:Bool
+        |     |  |- AObjectExpr:List
+        |     |  |  `- l
+        |     |  `- isNil
+        |     |- ACallExpr:SELF_TYPE of Main
+        |     |  |- out_string
+        |     |  `- AStrExpr:String
+        |     |     `- 
+
+        |     `- AListExpr:Object
+        |        |- ACallExpr:SELF_TYPE of Main
+        |        |  |- out_int
+        |        |  `- AAtExpr:Int
+        |        |     |- AObjectExpr:List
+        |        |     |  `- l
+        |        |     `- head
+        |        |- ACallExpr:SELF_TYPE of Main
+        |        |  |- out_string
+        |        |  `- AStrExpr:String
+        |        |     `-  
+        |        `- ACallExpr:Object
+        |           |- print_list
+        |           `- AAtExpr:List
+        |              |- AObjectExpr:List
+        |              |  `- l
+        |              `- tail
+        `- AMethodFeature
+           |- main
+           |- Object
+           `- AListExpr:Object
+              |- AAssignExpr:List
+              |  |- mylist
+              |  `- AAtExpr:List
+              |     |- AAtExpr:List
+              |     |  |- AAtExpr:List
+              |     |  |  |- AAtExpr:List
+              |     |  |  |  |- AAtExpr:List
+              |     |  |  |  |  |- ANewExpr:List
+              |     |  |  |  |  |  `- List
+              |     |  |  |  |  |- cons
+              |     |  |  |  |  `- AIntExpr:Int
+              |     |  |  |  |     `- 1
+              |     |  |  |  |- cons
+              |     |  |  |  `- AIntExpr:Int
+              |     |  |  |     `- 2
+              |     |  |  |- cons
+              |     |  |  `- AIntExpr:Int
+              |     |  |     `- 3
+              |     |  |- cons
+              |     |  `- AIntExpr:Int
+              |     |     `- 4
+              |     |- cons
+              |     `- AIntExpr:Int
+              |        `- 5
+              `- AWhileExpr:Object
+                 |- ANotExpr:Bool
+                 |  `- AAtExpr:Bool
+                 |     |- AObjectExpr:List
+                 |     |  `- mylist
+                 |     `- isNil
+                 `- AListExpr:List
+                    |- ACallExpr:Object
+                    |  |- print_list
+                    |  `- AObjectExpr:List
+                    |     `- mylist
+                    `- AAssignExpr:List
+                       |- mylist
+                       `- AAtExpr:List
+                          |- AObjectExpr:List
+                          |  `- mylist
+                          `- tail
+

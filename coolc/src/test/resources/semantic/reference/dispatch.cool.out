@@ -1,0 +1,53 @@
+
+  >- AProgram
+     |- AClassDecl
+     |  |- Main
+     |  |- Object
+     |  `- AMethodFeature
+     |     |- main
+     |     |- Object
+     |     `- AIntExpr:Int
+     |        `- 42
+     |- AClassDecl
+     |  |- A
+     |  |- Object
+     |  `- AMethodFeature
+     |     |- foo
+     |     |- AFormal
+     |     |  |- a
+     |     |  `- Int
+     |     |- AFormal
+     |     |  |- b
+     |     |  `- B
+     |     |- AFormal
+     |     |  |- c
+     |     |  `- A
+     |     |- AFormal
+     |     |  |- d
+     |     |  `- B
+     |     |- A
+     |     `- AObjectExpr:SELF_TYPE of A
+     |        `- self
+     `- AClassDecl
+        |- B
+        |- A
+        `- AMethodFeature
+           |- moo
+           |- A
+           `- ALetExpr:A
+              |- ALetDecl
+              |  |- b
+              |  |- B
+              |  `- ANewExpr:B
+              |     `- B
+              `- ACallExpr:A
+                 |- foo
+                 |- AIntExpr:Int
+                 |  `- 4
+                 |- AObjectExpr:B
+                 |  `- b
+                 |- AObjectExpr:B
+                 |  `- b
+                 `- AObjectExpr:B
+                    `- b
+

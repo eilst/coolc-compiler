@@ -1,0 +1,23 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Main
+        |- IO
+        |- AAttributeFeature
+        |  |- x
+        |  `- Int
+        `- AMethodFeature
+           |- main
+           |- Object
+           `- AListExpr:Int
+              `- ALetExpr:Int
+                 |- ALetDecl
+                 |  |- x
+                 |  |- String
+                 |  `- AStrExpr:String
+                 |     `- test
+                 `- AAtExpr:Int
+                    |- AObjectExpr:String
+                    |  `- x
+                    `- length
+

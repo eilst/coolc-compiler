@@ -1,0 +1,13 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Hello
+        `- AMethodFeature
+           |- cow
+           |- AFormal
+           |  |- a
+           |  `- Int
+           |- SELF_TYPE
+           `- AObjectExpr
+              `- self
+

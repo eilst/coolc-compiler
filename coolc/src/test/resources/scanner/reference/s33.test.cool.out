@@ -1,0 +1,3 @@
+#name src/test/resources/scanner/input/s33.test.cool
+#3 TObjectId "before_the_comment"
+#8 ERROR EOF in comment.

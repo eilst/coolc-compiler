@@ -1,0 +1,20 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Goodbye
+        `- AMethodFeature
+           |- help
+           |- AFormal
+           |  |- a
+           |  `- Int
+           |- Int
+           `- ALetExpr
+              |- ALetDecl
+              |  |- a
+              |  `- Int
+              `- APlusExpr
+                 |- AIntExpr
+                 |  `- 6
+                 `- AIntExpr
+                    `- 7
+

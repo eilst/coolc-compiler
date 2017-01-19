@@ -1,0 +1,27 @@
+
+  >- AProgram
+     |- AClassDecl
+     |  |- A
+     |  |- Object
+     |  `- AMethodFeature
+     |     |- foo
+     |     |- Int
+     |     `- AIntExpr:Int
+     |        `- 6
+     |- AClassDecl
+     |  |- B
+     |  |- A
+     |  `- AMethodFeature
+     |     |- foo
+     |     |- Int
+     |     `- AIntExpr:Int
+     |        `- 7
+     `- AClassDecl
+        |- Main
+        |- Object
+        `- AMethodFeature
+           |- main
+           |- Int
+           `- AIntExpr:Int
+              `- 6
+

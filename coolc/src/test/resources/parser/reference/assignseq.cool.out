@@ -1,0 +1,22 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Main
+        |- AAttributeFeature
+        |  |- x
+        |  `- Int
+        |- AAttributeFeature
+        |  |- y
+        |  `- Int
+        `- AMethodFeature
+           |- main
+           |- Object
+           `- AListExpr
+              `- AAssignExpr
+                 |- x
+                 `- AAssignExpr
+                    |- y
+                    `- ANegExpr
+                       `- AIntExpr
+                          `- 5
+

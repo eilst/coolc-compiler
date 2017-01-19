@@ -1,0 +1,21 @@
+
+  >- AProgram
+     |- AClassDecl
+     |  |- A
+     |  |- Object
+     |  `- AMethodFeature
+     |     |- foo
+     |     |- Object
+     |     `- AAtExpr:Object
+     |        |- ANewExpr:Object
+     |        |  `- Object
+     |        `- abort
+     `- AClassDecl
+        |- Main
+        |- Object
+        `- AMethodFeature
+           |- main
+           |- Int
+           `- AIntExpr:Int
+              `- 6
+

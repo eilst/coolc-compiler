@@ -1,0 +1,34 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Hello
+        |- AAttributeFeature
+        |  |- foo
+        |  `- Int
+        `- AMethodFeature
+           |- moo2
+           |- AFormal
+           |  |- a
+           |  `- String
+           |- AFormal
+           |  |- b
+           |  `- Int
+           |- AFormal
+           |  |- c
+           |  `- Int
+           |- AFormal
+           |  |- d
+           |  `- Int
+           |- Hello
+           `- AMinusExpr
+              |- AMinusExpr
+              |  |- AMinusExpr
+              |  |  |- AObjectExpr
+              |  |  |  `- a
+              |  |  `- AObjectExpr
+              |  |     `- b
+              |  `- AObjectExpr
+              |     `- c
+              `- AObjectExpr
+                 `- d
+

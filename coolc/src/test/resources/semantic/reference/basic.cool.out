@@ -1,0 +1,26 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Main
+        |- Object
+        `- AMethodFeature
+           |- main
+           |- Object
+           `- AListExpr:Int
+              |- AAtExpr:Int
+              |  |- AIntExpr:Int
+              |  |  `- 5
+              |  `- copy
+              |- AAtExpr:String
+              |  |- AStrExpr:String
+              |  |  `- test
+              |  `- copy
+              |- AAtExpr:Bool
+              |  |- ABoolExpr:Bool
+              |  |  `- true
+              |  `- copy
+              `- AAtExpr:Int
+                 |- AStrExpr:String
+                 |  `- test
+                 `- length
+

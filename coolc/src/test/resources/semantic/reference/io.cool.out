@@ -1,0 +1,32 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Main
+        |- IO
+        |- AAttributeFeature
+        |  |- x
+        |  `- Int
+        |- AAttributeFeature
+        |  |- y
+        |  `- String
+        `- AMethodFeature
+           |- main
+           |- Object
+           `- AListExpr:Int
+              |- ACallExpr:SELF_TYPE of Main
+              |  |- out_string
+              |  `- AStrExpr:String
+              |     `- test
+              |- ACallExpr:SELF_TYPE of Main
+              |  |- out_int
+              |  `- AIntExpr:Int
+              |     `- 5
+              |- AAssignExpr:String
+              |  |- y
+              |  `- ACallExpr:String
+              |     `- in_string
+              `- AAssignExpr:Int
+                 |- x
+                 `- ACallExpr:Int
+                    `- in_int
+

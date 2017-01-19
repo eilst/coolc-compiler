@@ -1,0 +1,27 @@
+
+  >- AProgram
+     |- AClassDecl
+     |  |- Main
+     |  |- Object
+     |  `- AMethodFeature
+     |     |- main
+     |     |- Int
+     |     `- AIntExpr:Int
+     |        `- 0
+     |- AClassDecl
+     |  |- A
+     |  |- Object
+     |  `- AMethodFeature
+     |     |- inky
+     |     |- SELF_TYPE
+     |     `- AObjectExpr:SELF_TYPE of A
+     |        `- self
+     `- AClassDecl
+        |- B
+        |- A
+        `- AMethodFeature
+           |- inky
+           |- SELF_TYPE
+           `- ANewExpr:SELF_TYPE of B
+              `- SELF_TYPE
+

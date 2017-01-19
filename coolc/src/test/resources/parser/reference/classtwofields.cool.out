@@ -1,0 +1,11 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Hello
+        |- AAttributeFeature
+        |  |- foo
+        |  `- Int
+        `- AAttributeFeature
+           |- bar
+           `- String
+

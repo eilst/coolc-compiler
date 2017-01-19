@@ -1,0 +1,7 @@
+#name src/test/resources/scanner/input/endcomment.cool
+#1 TTypeId "This"
+#1 TObjectId "comment"
+#1 TObjectId "was"
+#1 TObjectId "never"
+#1 TObjectId "begun"
+#1 ERROR Unmatched *).

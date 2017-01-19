@@ -1,0 +1,24 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Main
+        |- IO
+        |- AAttributeFeature
+        |  |- x
+        |  `- Bool
+        |- AMethodFeature
+        |  |- main
+        |  |- Object
+        |  `- AListExpr:Int
+        |     |- ANegExpr:Int
+        |     |  `- AIntExpr:Int
+        |     |     `- 7
+        |     `- ANegExpr:Int
+        |        `- ACallExpr:Int
+        |           `- foo
+        `- AMethodFeature
+           |- foo
+           |- Int
+           `- AIntExpr:Int
+              `- 4
+
