@@ -10,13 +10,13 @@ import coolc.compiler.autogen.lexer.LexerException;
 import coolc.compiler.autogen.node.Token;
 import coolc.compiler.autogen.parser.Parser;
 
-public class CoolLexer extends Lexer {
+public class CoolcLexer extends Lexer {
 	private Parser parser;
 	private Method index;
 	private Token lastToken;
 	private PrintStream out;
 
-	public CoolLexer(PushbackReader in, PrintStream out) {
+	public CoolcLexer(PushbackReader in, PrintStream out) {
 		super(in);
 		this.out = out;
 	}
@@ -49,7 +49,7 @@ public class CoolLexer extends Lexer {
 
 	public void setParser(Parser p) {
 		parser = p;
-		/* Niños, no hagan esto sin la supervisión de un adulto */
+		/* Children, do not do reflection without supervision */
 
 		try {
 			for (Method m : parser.getClass().getDeclaredMethods()) {

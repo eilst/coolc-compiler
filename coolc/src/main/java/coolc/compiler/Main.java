@@ -12,14 +12,14 @@ import coolc.compiler.autogen.parser.Parser;
 import coolc.compiler.util.Util;
 
 
-/* No mover nada en esta clase excepto el nombre del archivo de prueba */
+/* Do not move anything below except the name of the test file */
 public class Main {
 	public static String file = "src/test/resources/test.cool";
 	
-	private CoolLexer lexer;
+	private CoolcLexer lexer;
 
 	
-	public CoolLexer getLexer() {
+	public CoolcLexer getLexer() {
 		return lexer;
 	}
 
@@ -41,11 +41,11 @@ public class Main {
 	}
 	
 	public void lexerCheck(String file, PrintStream out) throws LexerException, IOException {
-		CoolLexer lexer = new CoolLexer(new PushbackReader(new FileReader(file)), out);
+		CoolcLexer lexer = new CoolcLexer(new PushbackReader(new FileReader(file)), out);
 		Parser p = new Parser(lexer);
 		lexer.setParser(p);
 		
-		 new CoolLexer(new PushbackReader(new FileReader(file)), out);
+		 new CoolcLexer(new PushbackReader(new FileReader(file)), out);
 		
 		out.format("#name %s\n", file);
 		while(true) {
