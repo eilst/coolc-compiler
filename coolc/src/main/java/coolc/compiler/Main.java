@@ -45,7 +45,6 @@ public class Main {
 		Parser p = new Parser(lexer);
 		lexer.setParser(p);
 		
-		 new CoolcLexer(new PushbackReader(new FileReader(file)), out);
 		
 		out.format("#name %s\n", file);
 		while(true) {
