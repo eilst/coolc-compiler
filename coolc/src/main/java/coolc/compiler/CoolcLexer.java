@@ -44,7 +44,7 @@ public class CoolcLexer extends Lexer {
 
 	@Override
 	protected void filter() throws LexerException, IOException {		
-
+		if (ignore(token)) token = super.getToken();
 	}
 
 	public void setParser(Parser p) {
