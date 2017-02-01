@@ -54,6 +54,15 @@ Tokens
     // assign darrow comma dot
     // error_star_lpar int_const bool_const type_id object_id str_const str_err comment
 	hola = 'hola';
+	else = e l s e;
+	blank = blank+;
+	bool_const = ('t' r u e )|('f' a l s e);
+	object_id = lcase (alpha | digit | '_')*;
+	type_id  = ucase (alpha | digit | '_')*;
+
+Ignored Tokens
+	blank;
 	
 Productions
 	source = hola;
+	
