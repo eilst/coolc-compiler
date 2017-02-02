@@ -37,6 +37,9 @@ Helpers
     lcase = ['a'..'z'];
     digit = ['0'..'9'];
     
+    no_es = [all - '*'];
+    no_ec = [no_es - ')' ];
+    comment = '(*' no_es * '*' + ( no_ec no_es * '*' + ) * ')' ;
 
 
     // 8 - backspace
@@ -46,7 +49,8 @@ Helpers
     // 12 - form feed
     // 13 - cr
     blank = (' ' | 8 | 9 | lf | 11 | 12 | cr );
-    
+
+	
 Tokens
     // klass fi if in inherits isvoid let loop pool then else while case esac new of not
     // lbrace rbrace lparen rparen semi colon 
@@ -59,10 +63,17 @@ Tokens
 	bool_const = ('t' r u e )|('f' a l s e);
 	object_id = lcase (alpha | digit | '_')*;
 	type_id  = ucase (alpha | digit | '_')*;
+	dot = '.' ;
+	plus = '+' ;
+	minus = '-' ;
+	mult = '*' ;
+	int_const = digit;
+	comment = comment;
 
 Ignored Tokens
+
+	comment,
 	blank;
 	
-Productions
-	source = hola;
+
 	
