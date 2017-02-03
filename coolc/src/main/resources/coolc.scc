@@ -77,6 +77,20 @@ Tokens
 	lcomment = lcomment;
 	lparen = lparen;
 	rparen = rparen;
+	semi = ';';
+	lbrace = '{';
+	rbrace = '}';
+	comma = ',';
+	colon = ':';
+	at = '@';
+	neg = '~';
+	lt = '<';
+	eq = '=';
+	assign = '<-';
+	darrow = '=>';
+	rt = '>';
+	div = '/';
+	
 	
 Ignored Tokens
 
