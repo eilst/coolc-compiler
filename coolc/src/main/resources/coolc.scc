@@ -36,6 +36,11 @@ Helpers
     ucase = ['A'..'Z'];
     lcase = ['a'..'z'];
     digit = ['0'..'9'];
+    lparen = '(';
+    rparen = ')';
+    
+    eol =	[ [ cr + lf ] + [ cr + lf ] ];
+    lcomment	=	'-' '-' [ all - [ cr + lf ] ] * eol;
     
     no_es = [all - '*'];
     no_ec = [no_es - ')' ];
@@ -69,10 +74,14 @@ Tokens
 	mult = '*' ;
 	int_const = digit;
 	comment = comment;
-
+	lcomment = lcomment;
+	lparen = lparen;
+	rparen = rparen;
+	
 Ignored Tokens
 
 	comment,
+	lcomment,
 	blank;
 	
 
