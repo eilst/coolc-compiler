@@ -83,6 +83,9 @@ Ignored Tokens
 	comment,
 	lcomment,
 	blank;
+
+Productions
+	source = hola;
 	
 
 	
