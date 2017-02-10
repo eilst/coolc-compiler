@@ -36,15 +36,11 @@ Helpers
     ucase = ['A'..'Z'];
     lcase = ['a'..'z'];
     digit = ['0'..'9'];
-    
-    
+        
     eol =	[ [ cr + lf ] + [ cr + lf ] ];
-    lcomment	=	'-' '-' [ all - [ cr + lf ] ] * eol;
     
-    no_es = [all - '*'];
-    no_ec = [no_es - ')' ];
-    comment = '(*' no_es * '*' + ( no_ec no_es * '*' + ) * ')' ;
-
+	comment_chr = [all - ['(' + '*' ] ] | '\' ')' | '\' '*' | '\' '('  ;
+	
 
     // 8 - backspace
     // 9 - tab
@@ -55,8 +51,9 @@ Helpers
     blank = (' ' | 8 | 9 | lf | 11 | 12 | cr );
     
 States
-	initial;
-
+	initial,
+	lcomment,
+	comment;
 	
 Tokens
     // klass fi if in inherits isvoid let loop pool then else while case esac new of not
@@ -64,6 +61,8 @@ Tokens
     // mult div plus minus neg lt le eq at
     // assign darrow comma dot
     // error_star_lpar int_const bool_const type_id object_id str_const str_err comment
+   
+    {initial} if = i f;
 	{initial} hola = 'hola';
 	{initial} klass = c l a s s;
 	{initial} fi = f i;
@@ -103,28 +102,34 @@ Tokens
 	{initial} assign = '<-';
 	{initial} darrow = '=>';
 	{initial} le = '<=';
-	{initial} rt = '>';
 	
 	{initial} blank = blank+;
 	{initial} bool_const = ('t' r u e )|('f' a l s e);
 	{initial} object_id = lcase (alpha | digit | '_')*;
-	{initial} type_id  = ucase (alpha | digit | '_')*;
-	
-	
+	{initial} type_id  = ucase (alpha | digit | '_')*;	
 	
 	{initial} int_const = digit+;
-	{initial} comment = comment;
-	{initial} lcomment = lcomment;
 
+	{initial} error_star_lpar = '*)';
 	
+	{initial->comment} comment_start = '(' '*';
+	{comment} comment_in = '(' '*';
+	{comment->initial} comment_end = '*' ')';
+	{comment} comment_txt = comment_chr*;
+	{comment} comment_star = '*';
+	{comment} comment_lpar = '(';
+	
+	
+	{initial->lcomment} lcomment_start = '-' '-';
+	{lcomment} lcomment_txt = ([all -10])*;
+	{lcomment->initial} lcomment_end = lf;
 	
 	
 	
 Ignored Tokens
 
-	comment,
-	lcomment,
-	blank;
+	comment_start, comment_in, comment_end, comment_txt, comment_star, comment_lpar, lcomment_start, lcomment_txt,
+	lcomment_end,	blank;
 
 Productions
-	source = hola;
+	 source = hola;
