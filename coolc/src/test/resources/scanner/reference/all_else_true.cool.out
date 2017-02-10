@@ -1,4 +1,4 @@
-#name src/test/resources/scanner/input/all_else_true.cl.cool
+#name src/test/resources/scanner/input/all_else_true.cool
 #1 TElse "else"
 #2 TElse "Else"
 #3 TElse "eLse"
