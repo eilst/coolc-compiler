@@ -41,6 +41,10 @@ Helpers
     
 	comment_chr = [all - ['(' + '*' ] ] | '\' ')' | '\' '*' | '\' '('  ;
 	
+	str_char = [all - ['"' + [ '\' + [ 10 + 0  ] ] ] ];
+    
+    str_const = '\' [all - 0] | '\' '"' | '\' lf;
+
 
     // 8 - backspace
     // 9 - tab
@@ -53,7 +57,9 @@ Helpers
 States
 	initial,
 	lcomment,
-	comment;
+	comment,
+	string,
+	strerr;
 	
 Tokens
     // klass fi if in inherits isvoid let loop pool then else while case esac new of not
@@ -126,10 +132,25 @@ Tokens
 	
 	
 	
+	{initial->string} str_start = '"';
+    {string} str_const = str_char+ | str_const; 	
+    {string->initial} str_error_eol = lf;
+    {string->strerr} str_error_null = 0;
+    {string->strerr} str_error_escaped_null = '\' 0;
+    {strerr} str_err = [all - [ lf +  '"' ] ]+;
+    {strerr->initial} str_err_quotesb= '"';
+    {strerr->initial} str_err_nlb = lf;    
+    {string->initial} str_end = '"';
+    
+    
+	{initial, comment, string}	errend = all;
+	
+	
+	
 Ignored Tokens
 
 	comment_start, comment_in, comment_end, comment_txt, comment_star, comment_lpar, lcomment_start, lcomment_txt,
-	lcomment_end,	blank;
+	lcomment_end,	blank, str_error_eol, error_star_lpar, errend, str_err_quotesb, str_err_nlb ;
 
 Productions
 	 source = hola;
