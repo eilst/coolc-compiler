@@ -4,6 +4,7 @@ Helpers
     all = [0 .. 0xFFFF];
     cr = 13;
     lf = 10;
+    comment_chr =  [all - ['(' + '*' ] ] | '\' ')' | '\' '*' | '\' '(' ;
     
     a = ['a' + 'A'];
     b = ['b' + 'B'];
@@ -47,13 +48,104 @@ Helpers
     // 13 - cr
     blank = (' ' | 8 | 9 | lf | 11 | 12 | cr );
     
+    instr_char = [all - ['"' + [ '\' + [ 10 + 0  ] ] ] ];
+    
+    str_const2 = '\' [all - 0];
+    str_const3 = '\' '"';
+    str_const4 = '\' lf;
+    
+States
+    initial, instra, instrb, comment, scomment, strerr;
+    
 Tokens
-    // klass fi if in inherits isvoid let loop pool then else while case esac new of not
-    // lbrace rbrace lparen rparen semi colon 
-    // mult div plus minus neg lt le eq at
-    // assign darrow comma dot
-    // error_star_lpar int_const bool_const type_id object_id str_const str_err comment
-	hola = 'hola';
+	{initial} blanks = blank+;
 	
+    {initial} klass = c l a s s;
+    {initial} fi = f i ;
+    {initial} if = i f ;
+    {initial} in = i n ;
+    {initial} inherits = i n h e r i t s;
+    {initial} isvoid = i s v o i d;
+    {initial} let = l e t;
+    {initial} loop = l o o p;
+    {initial} pool = p o o l;
+    {initial} then = t h e n;
+    {initial} else = e l s e;
+    {initial} while = w h i l e;
+    {initial} case = c a s e;
+    {initial} esac = e s a c;
+    {initial} new = n e w; 
+    {initial} of = o f;
+    {initial} not = n o t;
+    
+    {initial} lbrace = '{';
+    {initial} rbrace = '}';
+    
+    {initial} lparen = '(';
+    {initial} rparen = ')';
+    {initial} semi = ';';
+    {initial} colon = ':';
+    
+    {initial} mult = '*';
+    {initial} div = '/';
+    {initial} plus = '+';
+    {initial} minus = '-';
+    
+    {initial} neg = '~';
+    {initial} lt = '<';
+    {initial} le = '<=';
+    {initial} eq = '=';
+    {initial} at = '@';
+    
+    {initial} assign = '<-';
+    {initial} darrow = '=>';
+    {initial} comma = ',';
+    {initial} dot = '.';
+    
+    {initial} error_star_lpar = '*)';    
+    
+    {initial} int_const = digit+;
+    {initial} bool_const = ('t' r u e ) | ('f' a l s e);
+    {initial} type_id = ucase (alpha | digit | '_') *;
+    {initial} object_id = lcase (alpha | digit | '_')*;
+    
+    {initial->instra} str_begin = '"';
+    {instra} str_const = instr_char+ | str_const2 | str_const3 | str_const4;
+    	
+    {instra->initial} str_error_eol = lf;
+    {instra->strerr} str_error_null = 0;
+    {instra->strerr} str_error_escaped_null = '\' 0;
+    
+    {strerr} str_err = [all - [ lf +  '"' ] ]+;
+    {strerr->initial} str_err_out_dq = '"';
+    {strerr->initial} str_err_out_nl = lf;    
+    
+    {instra->initial} str_end = '"';
+    
+    // 39 es el quote
+    {initial->instrb} str_begin_single = 39;
+    {instrb->initial} error_eol_single = lf;
+    {instra->initial} str_end_single = 39;
+    
+	{initial->comment} comment_begin = '(' '*';
+	{comment} comment_nest = '(' '*';	
+	{comment->initial} comment_end = '*' ')';
+	{comment} comment_txt =  comment_chr*;
+	{comment} comment_star =  '*';
+	{comment} comment_lpar =  '(';
+	
+	{initial->scomment} scomment_begin = '-' '-'; 
+	{scomment} scomment_txt = ( [all - 10 ] )*; 
+	{scomment->initial} scomment_end = lf;
+
+	{initial, comment, instra, instrb} errend = all;
+    
+Ignored Tokens
+    blanks, comment_begin, comment_nest, comment_end, comment_txt, 
+    comment_star, comment_lpar, scomment_begin, scomment_txt, scomment_end;
+
 Productions
-	source = hola;
+
+	program = klass
+		;
+
