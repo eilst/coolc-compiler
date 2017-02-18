@@ -9,7 +9,7 @@
 
   <test name="Parser" enabled="true">
     <classes>
-      <class name="cool.compiler.ParserTest" />
+      <class name="coolc.compiler.ParserTest" />
     </classes>
   </test>
 <!--
