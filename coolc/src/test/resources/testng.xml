@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite verbose="0" name="Set de pruebas para Cool">
-  <test name="Scanner" enabled="true">
+  <test name="Scanner" enabled="false">
     <classes>
       <class name="coolc.compiler.ScannerTest" />
     </classes>
   </test>
-<!-- 
+
   <test name="Parser" enabled="true">
     <classes>
       <class name="cool.compiler.ParserTest" />
     </classes>
   </test>
-
+<!--
   <test name="Semantic" enabled="false">
   	<parameter name="semanticFacade" value="cool.compiler.Semantic" />
     <classes>
