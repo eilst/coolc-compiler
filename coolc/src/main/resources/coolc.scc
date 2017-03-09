@@ -151,20 +151,125 @@ Productions
 	program = class_decl+
 		;
 
+	class_decl =
+		{single} klass type_id inheritance? lbrace feature* rbrace semi
+		;
+		
 	inheritance  =
 		inherits type_id
 		;
 
-	class_decl =
-		klass type_id inheritance? lbrace feature* rbrace semi
+	feature =
+		{context} context semi
+		| method semi
+		;
+		
+	context =
+		object_id colon type_id init_context?
 		;
 
-	feature =
-		prueba
+	init_context =
+		assign expr1
+		;
+
+	objtype = object_id colon type_id ;
+
+	
+
+	method =
+		object_id lparen formals? rparen colon type_id lbrace expr1 rbrace
+		;
+
+	formal_single = object_id colon type_id
+		;
+
+	formals =
+		{single} formal_single
+		| {list} formals comma formal_single
+		;
+	
+	expr1 =
+		{assign} object_id assign expr1
+		| {following} expr2
+		;
+
+	expr2  =
+		{not} not expr2
+		| {following} expr3
+		;
+
+	expr3  =
+		{lt} [l]:expr4 lt [r]:expr4
+		| {le} [l]:expr4 le [r]:expr4
+		| {eq} [l]:expr4 eq [r]:expr4
+		| {following} expr4
+		;
+
+	expr4  =
+		{plus} [l]:expr4 plus [r]:expr5
+		| {minus} [l]:expr4 minus [r]:expr5
+		| {following} expr5
+		;
+
+	expr5  =
+		{mult} [l]:expr5 mult [r]:expr6
+		| {div} [l]:expr5 div [r]:expr6
+		| {following} expr6
+		;
+
+	expr6  =
+		{isvoid} isvoid expr6
+		| {following} expr7
+		;
+
+	expr7 =
+		{neg} neg expr7
+		| {following} expr8
+		;
+
+	expr8  =
+		{at} expr8 at_option? dot object_id lparen other_expr rparen
+		| {following} expr9
+		;
+
+	at_option =
+		{at} at type_id
 		;
 		
+	other_expr  =
+		{single} expr1
+		| {list} other_expr comma expr1
+		| {empty}
+		;
+
+	expr9  =
+		{if} if [test]:expr1 then [true]:expr1 else [false]:expr1 fi
+		| {while} while [test]:expr1 loop [expr]:expr1 pool
+        | {case} case expr1 of branch_list esac 
+        | {call} object_id lparen other_expr rparen
+        | {simple} expr10
+        ;
+        
+    branch_list =
+		{single} branch
+		| {list} branch_list branch
+		;
+
+	branch =
+		object_id colon type_id darrow expr1 semi
+		;
+
+	expr10  =
+	    {object} object_id
+        | {int} int_const 
+        | {str} str_const
+        | {bool} bool_const
+        | {parens} lparen expr1 rparen
+        | {new} new type_id
+        | {list} lbrace expresions rbrace
+		;
 		
-		
-		
-		
-		
+	expresions =
+		{single} expr1 semi
+		| {list} expresions expr1 semi
+		;
