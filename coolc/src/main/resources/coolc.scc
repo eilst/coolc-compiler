@@ -77,6 +77,7 @@ Tokens
     {initial} new = n e w; 
     {initial} of = o f;
     {initial} not = n o t;
+    {initial} prueba = p r u e b a;
     
     {initial} lbrace = '{';
     {initial} rbrace = '}';
@@ -139,6 +140,7 @@ Tokens
 	{scomment->initial} scomment_end = lf;
 
 	{initial, comment, instra, instrb} errend = all;
+	
     
 Ignored Tokens
     blanks, comment_begin, comment_nest, comment_end, comment_txt, 
@@ -146,6 +148,23 @@ Ignored Tokens
 
 Productions
 
-	program = klass
+	program = class_decl+
 		;
 
+	inheritance  =
+		inherits type_id
+		;
+
+	class_decl =
+		klass type_id inheritance? lbrace feature* rbrace semi
+		;
+
+	feature =
+		prueba
+		;
+		
+		
+		
+		
+		
+		
