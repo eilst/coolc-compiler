@@ -191,29 +191,56 @@ Productions
 	expr1 =
 		{assign} object_id assign expr1
 		| {following} expr2
+		| {let} let let_decls in object_id assign expr1
 		;
-
+		
+	let_decls  =
+		{simple} let_decl
+		| {more} let_decls comma let_decl
+		;
+		
+	let_decl =
+		object_id colon type_id 
+		;
+		
 	expr2  =
 		{not} not expr2
 		| {following} expr3
 		;
 
 	expr3  =
-		{lt} [l]:expr4 lt [r]:expr4
-		| {le} [l]:expr4 le [r]:expr4
-		| {eq} [l]:expr4 eq [r]:expr4
+		{lt} [l]:expr4_let lt [r]:expr4_let
+		| {le} [l]:expr4_let le [r]:expr4_let
+		| {eq} [l]:expr4_let eq [r]:expr4_let
+		| {following} expr4_let
+		;
+		
+	expr4_let  =
+		let let_decls in expr4_let
 		| {following} expr4
 		;
 
+
 	expr4  =
-		{plus} [l]:expr4 plus [r]:expr5
-		| {minus} [l]:expr4 minus [r]:expr5
+		{plus} [l]:expr4 plus [r]:expr5_let
+		| {minus} [l]:expr4 minus [r]:expr5_let
 		| {following} expr5
 		;
+		
+	expr5_let =
+		let let_decls in expr5_let
+		| {following} expr5
+		;
+		
 
 	expr5  =
-		{mult} [l]:expr5 mult [r]:expr6
-		| {div} [l]:expr5 div [r]:expr6
+		{mult} [l]:expr5 mult [r]:expr6_let
+		| {div} [l]:expr5 div [r]:expr6_let
+		| {following} expr6
+		;
+		
+	expr6_let  =
+		let let_decls in expr6_let
 		| {following} expr6
 		;
 
@@ -221,9 +248,15 @@ Productions
 		{isvoid} isvoid expr6
 		| {following} expr7
 		;
+		
+		
+	expr7_let  =
+		let let_decls in expr7_let
+		| {following} expr8
+		;
 
 	expr7 =
-		{neg} neg expr7
+		{neg} neg expr7_let
 		| {following} expr8
 		;
 
@@ -273,3 +306,5 @@ Productions
 		{single} expr1 semi
 		| {list} expresions expr1 semi
 		;
+		
+	
