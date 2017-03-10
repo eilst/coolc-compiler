@@ -148,163 +148,241 @@ Ignored Tokens
 
 Productions
 
-	program = class_decl+
+	program  {-> program } = class_decl+ {-> New program([class_decl]) }
 		;
 
-	class_decl =
+	class_decl {-> class_decl }=
 		{single} klass type_id inheritance? lbrace feature* rbrace semi
+		{-> New class_decl(type_id, inheritance.type_id, [feature]) }
 		;
 		
-	inheritance  =
-		inherits type_id
+	inheritance  {-> type_id}  =
+		inherits type_id {-> type_id} 
 		;
 
-	feature =
-		{context} context semi
-		| method semi
+	feature {-> feature } =
+		{context} context semi {-> context.feature }
+		| method semi {-> method.feature }
 		;
 		
-	context =
+	context {-> feature } =
 		object_id colon type_id init_context?
+		{-> New feature.attribute(object_id, type_id, init_context.expr ) }
 		;
 
-	init_context =
-		assign expr1
+	init_context {-> expr } =
+		assign expr1 {-> expr1.expr }
 		;
 
 	objtype = object_id colon type_id ;
 
 	
 
-	method =
+	method {-> feature} =
 		object_id lparen formals? rparen colon type_id lbrace expr1 rbrace
+		{-> New feature.method(object_id, [formals.formal], type_id, expr1.expr) }
 		;
 
-	formal_single = object_id colon type_id
+	formal_single {-> formal }= object_id colon type_id {-> New formal(object_id, type_id) }
 		;
 
-	formals =
-		{single} formal_single
-		| {list} formals comma formal_single
+	formals {-> formal* } =
+		{single} formal_single {-> [formal_single.formal] }
+		| {list} formals comma formal_single {-> [formals.formal, formal_single.formal] }
 		;
 	
-	expr1 =
-		{assign} object_id assign expr1
-		| {following} expr2
+	expr1  {-> expr } =
+		{assign} object_id assign expr1 
+		{-> New expr.assign(object_id, expr1.expr) }
+		| {following} expr2 {-> expr2.expr }
 		| {let} let let_decls in object_id assign expr1
+		{-> New expr.let([let_decls.let_decl], New expr.assign(object_id, expr1.expr)) } 
 		;
 		
-	let_decls  =
-		{simple} let_decl
-		| {more} let_decls comma let_decl
+	let_decl {-> let_decl } =
+		object_id colon type_id optionass?
+		{-> New let_decl(object_id, type_id, optionass.expr) }
+		;
+		
+	let_decls {-> let_decl* } =
+		{simple} let_decl {-> [let_decl] }
+		| {more} let_decls comma let_decl {-> [let_decls.let_decl, let_decl.let_decl] }
+		;
+		
+	
+		
+	optionass {-> expr} = 
+		assign expr1 {-> expr1.expr }
+		;
+		
+	expr2 {-> expr } =
+		{not} not expr2 {-> New expr.not(expr2.expr) }
+		| {following} expr3 {-> expr3.expr }
+		;
+
+	expr3 {-> expr } =
+		{lt} [l]:expr4_let lt [r]:expr4_let   {-> New expr.lt(l.expr, r.expr)}
+		| {le} [l]:expr4_let le [r]:expr4_let {-> New expr.le(l.expr, r.expr)}
+		| {eq} [l]:expr4_let eq [r]:expr4_let {-> New expr.eq(l.expr, r.expr)}
+		| {following} expr4_let {-> expr4_let.expr }
+		;
+		
+	expr4_let {-> expr } =
+		let let_decls in expr4_let {-> New expr.let([let_decls.let_decl], expr4_let.expr) }
+		| {following} expr4 {-> expr4.expr}
+		;
+
+
+	expr4 {-> expr } =
+		{plus} [l]:expr4 plus [r]:expr5_let {-> New expr.plus(l.expr, r.expr)}
+		| {minus} [l]:expr4 minus [r]:expr5_let {-> New expr.minus(l.expr, r.expr)}
+		| {following} expr5 {-> expr5.expr }
+		;
+		
+	expr5_let {-> expr } =
+		let let_decls in expr5_let {-> New expr.let([let_decls.let_decl], expr5_let.expr) }
+		| {following} expr5 		   {-> expr5.expr}
+		;
+		
+
+	expr5 {-> expr } =
+		{mult} [l]:expr5 mult [r]:expr6_let {-> New expr.mult(l.expr, r.expr)}
+		| {div} [l]:expr5 div [r]:expr6_let {-> New expr.div(l.expr, r.expr)}
+		| {following} expr6  {-> expr6.expr }
+		;
+		
+	expr6_let {-> expr } =
+		let let_decls in expr6_let {-> New expr.let([let_decls.let_decl], expr6_let.expr) }
+		| {following} expr6 {-> expr6.expr}
+		;
+
+	expr6 {-> expr } =
+		{isvoid} isvoid expr6 {-> New expr.isvoid(expr6.expr) }
+		| {following} expr7 {-> expr7.expr }
+		;
+		
+		
+	expr7_let  {-> expr } =
+		let let_decls in expr7_let {-> New expr.let([let_decls.let_decl], expr7_let.expr) }
+		| {following} expr8 		   {-> expr8.expr}
+		;
+
+	expr7 {-> expr } =
+		{neg} neg expr7_let  {-> New expr.neg(expr7_let.expr) }
+		| {following} expr8  {-> expr8.expr }
+		;
+
+	expr8 {-> expr } =
+		{at} expr8 at_option? dot object_id lparen other_expr rparen
+		{-> New expr.at(expr8.expr, at_option.type_id, object_id, [other_expr.expr]) }
+		| {following} expr9 {-> expr9.expr }
+		;
+
+	at_option {-> type_id } =
+		{at} at type_id {-> type_id }
+		;
+		
+	other_expr {-> expr* }  =
+		{single} expr1
+		{-> [expr1.expr] }
+		| {list} other_expr comma expr1 {-> [other_expr.expr, expr1.expr] }
+		| {empty} {-> [] }
+		;
+
+	expr9 {-> expr } =
+		{if} if [test]:expr1 then [true]:expr1 else [false]:expr1 fi
+		{-> New expr.if(test.expr, true.expr, false.expr) }
+		| {while} while [test]:expr1 loop [expr]:expr1 pool
+		{-> New expr.while(test.expr, expr.expr) }
+        | {case} case expr1 of branch_list esac 
+        {-> New expr.case(expr1.expr, [branch_list.branch]) }
+        | {call} object_id lparen other_expr rparen
+        {-> New expr.call(object_id, [other_expr.expr]) } 
+        | {simple} expr10
+        {-> expr10.expr } 
+        ;
+        
+    branch_list {-> branch+} =
+		{single} branch {-> [branch] }
+		| {list} branch_list branch {-> [branch_list.branch, branch.branch] }
+		;
+
+	branch {-> branch }=
+		object_id colon type_id darrow expr1 semi
+		{-> New branch(object_id, type_id, expr1.expr) }
+		;
+
+	expr10  {-> expr } =
+	    {object} object_id {-> New expr.object(object_id)}
+        | {int} int_const 
+        {-> New expr.int(int_const)}
+        | {str} str_const
+        {-> New expr.str(str_const)}
+        | {bool} bool_const
+        {-> New expr.bool(bool_const)}
+        | {parens} lparen expr1 rparen
+        {-> expr1.expr } 
+        | {new} new type_id
+        {-> New expr.new(type_id)}
+        | {list} lbrace expresions rbrace
+        {-> New expr.list( [expresions.expr] )}
+		;
+		
+	expresions {-> expr* }  =
+		{single} expr1 semi {-> [expr1.expr] }
+		| {list} expresions expr1 semi {-> [expresions.expr, expr1.expr] }
+		;
+		
+Abstract Syntax Tree
+
+	program = class_decl+
+		;
+	
+	class_decl = 
+		[name]:type_id [inherits]:type_id? feature*
+		;
+		
+	feature = 
+		{method} object_id formal* type_id expr
+		| {attribute} object_id type_id expr?
+		;
+
+	formal =
+		object_id type_id
 		;
 		
 	let_decl =
-		object_id colon type_id 
+		object_id type_id expr?
 		;
 		
-	expr2  =
-		{not} not expr2
-		| {following} expr3
-		;
-
-	expr3  =
-		{lt} [l]:expr4_let lt [r]:expr4_let
-		| {le} [l]:expr4_let le [r]:expr4_let
-		| {eq} [l]:expr4_let eq [r]:expr4_let
-		| {following} expr4_let
-		;
-		
-	expr4_let  =
-		let let_decls in expr4_let
-		| {following} expr4
-		;
-
-
-	expr4  =
-		{plus} [l]:expr4 plus [r]:expr5_let
-		| {minus} [l]:expr4 minus [r]:expr5_let
-		| {following} expr5
-		;
-		
-	expr5_let =
-		let let_decls in expr5_let
-		| {following} expr5
-		;
-		
-
-	expr5  =
-		{mult} [l]:expr5 mult [r]:expr6_let
-		| {div} [l]:expr5 div [r]:expr6_let
-		| {following} expr6
-		;
-		
-	expr6_let  =
-		let let_decls in expr6_let
-		| {following} expr6
-		;
-
-	expr6  =
-		{isvoid} isvoid expr6
-		| {following} expr7
-		;
-		
-		
-	expr7_let  =
-		let let_decls in expr7_let
-		| {following} expr8
-		;
-
-	expr7 =
-		{neg} neg expr7_let
-		| {following} expr8
-		;
-
-	expr8  =
-		{at} expr8 at_option? dot object_id lparen other_expr rparen
-		| {following} expr9
-		;
-
-	at_option =
-		{at} at type_id
-		;
-		
-	other_expr  =
-		{single} expr1
-		| {list} other_expr comma expr1
-		| {empty}
-		;
-
-	expr9  =
-		{if} if [test]:expr1 then [true]:expr1 else [false]:expr1 fi
-		| {while} while [test]:expr1 loop [expr]:expr1 pool
-        | {case} case expr1 of branch_list esac 
-        | {call} object_id lparen other_expr rparen
-        | {simple} expr10
-        ;
-        
-    branch_list =
-		{single} branch
-		| {list} branch_list branch
-		;
-
 	branch =
-		object_id colon type_id darrow expr1 semi
-		;
-
-	expr10  =
-	    {object} object_id
-        | {int} int_const 
-        | {str} str_const
-        | {bool} bool_const
-        | {parens} lparen expr1 rparen
-        | {new} new type_id
-        | {list} lbrace expresions rbrace
+		object_id type_id expr
 		;
 		
-	expresions =
-		{single} expr1 semi
-		| {list} expresions expr1 semi
-		;
-		
+	expr = 
+		{assign} object_id expr
+		| {not} expr
+		| {le} [l]:expr [r]:expr
+		| {lt} [l]:expr [r]:expr
+		| {eq} [l]:expr [r]:expr
+		| {plus} [l]:expr [r]:expr
+		| {minus} [l]:expr [r]:expr
+		| {mult} [l]:expr [r]:expr
+		| {div} [l]:expr [r]:expr
+		| {isvoid} expr
+		| {neg} expr
+		| {at} expr type_id? object_id [list]:expr+
+		| {let} let_decl+ expr
+		| {case} [test]:expr branch+
+		| {while} [test]:expr [loop]:expr
+		| {if} [test]:expr [true]:expr [false]:expr
+		| {call} object_id expr+		
+		| {bool} bool_const
+		| {str} str_const
+		| {int} int_const
+		| {object} object_id
+		| {new} type_id
+		| {list} expr*
+		| {no}
+		; 
 	
