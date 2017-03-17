@@ -1,6 +1,0 @@
-# CoolC
-
-
-Compiladores - TC3040  
-ITESM CCM  
-XXXXX

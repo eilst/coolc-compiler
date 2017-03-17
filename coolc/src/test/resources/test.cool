@@ -1,21 +1,4 @@
-class A {
-f():Int{{
-a+b-c;
-a-b+c;
+else       ElsE    
 
-a+b*c;
-a*b+c;
 
-a+b/c;
-a/b+c;
-
-a-b*c;
-a*b-c;
-
-a-b/c;
-a/b-c;
-
-a*b/c;
-a/b*c;
-}};
-};
+  cASE      hola

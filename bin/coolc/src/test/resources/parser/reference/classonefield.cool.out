@@ -1,8 +1,0 @@
-
-  >- AProgram
-     `- AClassDecl
-        |- Hello
-        `- AAttributeFeature
-           |- foo
-           `- Int
-
