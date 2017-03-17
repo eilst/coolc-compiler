@@ -1,0 +1,2 @@
+#name src/test/resources/scanner/input/escapedeof.cool
+#2 ERROR EOF in string constant.

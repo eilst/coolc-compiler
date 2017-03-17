@@ -1,0 +1,22 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- A
+        `- AMethodFeature
+           |- f
+           |- Int
+           `- AListExpr
+              |- AListExpr
+              |  |- AIntExpr
+              |  |  `- 1
+              |  `- AListExpr
+              |     |- AIntExpr
+              |     |  `- 2
+              |     `- AIntExpr
+              |        `- 3
+              `- AListExpr
+                 `- AListExpr
+                    `- AListExpr
+                       `- AIntExpr
+                          `- 4
+

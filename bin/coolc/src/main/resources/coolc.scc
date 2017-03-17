@@ -1,0 +1,170 @@
+Package coolc.compiler.autogen;
+
+Helpers
+    all = [0 .. 0xFFFF];
+    cr = 13;
+    lf = 10;
+    comment_chr =  [all - ['(' + '*' ] ] | '\' ')' | '\' '*' | '\' '(' ;
+    
+    a = ['a' + 'A'];
+    b = ['b' + 'B'];
+    c = ['c' + 'C'];
+    d = ['d' + 'D'];
+    e = ['e' + 'E'];
+    f = ['f' + 'F'];
+    g = ['g' + 'G'];
+    h = ['h' + 'H'];
+    i = ['i' + 'I'];
+    j = ['j' + 'J'];
+    k = ['k' + 'K'];
+    l = ['l' + 'L'];
+    m = ['m' + 'M'];
+    n = ['n' + 'N'];
+    o = ['o' + 'O'];
+    p = ['p' + 'P'];
+    q = ['q' + 'Q'];
+    r = ['r' + 'R'];
+    s = ['s' + 'S'];
+    t = ['t' + 'T'];
+    u = ['u' + 'U'];
+    v = ['v' + 'V'];
+    w = ['w' + 'W'];
+    x = ['x' + 'X'];
+    y = ['y' + 'Y'];
+    z = ['z' + 'Z'];
+    
+    alpha = ['A'..'Z'] | ['a'..'z'] | [0x7F .. 0xFF];
+    ucase = ['A'..'Z'];
+    lcase = ['a'..'z'];
+    digit = ['0'..'9'];
+    
+
+
+    // 8 - backspace
+    // 9 - tab
+    // 10 - lf, nl
+    // 11 - vertical tab
+    // 12 - form feed
+    // 13 - cr
+    blank = (' ' | 8 | 9 | lf | 11 | 12 | cr );
+    
+    instr_char = [all - ['"' + [ '\' + [ 10 + 0  ] ] ] ];
+    
+    str_const2 = '\' [all - 0];
+    str_const3 = '\' '"';
+    str_const4 = '\' lf;
+    
+States
+    initial, instra, instrb, comment, scomment, strerr;
+    
+Tokens
+	{initial} blanks = blank+;
+	
+    {initial} klass = c l a s s;
+    {initial} fi = f i ;
+    {initial} if = i f ;
+    {initial} in = i n ;
+    {initial} inherits = i n h e r i t s;
+    {initial} isvoid = i s v o i d;
+    {initial} let = l e t;
+    {initial} loop = l o o p;
+    {initial} pool = p o o l;
+    {initial} then = t h e n;
+    {initial} else = e l s e;
+    {initial} while = w h i l e;
+    {initial} case = c a s e;
+    {initial} esac = e s a c;
+    {initial} new = n e w; 
+    {initial} of = o f;
+    {initial} not = n o t;
+    {initial} prueba = p r u e b a;
+    
+    {initial} lbrace = '{';
+    {initial} rbrace = '}';
+    
+    {initial} lparen = '(';
+    {initial} rparen = ')';
+    {initial} semi = ';';
+    {initial} colon = ':';
+    
+    {initial} mult = '*';
+    {initial} div = '/';
+    {initial} plus = '+';
+    {initial} minus = '-';
+    
+    {initial} neg = '~';
+    {initial} lt = '<';
+    {initial} le = '<=';
+    {initial} eq = '=';
+    {initial} at = '@';
+    
+    {initial} assign = '<-';
+    {initial} darrow = '=>';
+    {initial} comma = ',';
+    {initial} dot = '.';
+    
+    {initial} error_star_lpar = '*)';    
+    
+    {initial} int_const = digit+;
+    {initial} bool_const = ('t' r u e ) | ('f' a l s e);
+    {initial} type_id = ucase (alpha | digit | '_') *;
+    {initial} object_id = lcase (alpha | digit | '_')*;
+    
+    {initial->instra} str_begin = '"';
+    {instra} str_const = instr_char+ | str_const2 | str_const3 | str_const4;
+    	
+    {instra->initial} str_error_eol = lf;
+    {instra->strerr} str_error_null = 0;
+    {instra->strerr} str_error_escaped_null = '\' 0;
+    
+    {strerr} str_err = [all - [ lf +  '"' ] ]+;
+    {strerr->initial} str_err_out_dq = '"';
+    {strerr->initial} str_err_out_nl = lf;    
+    
+    {instra->initial} str_end = '"';
+    
+    // 39 es el quote
+    {initial->instrb} str_begin_single = 39;
+    {instrb->initial} error_eol_single = lf;
+    {instra->initial} str_end_single = 39;
+    
+	{initial->comment} comment_begin = '(' '*';
+	{comment} comment_nest = '(' '*';	
+	{comment->initial} comment_end = '*' ')';
+	{comment} comment_txt =  comment_chr*;
+	{comment} comment_star =  '*';
+	{comment} comment_lpar =  '(';
+	
+	{initial->scomment} scomment_begin = '-' '-'; 
+	{scomment} scomment_txt = ( [all - 10 ] )*; 
+	{scomment->initial} scomment_end = lf;
+
+	{initial, comment, instra, instrb} errend = all;
+	
+    
+Ignored Tokens
+    blanks, comment_begin, comment_nest, comment_end, comment_txt, 
+    comment_star, comment_lpar, scomment_begin, scomment_txt, scomment_end;
+
+Productions
+
+	program = class_decl+
+		;
+
+	inheritance  =
+		inherits type_id
+		;
+
+	class_decl =
+		klass type_id inheritance? lbrace feature* rbrace semi
+		;
+
+	feature =
+		prueba
+		;
+		
+		
+		
+		
+		
+		

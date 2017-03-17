@@ -1,0 +1,21 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Foo
+        `- AMethodFeature
+           |- bar
+           |- Int
+           `- ALetExpr
+              |- ALetDecl
+              |  |- a
+              |  `- Int
+              `- APlusExpr
+                 |- AObjectExpr
+                 |  `- a
+                 `- ALetExpr
+                    |- ALetDecl
+                    |  |- b
+                    |  `- String
+                    `- AObjectExpr
+                       `- b
+

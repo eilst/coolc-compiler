@@ -1,0 +1,40 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Main
+        |- IO
+        |- AAttributeFeature
+        |  |- x
+        |  `- Int
+        |- AMethodFeature
+        |  |- main
+        |  |- Object
+        |  `- AListExpr:Object
+        |     `- AIfExpr:Object
+        |        |- AEqExpr:Bool
+        |        |  |- APlusExpr:Int
+        |        |  |  |- ALetExpr:Int
+        |        |  |  |  |- ALetDecl
+        |        |  |  |  |  |- x
+        |        |  |  |  |  |- Int
+        |        |  |  |  |  `- AIntExpr:Int
+        |        |  |  |  |     `- 5
+        |        |  |  |  `- APlusExpr:Int
+        |        |  |  |     |- AObjectExpr:Int
+        |        |  |  |     |  `- x
+        |        |  |  |     `- AIntExpr:Int
+        |        |  |  |        `- 3
+        |        |  |  `- AIntExpr:Int
+        |        |  |     `- 3
+        |        |  `- AIntExpr:Int
+        |        |     `- 9
+        |        |- AIntExpr:Int
+        |        |  `- 3
+        |        `- ACallExpr:String
+        |           `- foo
+        `- AMethodFeature
+           |- foo
+           |- String
+           `- AStrExpr:String
+              `- test
+

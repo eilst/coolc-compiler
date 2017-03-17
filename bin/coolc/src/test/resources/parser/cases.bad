@@ -1,0 +1,35 @@
+attrcapitalname.cool; 1; an attribute with a capital name
+assigngetstype.cool; 1; assigning a type to a variable
+badblock.cool; 1; a block with multiple errors
+baddispatch1.cool; 1; bad dispatch syntax
+baddispatch2.cool; 1; bad dispatch syntax
+baddispatch3.cool; 1; bad dispatch syntax
+baddispatch4.cool; 1; bad dispatch syntax
+badexprlist.cool; 1; bad expr lists 
+badfeaturenames.cool; 1; method and attribute names capitalized
+badfeatures.cool; 1; multiple errors in features in a class
+casenoexpr.cool; 1; case with no expr
+classbadinherits.cool; 1; inherit from non-type
+classbadname.cool; 1; class with incorrect name format (object not type)
+classnoname.cool; 1; class without a name
+emptyassign.cool; 1; an assignment with an empty right-hand side
+emptymethodbody.cool; 1; an empty method body
+emptyprogram.cool; 1; an empty program
+emptystaticdispatch.cool; 1; a static dispatch with no type name
+equalsassociativity.cool; 1; testing associativity of equals
+extrasemicolonblock.cool; 1; a block that starts with a semicolon
+firstbindingerrored.cool; 1; error recovery after a binding error
+firstclasserrored.cool; 1; error recovery after a bad class declaration
+ifnoelse.cool; 1; if expression without else
+ifnoelsebranch.cool; 1; if expression with no else expression
+ifnofi.cool; 1; if expression with no fi
+ifnothenbranch.cool; 1; if expression with no then branch
+isvoidbadtype.cool; 1; isvoid called on a type
+lteassociativity.cool; 1; testing associativity of <=
+multipleclasses.cool; 1; multiple classes in a file
+multiplemethoderrors.cool; 1; a class with multiple methods and errors 
+newbadtype.cool; 1; new called on a bad type
+returntypebad.cool; 1; return type with a lower-case name
+secondbindingerrored.cool; 1; second binding of a let has an error
+while.cool; 1; valid and invalid while loops
+whilenoloop.cool; 1; a while without a loop

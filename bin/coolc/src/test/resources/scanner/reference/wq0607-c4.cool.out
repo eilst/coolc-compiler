@@ -1,0 +1,30 @@
+#name src/test/resources/scanner/input/wq0607-c4.cool
+#3 TStrConst "\\-"
+#3 TMinus "-"
+#3 TStrConst "--"
+#4 TStrConst "\\"
+#4 TStrConst "\"--\""
+#4 ERROR "\\".
+#4 TMinus "-"
+#4 ERROR "\\".
+#4 TStrConst ""
+#4 ERROR "\\".
+#4 TStrConst "--\\"
+#4 ERROR "\\".
+#4 TStrConst "\\"
+#5 TStrConst "\\"
+#5 TStrConst "\"--\""
+#5 ERROR "\\".
+#5 ERROR "\\".
+#5 TStrConst ""
+#5 ERROR "\\".
+#5 TStrConst "--\\"
+#5 ERROR "\\".
+#5 TStrConst "\\"
+#5 TStrConst "--"
+#5 ERROR "\\".
+#5 TStrConst "\""
+#5 ERROR "\\".
+#5 ERROR Unterminated string constant, EOL found.
+#6 TStrConst "-\""
+#6 ERROR "\\".

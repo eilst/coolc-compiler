@@ -1,0 +1,394 @@
+<html>
+<head>
+<title>TestNG:  Scanner</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>Scanner</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>63/0/0</td>
+</tr><tr>
+<td>Started on:</td><td>Thu Mar 09 18:19:30 CST 2017</td>
+</tr>
+<tr><td>Total time:</td><td>0 seconds (477 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-passed'>
+<tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: all_else_true.cl.cool,  lowercase and uppercase combinations</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: arith.cool,   arith example</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: atoi.cool,  atoi example</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: backslash.cool,  various backslashes in strings</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: backslash2.cool,  more backslashes in strings</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: badidentifiers.cool,  bad identifiers</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: badkeywords.cool,  bad keywords</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: book_list.cl.cool,  sample program</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: bothcomments.cool,  mixing the two types of comments</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: comment_in_string.cl.cool,  comment in string</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: endcomment.cool,  the end comment token by itself</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: eofstring.cool,   eof in a string</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: escaped_chars_in_comment.cl.cool,  escaped chars in comment</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: escapedeof.cool,  escaped eof in a string</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: escapednull.cool,  escaped null char in a string</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: escapedquote.cool,  escaped quote</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: escapedunprintables.cool,  escaped nonprinting chars</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: hairyscary.cool,  hairyscary example</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: integers2.cool,  less typical integers</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: invalidcharacters.cool,  characters not in the cool language</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: invalidinvisible.cool,  unprintable characters not allowed in cool</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: io.cool,  io example</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: keywords.cool,  all of the keywords</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: life.cool,  the life program</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: lineno2.cool,  line number test 2</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: lineno3.cool,  line number test 3</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: longcomment.cool,  a long comment test</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: longstring_escapedbackslashes.cool,  long strings with escaped characters</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: multilinecomment.cool,  simple test of a multiline comment</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: nestedcomment.cool,  nested comment</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: new_complex.cool,  a short program</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: null_in_code.cl.cool,  null char in code</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: null_in_string.cl.cool,  null char in string</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: null_in_string_followed_by_tokens.cl.cool,  null char in string, then tokens</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: null_in_string_unescaped_newline.cl.cool,  null and unescaped newline in string</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: objectid.test.cool,  objectids</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: opencomment.cool,  no matching closing comment</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: operators.cool,  some operators</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: palindrome.cool,  palindrome example</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: pathologicalstrings.cool,  some pathological strings</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: s03.test.cool,  EOF in single-line comment</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: s04.test.cool,  different types of whitespaces</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: s05.test.cool,  whitespaces in string</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: s14.test.cool,  comment **)</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: s16.test.cool,  big integers</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: s19.test.cool,  unescaped newline</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: s25.test.cool,  object and type id</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: s26.test.cool,  number and object id</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: s31.test.cool,  leading underscore</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: s32.test.cool,  end of comment without start</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: s33.test.cool,  unterminated comment</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: s34.test.cool,  unterminated string</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: simplestrings.cool,  simple strings </td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: sort_list.cl.cool,  sample program</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: stringcomment.cool,  strings and comments</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: stringwithescapes.cool,  a long string with escaped characters</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: twice_512_nested_comments.cl.cool,  many nested comments</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: validcharacters.cool,  a bunch of characters in the cool language </td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: weirdcharcomment.cool,  various binary characters in a comment</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: wq0607-c1.cool,  sequences of one line comments and strings</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: wq0607-c2.cool,  sequences of block comments and strings</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: wq0607-c3.cool,  sequence of quotes and backslashes</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+<tr>
+<td title='coolc.compiler.ScannerTest.test()'><b>test</b><br>Test class: coolc.compiler.ScannerTest<br>Parameters: wq0607-c4.cool,  sequence of quotes, backslashes, and double-dash comment symbols</td>
+<td></td>
+<td>0</td>
+<td>coolc.compiler.ScannerTest@7f560810</td></tr>
+</table><p>
+</body>
+</html>

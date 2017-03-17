@@ -1,0 +1,38 @@
+
+  >- AProgram
+     |- AClassDecl
+     |  |- A
+     |  |- Object
+     |  `- AMethodFeature
+     |     |- foo
+     |     |- A
+     |     `- ALetExpr:A
+     |        |- ALetDecl
+     |        |  |- x
+     |        |  `- A
+     |        `- AListExpr:A
+     |           |- AAssignExpr:A
+     |           |  |- x
+     |           |  `- ANewExpr:A
+     |           |     `- A
+     |           `- AAtExpr:A
+     |              |- AObjectExpr:A
+     |              |  `- x
+     |              `- foo
+     |- AClassDecl
+     |  |- B
+     |  |- A
+     |  `- AMethodFeature
+     |     |- foo
+     |     |- A
+     |     `- AObjectExpr:SELF_TYPE of B
+     |        `- self
+     `- AClassDecl
+        |- Main
+        |- Object
+        `- AMethodFeature
+           |- main
+           |- Int
+           `- AIntExpr:Int
+              `- 6
+

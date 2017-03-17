@@ -1,0 +1,28 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Main
+        |- Object
+        `- AMethodFeature
+           |- main
+           |- Object
+           `- AListExpr:String
+              |- AAtExpr:Int
+              |  |- AStrExpr:String
+              |  |  `- test
+              |  `- length
+              |- AAtExpr:String
+              |  |- AStrExpr:String
+              |  |  `- test
+              |  |- substr
+              |  |- AIntExpr:Int
+              |  |  `- 0
+              |  `- AIntExpr:Int
+              |     `- 1
+              `- AAtExpr:String
+                 |- AStrExpr:String
+                 |  `- test
+                 |- concat
+                 `- AStrExpr:String
+                    `-  me
+

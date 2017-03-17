@@ -1,0 +1,30 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Main
+        |- Object
+        `- AMethodFeature
+           |- main
+           |- Object
+           `- AListExpr:Int
+              |- APlusExpr:Int
+              |  |- AIntExpr:Int
+              |  |  `- 5
+              |  `- AIntExpr:Int
+              |     `- 4
+              |- AMinusExpr:Int
+              |  |- AIntExpr:Int
+              |  |  `- 5
+              |  `- AIntExpr:Int
+              |     `- 4
+              |- AMultExpr:Int
+              |  |- AIntExpr:Int
+              |  |  `- 3
+              |  `- AIntExpr:Int
+              |     `- 2
+              `- ADivExpr:Int
+                 |- AIntExpr:Int
+                 |  `- 3
+                 `- AIntExpr:Int
+                    `- 2
+

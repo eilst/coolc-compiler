@@ -1,0 +1,34 @@
+
+  >- AProgram
+     |- AClassDecl
+     |  |- A
+     |  |- Object
+     |  `- AMethodFeature
+     |     |- foo
+     |     |- AFormal
+     |     |  |- a
+     |     |  `- A
+     |     |- Bool
+     |     `- AListExpr:Bool
+     |        |- ALtExpr:Bool
+     |        |  |- AIntExpr:Int
+     |        |  |  `- 6
+     |        |  `- AIntExpr:Int
+     |        |     `- 7
+     |        |- ALeExpr:Bool
+     |        |  |- AIntExpr:Int
+     |        |  |  `- 6
+     |        |  `- AIntExpr:Int
+     |        |     `- 7
+     |        `- ANotExpr:Bool
+     |           `- ABoolExpr:Bool
+     |              `- true
+     `- AClassDecl
+        |- Main
+        |- Object
+        `- AMethodFeature
+           |- main
+           |- Int
+           `- AIntExpr:Int
+              `- 6
+

@@ -1,0 +1,65 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- A
+        `- AMethodFeature
+           |- f
+           |- Object
+           `- AListExpr
+              |- AAtExpr
+              |  |- AObjectExpr
+              |  |  `- e
+              |  |- A
+              |  `- f
+              |- AAtExpr
+              |  |- AObjectExpr
+              |  |  `- e1
+              |  |- B
+              |  |- g
+              |  `- AIntExpr
+              |     `- 1
+              |- AAtExpr
+              |  |- AObjectExpr
+              |  |  `- e2
+              |  |- C
+              |  |- h
+              |  |- AIntExpr
+              |  |  `- 1
+              |  `- AIntExpr
+              |     `- 2
+              |- AAtExpr
+              |  |- AObjectExpr
+              |  |  `- e3
+              |  |- D
+              |  |- f
+              |  |- AIntExpr
+              |  |  `- 1
+              |  |- AIntExpr
+              |  |  `- 2
+              |  `- AIntExpr
+              |     `- 3
+              |- AAtExpr
+              |  |- AObjectExpr
+              |  |  `- x
+              |  `- f
+              |- AAtExpr
+              |  |- AObjectExpr
+              |  |  `- y
+              |  |- g
+              |  |- ABoolExpr
+              |  |  `- true
+              |  `- ABoolExpr
+              |     `- false
+              `- AAtExpr
+                 |- AObjectExpr
+                 |  `- z
+                 |- h
+                 |- AIntExpr
+                 |  `- 1
+                 |- AIntExpr
+                 |  `- 2
+                 |- AIntExpr
+                 |  `- 3
+                 `- AIntExpr
+                    `- 4
+

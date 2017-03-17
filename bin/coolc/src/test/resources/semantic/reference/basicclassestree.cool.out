@@ -1,0 +1,29 @@
+
+  >- AProgram
+     |- AClassDecl
+     |  |- Main
+     |  |- Object
+     |  `- AMethodFeature
+     |     |- main
+     |     |- Int
+     |     `- AIntExpr:Int
+     |        `- 0
+     `- AClassDecl
+        |- A
+        |- Object
+        |- AAttributeFeature
+        |  |- a
+        |  |- Object
+        |  `- AIntExpr:Int
+        |     `- 0
+        |- AAttributeFeature
+        |  |- b
+        |  |- Object
+        |  `- AStrExpr:String
+        |     `- 
+        `- AAttributeFeature
+           |- c
+           |- Object
+           `- ABoolExpr:Bool
+              `- true
+

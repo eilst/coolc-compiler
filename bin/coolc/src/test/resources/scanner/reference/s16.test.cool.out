@@ -1,0 +1,8 @@
+#name src/test/resources/scanner/input/s16.test.cool
+#2 TIntConst "0"
+#3 TIntConst "99"
+#4 TIntConst "0777"
+#5 TIntConst "2147483647"
+#6 TIntConst "2147483648"
+#7 TIntConst "012345678901234567890123456789"
+#8 TIntConst "2147483647"

@@ -1,0 +1,6 @@
+.settings
+.classpath
+.project
+src/main/java/coolc/compiler/autogen
+target/
+src/test/resources/output/*

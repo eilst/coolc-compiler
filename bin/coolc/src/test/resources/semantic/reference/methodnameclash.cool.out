@@ -1,0 +1,38 @@
+
+  >- AProgram
+     |- AClassDecl
+     |  |- A
+     |  |- Object
+     |  |- AAttributeFeature
+     |  |  |- x
+     |  |  `- Int
+     |  `- AAttributeFeature
+     |     |- y
+     |     `- String
+     |- AClassDecl
+     |  |- L
+     |  |- A
+     |  `- AMethodFeature
+     |     |- foo
+     |     |- Int
+     |     `- AObjectExpr:Int
+     |        `- x
+     |- AClassDecl
+     |  |- R
+     |  |- A
+     |  `- AMethodFeature
+     |     |- foo
+     |     |- String
+     |     `- AObjectExpr:String
+     |        `- y
+     `- AClassDecl
+        |- Main
+        |- Object
+        `- AMethodFeature
+           |- main
+           |- Int
+           `- AAtExpr:Int
+              |- ANewExpr:L
+              |  `- L
+              `- foo
+

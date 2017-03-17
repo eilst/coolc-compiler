@@ -1,0 +1,41 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- A
+        `- AMethodFeature
+           |- f
+           |- Int
+           `- AListExpr
+              |- ACallExpr
+              |  `- g
+              |- ACallExpr
+              |  |- h
+              |  `- AObjectExpr
+              |     `- x
+              |- ACallExpr
+              |  |- f
+              |  |- AIntExpr
+              |  |  `- 2
+              |  `- AIntExpr
+              |     `- 3
+              |- ACallExpr
+              |  |- f
+              |  |- AIntExpr
+              |  |  `- 3
+              |  |- AIntExpr
+              |  |  `- 4
+              |  `- AIntExpr
+              |     `- 5
+              `- ACallExpr
+                 |- z
+                 |- AIntExpr
+                 |  `- 1
+                 |- AIntExpr
+                 |  `- 2
+                 |- AIntExpr
+                 |  `- 3
+                 |- AIntExpr
+                 |  `- 4
+                 `- AIntExpr
+                    `- 5
+

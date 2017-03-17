@@ -1,0 +1,4 @@
+#name src/test/resources/scanner/input/wq0607-c2.cool
+#3 TStrConst "(*"
+#3 ERROR Unmatched *).
+#3 TStrConst "*)(*"

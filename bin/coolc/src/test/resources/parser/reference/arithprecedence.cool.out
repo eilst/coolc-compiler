@@ -1,0 +1,105 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- A
+        `- AMethodFeature
+           |- f
+           |- Int
+           `- AListExpr
+              |- AMinusExpr
+              |  |- APlusExpr
+              |  |  |- AObjectExpr
+              |  |  |  `- a
+              |  |  `- AObjectExpr
+              |  |     `- b
+              |  `- AObjectExpr
+              |     `- c
+              |- APlusExpr
+              |  |- AMinusExpr
+              |  |  |- AObjectExpr
+              |  |  |  `- a
+              |  |  `- AObjectExpr
+              |  |     `- b
+              |  `- AObjectExpr
+              |     `- c
+              |- APlusExpr
+              |  |- AObjectExpr
+              |  |  `- a
+              |  `- AMultExpr
+              |     |- AObjectExpr
+              |     |  `- b
+              |     `- AObjectExpr
+              |        `- c
+              |- APlusExpr
+              |  |- AMultExpr
+              |  |  |- AObjectExpr
+              |  |  |  `- a
+              |  |  `- AObjectExpr
+              |  |     `- b
+              |  `- AObjectExpr
+              |     `- c
+              |- APlusExpr
+              |  |- AObjectExpr
+              |  |  `- a
+              |  `- ADivExpr
+              |     |- AObjectExpr
+              |     |  `- b
+              |     `- AObjectExpr
+              |        `- c
+              |- APlusExpr
+              |  |- ADivExpr
+              |  |  |- AObjectExpr
+              |  |  |  `- a
+              |  |  `- AObjectExpr
+              |  |     `- b
+              |  `- AObjectExpr
+              |     `- c
+              |- AMinusExpr
+              |  |- AObjectExpr
+              |  |  `- a
+              |  `- AMultExpr
+              |     |- AObjectExpr
+              |     |  `- b
+              |     `- AObjectExpr
+              |        `- c
+              |- AMinusExpr
+              |  |- AMultExpr
+              |  |  |- AObjectExpr
+              |  |  |  `- a
+              |  |  `- AObjectExpr
+              |  |     `- b
+              |  `- AObjectExpr
+              |     `- c
+              |- AMinusExpr
+              |  |- AObjectExpr
+              |  |  `- a
+              |  `- ADivExpr
+              |     |- AObjectExpr
+              |     |  `- b
+              |     `- AObjectExpr
+              |        `- c
+              |- AMinusExpr
+              |  |- ADivExpr
+              |  |  |- AObjectExpr
+              |  |  |  `- a
+              |  |  `- AObjectExpr
+              |  |     `- b
+              |  `- AObjectExpr
+              |     `- c
+              |- ADivExpr
+              |  |- AMultExpr
+              |  |  |- AObjectExpr
+              |  |  |  `- a
+              |  |  `- AObjectExpr
+              |  |     `- b
+              |  `- AObjectExpr
+              |     `- c
+              `- AMultExpr
+                 |- ADivExpr
+                 |  |- AObjectExpr
+                 |  |  `- a
+                 |  `- AObjectExpr
+                 |     `- b
+                 `- AObjectExpr
+                    `- c
+

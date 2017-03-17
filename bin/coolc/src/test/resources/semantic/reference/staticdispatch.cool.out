@@ -1,0 +1,67 @@
+
+  >- AProgram
+     |- AClassDecl
+     |  |- Main
+     |  |- Object
+     |  |- AAttributeFeature
+     |  |  |- b
+     |  |  |- B
+     |  |  `- ANewExpr:B
+     |  |     `- B
+     |  `- AMethodFeature
+     |     |- main
+     |     |- Object
+     |     `- AAtExpr:Int
+     |        |- AObjectExpr:B
+     |        |  `- b
+     |        |- A
+     |        |- foo
+     |        |- AIntExpr:Int
+     |        |  `- 5
+     |        |- AObjectExpr:B
+     |        |  `- b
+     |        |- AObjectExpr:B
+     |        |  `- b
+     |        `- AObjectExpr:B
+     |           `- b
+     |- AClassDecl
+     |  |- A
+     |  |- Object
+     |  `- AMethodFeature
+     |     |- foo
+     |     |- AFormal
+     |     |  |- a
+     |     |  `- Int
+     |     |- AFormal
+     |     |  |- b
+     |     |  `- B
+     |     |- AFormal
+     |     |  |- c
+     |     |  `- A
+     |     |- AFormal
+     |     |  |- d
+     |     |  `- B
+     |     |- Int
+     |     `- AIntExpr:Int
+     |        `- 5
+     `- AClassDecl
+        |- B
+        |- A
+        `- AMethodFeature
+           |- foo
+           |- AFormal
+           |  |- a
+           |  `- Int
+           |- AFormal
+           |  |- b
+           |  `- B
+           |- AFormal
+           |  |- c
+           |  `- A
+           |- AFormal
+           |  |- d
+           |  `- B
+           |- Int
+           `- AIntExpr:Int
+              `- 6
+

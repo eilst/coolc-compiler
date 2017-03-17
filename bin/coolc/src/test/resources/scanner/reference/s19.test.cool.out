@@ -1,0 +1,4 @@
+#name src/test/resources/scanner/input/s19.test.cool
+#2 ERROR Unterminated string constant, EOL found.
+#3 TObjectId "d"
+#3 ERROR Unterminated string constant, EOL found.

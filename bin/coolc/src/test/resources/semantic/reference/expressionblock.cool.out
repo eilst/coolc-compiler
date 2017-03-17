@@ -1,0 +1,26 @@
+
+  >- AProgram
+     |- AClassDecl
+     |  |- Main
+     |  |- Object
+     |  `- AMethodFeature
+     |     |- main
+     |     |- Int
+     |     `- AIntExpr:Int
+     |        `- 0
+     `- AClassDecl
+        |- A
+        |- Object
+        `- AMethodFeature
+           |- foo
+           |- Int
+           `- AListExpr:Int
+              |- AObjectExpr:SELF_TYPE of A
+              |  `- self
+              |- AStrExpr:String
+              |  `- hello
+              |- ABoolExpr:Bool
+              |  `- true
+              `- AIntExpr:Int
+                 `- 1
+

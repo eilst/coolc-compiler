@@ -1,0 +1,17 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Test
+        |- AAttributeFeature
+        |  |- foo
+        |  `- Test
+        `- AMethodFeature
+           |- bar
+           |- Int
+           `- AWhileExpr
+              |- ANotExpr
+              |  `- ABoolExpr
+              |     `- false
+              `- AStrExpr
+                 `- Ooga booga
+

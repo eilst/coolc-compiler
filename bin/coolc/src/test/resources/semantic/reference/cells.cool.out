@@ -1,0 +1,262 @@
+
+  >- AProgram
+     |- AClassDecl
+     |  |- CellularAutomaton
+     |  |- IO
+     |  |- AAttributeFeature
+     |  |  |- population_map
+     |  |  `- String
+     |  |- AMethodFeature
+     |  |  |- init
+     |  |  |- AFormal
+     |  |  |  |- map
+     |  |  |  `- String
+     |  |  |- SELF_TYPE
+     |  |  `- AListExpr:SELF_TYPE of CellularAutomaton
+     |  |     |- AAssignExpr:String
+     |  |     |  |- population_map
+     |  |     |  `- AObjectExpr:String
+     |  |     |     `- map
+     |  |     `- AObjectExpr:SELF_TYPE of CellularAutomaton
+     |  |        `- self
+     |  |- AMethodFeature
+     |  |  |- print
+     |  |  |- SELF_TYPE
+     |  |  `- AListExpr:SELF_TYPE of CellularAutomaton
+     |  |     |- ACallExpr:SELF_TYPE of CellularAutomaton
+     |  |     |  |- out_string
+     |  |     |  `- AAtExpr:String
+     |  |     |     |- AObjectExpr:String
+     |  |     |     |  `- population_map
+     |  |     |     |- concat
+     |  |     |     `- AStrExpr:String
+     |  |     |        `- 
+
+     |  |     `- AObjectExpr:SELF_TYPE of CellularAutomaton
+     |  |        `- self
+     |  |- AMethodFeature
+     |  |  |- num_cells
+     |  |  |- Int
+     |  |  `- AAtExpr:Int
+     |  |     |- AObjectExpr:String
+     |  |     |  `- population_map
+     |  |     `- length
+     |  |- AMethodFeature
+     |  |  |- cell
+     |  |  |- AFormal
+     |  |  |  |- position
+     |  |  |  `- Int
+     |  |  |- String
+     |  |  `- AAtExpr:String
+     |  |     |- AObjectExpr:String
+     |  |     |  `- population_map
+     |  |     |- substr
+     |  |     |- AObjectExpr:Int
+     |  |     |  `- position
+     |  |     `- AIntExpr:Int
+     |  |        `- 1
+     |  |- AMethodFeature
+     |  |  |- cell_left_neighbor
+     |  |  |- AFormal
+     |  |  |  |- position
+     |  |  |  `- Int
+     |  |  |- String
+     |  |  `- AIfExpr:String
+     |  |     |- AEqExpr:Bool
+     |  |     |  |- AObjectExpr:Int
+     |  |     |  |  `- position
+     |  |     |  `- AIntExpr:Int
+     |  |     |     `- 0
+     |  |     |- ACallExpr:String
+     |  |     |  |- cell
+     |  |     |  `- AMinusExpr:Int
+     |  |     |     |- ACallExpr:Int
+     |  |     |     |  `- num_cells
+     |  |     |     `- AIntExpr:Int
+     |  |     |        `- 1
+     |  |     `- ACallExpr:String
+     |  |        |- cell
+     |  |        `- AMinusExpr:Int
+     |  |           |- AObjectExpr:Int
+     |  |           |  `- position
+     |  |           `- AIntExpr:Int
+     |  |              `- 1
+     |  |- AMethodFeature
+     |  |  |- cell_right_neighbor
+     |  |  |- AFormal
+     |  |  |  |- position
+     |  |  |  `- Int
+     |  |  |- String
+     |  |  `- AIfExpr:String
+     |  |     |- AEqExpr:Bool
+     |  |     |  |- AObjectExpr:Int
+     |  |     |  |  `- position
+     |  |     |  `- AMinusExpr:Int
+     |  |     |     |- ACallExpr:Int
+     |  |     |     |  `- num_cells
+     |  |     |     `- AIntExpr:Int
+     |  |     |        `- 1
+     |  |     |- ACallExpr:String
+     |  |     |  |- cell
+     |  |     |  `- AIntExpr:Int
+     |  |     |     `- 0
+     |  |     `- ACallExpr:String
+     |  |        |- cell
+     |  |        `- APlusExpr:Int
+     |  |           |- AObjectExpr:Int
+     |  |           |  `- position
+     |  |           `- AIntExpr:Int
+     |  |              `- 1
+     |  |- AMethodFeature
+     |  |  |- cell_at_next_evolution
+     |  |  |- AFormal
+     |  |  |  |- position
+     |  |  |  `- Int
+     |  |  |- String
+     |  |  `- AIfExpr:String
+     |  |     |- AEqExpr:Bool
+     |  |     |  |- APlusExpr:Int
+     |  |     |  |  |- APlusExpr:Int
+     |  |     |  |  |  |- AIfExpr:Int
+     |  |     |  |  |  |  |- AEqExpr:Bool
+     |  |     |  |  |  |  |  |- ACallExpr:String
+     |  |     |  |  |  |  |  |  |- cell
+     |  |     |  |  |  |  |  |  `- AObjectExpr:Int
+     |  |     |  |  |  |  |  |     `- position
+     |  |     |  |  |  |  |  `- AStrExpr:String
+     |  |     |  |  |  |  |     `- X
+     |  |     |  |  |  |  |- AIntExpr:Int
+     |  |     |  |  |  |  |  `- 1
+     |  |     |  |  |  |  `- AIntExpr:Int
+     |  |     |  |  |  |     `- 0
+     |  |     |  |  |  `- AIfExpr:Int
+     |  |     |  |  |     |- AEqExpr:Bool
+     |  |     |  |  |     |  |- ACallExpr:String
+     |  |     |  |  |     |  |  |- cell_left_neighbor
+     |  |     |  |  |     |  |  `- AObjectExpr:Int
+     |  |     |  |  |     |  |     `- position
+     |  |     |  |  |     |  `- AStrExpr:String
+     |  |     |  |  |     |     `- X
+     |  |     |  |  |     |- AIntExpr:Int
+     |  |     |  |  |     |  `- 1
+     |  |     |  |  |     `- AIntExpr:Int
+     |  |     |  |  |        `- 0
+     |  |     |  |  `- AIfExpr:Int
+     |  |     |  |     |- AEqExpr:Bool
+     |  |     |  |     |  |- ACallExpr:String
+     |  |     |  |     |  |  |- cell_right_neighbor
+     |  |     |  |     |  |  `- AObjectExpr:Int
+     |  |     |  |     |  |     `- position
+     |  |     |  |     |  `- AStrExpr:String
+     |  |     |  |     |     `- X
+     |  |     |  |     |- AIntExpr:Int
+     |  |     |  |     |  `- 1
+     |  |     |  |     `- AIntExpr:Int
+     |  |     |  |        `- 0
+     |  |     |  `- AIntExpr:Int
+     |  |     |     `- 1
+     |  |     |- AStrExpr:String
+     |  |     |  `- X
+     |  |     `- AStrExpr:String
+     |  |        `- .
+     |  `- AMethodFeature
+     |     |- evolve
+     |     |- SELF_TYPE
+     |     `- ALetExpr:SELF_TYPE of CellularAutomaton
+     |        |- ALetDecl
+     |        |  |- position
+     |        |  `- Int
+     |        `- ALetExpr:SELF_TYPE of CellularAutomaton
+     |           |- ALetDecl
+     |           |  |- num
+     |           |  |- Int
+     |           |  `- ACallExpr:Int
+     |           |     `- num_cells
+     |           `- ALetExpr:SELF_TYPE of CellularAutomaton
+     |              |- ALetDecl
+     |              |  |- temp
+     |              |  `- String
+     |              `- AListExpr:SELF_TYPE of CellularAutomaton
+     |                 |- AWhileExpr:Object
+     |                 |  |- ALtExpr:Bool
+     |                 |  |  |- AObjectExpr:Int
+     |                 |  |  |  `- position
+     |                 |  |  `- AObjectExpr:Int
+     |                 |  |     `- num
+     |                 |  `- AListExpr:Int
+     |                 |     |- AAssignExpr:String
+     |                 |     |  |- temp
+     |                 |     |  `- AAtExpr:String
+     |                 |     |     |- AObjectExpr:String
+     |                 |     |     |  `- temp
+     |                 |     |     |- concat
+     |                 |     |     `- ACallExpr:String
+     |                 |     |        |- cell_at_next_evolution
+     |                 |     |        `- AObjectExpr:Int
+     |                 |     |           `- position
+     |                 |     `- AAssignExpr:Int
+     |                 |        |- position
+     |                 |        `- APlusExpr:Int
+     |                 |           |- AObjectExpr:Int
+     |                 |           |  `- position
+     |                 |           `- AIntExpr:Int
+     |                 |              `- 1
+     |                 |- AAssignExpr:String
+     |                 |  |- population_map
+     |                 |  `- AObjectExpr:String
+     |                 |     `- temp
+     |                 `- AObjectExpr:SELF_TYPE of CellularAutomaton
+     |                    `- self
+     `- AClassDecl
+        |- Main
+        |- Object
+        |- AAttributeFeature
+        |  |- cells
+        |  `- CellularAutomaton
+        `- AMethodFeature
+           |- main
+           |- SELF_TYPE
+           `- AListExpr:SELF_TYPE of Main
+              |- AAssignExpr:CellularAutomaton
+              |  |- cells
+              |  `- AAtExpr:CellularAutomaton
+              |     |- ANewExpr:CellularAutomaton
+              |     |  `- CellularAutomaton
+              |     |- init
+              |     `- AStrExpr:String
+              |        `-          X         
+              |- AAtExpr:CellularAutomaton
+              |  |- AObjectExpr:CellularAutomaton
+              |  |  `- cells
+              |  `- print
+              |- ALetExpr:Object
+              |  |- ALetDecl
+              |  |  |- countdown
+              |  |  |- Int
+              |  |  `- AIntExpr:Int
+              |  |     `- 20
+              |  `- AWhileExpr:Object
+              |     |- ALtExpr:Bool
+              |     |  |- AIntExpr:Int
+              |     |  |  `- 0
+              |     |  `- AObjectExpr:Int
+              |     |     `- countdown
+              |     `- AListExpr:Int
+              |        |- AAtExpr:CellularAutomaton
+              |        |  |- AObjectExpr:CellularAutomaton
+              |        |  |  `- cells
+              |        |  `- evolve
+              |        |- AAtExpr:CellularAutomaton
+              |        |  |- AObjectExpr:CellularAutomaton
+              |        |  |  `- cells
+              |        |  `- print
+              |        `- AAssignExpr:Int
+              |           |- countdown
+              |           `- AMinusExpr:Int
+              |              |- AObjectExpr:Int
+              |              |  `- countdown
+              |              `- AIntExpr:Int
+              |                 `- 1
+              `- AObjectExpr:SELF_TYPE of Main
+                 `- self
+

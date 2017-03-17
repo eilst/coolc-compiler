@@ -1,0 +1,12 @@
+#name src/test/resources/scanner/input/bothcomments.cool
+#2 TObjectId "what"
+#2 TObjectId "the"
+#2 TObjectId "programmer"
+#2 TObjectId "thought"
+#2 TObjectId "it"
+#2 TObjectId "was"
+#2 ERROR Unmatched *).
+#3 TDot "."
+#4 TIf "if"
+#4 TIntConst "5"
+#4 TThen "then"

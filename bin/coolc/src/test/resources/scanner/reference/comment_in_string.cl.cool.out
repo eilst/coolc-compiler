@@ -1,0 +1,4 @@
+#name src/test/resources/scanner/input/comment_in_string.cl.cool
+#1 TStrConst "string (* 123 *) string"
+#2 TStrConst "string \n(* 123 *)"
+#4 TStrConst "string (* \n123 *)"

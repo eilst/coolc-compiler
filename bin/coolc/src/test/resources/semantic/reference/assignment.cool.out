@@ -1,0 +1,48 @@
+
+  >- AProgram
+     |- AClassDecl
+     |  |- Main
+     |  |- IO
+     |  |- AAttributeFeature
+     |  |  |- x
+     |  |  `- Int
+     |  |- AAttributeFeature
+     |  |  |- y
+     |  |  `- String
+     |  |- AAttributeFeature
+     |  |  |- f
+     |  |  `- Foo
+     |  |- AMethodFeature
+     |  |  |- main
+     |  |  |- Object
+     |  |  `- AListExpr:Foo
+     |  |     |- AAssignExpr:Int
+     |  |     |  |- x
+     |  |     |  `- AIntExpr:Int
+     |  |     |     `- 3
+     |  |     |- AAssignExpr:Int
+     |  |     |  |- x
+     |  |     |  `- AIntExpr:Int
+     |  |     |     `- 5
+     |  |     |- AAssignExpr:String
+     |  |     |  |- y
+     |  |     |  `- AStrExpr:String
+     |  |     |     `- test
+     |  |     `- AAssignExpr:Foo
+     |  |        |- f
+     |  |        `- ANewExpr:Foo
+     |  |           `- Foo
+     |  `- AMethodFeature
+     |     |- foo
+     |     |- String
+     |     `- AStrExpr:String
+     |        `- test
+     `- AClassDecl
+        |- Foo
+        |- Object
+        `- AAttributeFeature
+           |- x
+           |- Int
+           `- AIntExpr:Int
+              `- 3
+

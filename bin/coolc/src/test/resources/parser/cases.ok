@@ -1,0 +1,35 @@
+addedlet.cool; 1; some addition with multiple lets
+arithprecedence.cool; 1; arithmetic expressions to test precedence
+assignment.cool; 1; assignment expression
+associativity+.cool; 1; testing associativity of +
+associativity-.cool; 1; testing associativity of -
+associativity-times.cool; 1; testing associativity of *
+associativitydiv.cool; 1; testing associativity of /
+atoi.cool; 1; the atoi program
+casemultiplebranch.cool; 1; a case with multiple branches
+classmethodonearg.cool; 1; simple class method
+classonefield.cool; 1; simple class with one field
+classtwofields.cool; 1; simple class with two fields
+comparisons-assoc.cool; 1; testing associativity of comparisons
+assignseq.cool; 1; sequential assignments
+complex.cool; 1; a short program
+dispatcharglist.cool; 1; dispatch with several arguments
+dispatchnoargs.cool; 1; dispatch with no arguments
+dispatchonearg.cool; 1; dispatch with one argument
+formallists.cool; 1; methods with different numbers of formal parameters
+ifexpressionblock.cool; 1; if expression with a block
+ifnested.cool; 1; nested ifs
+letassociativity.cool; 1; testing let associativity
+letinit.cool; 1; let expression with an initialization
+letinitmultiplebindings.cool; 1; let expression with multiple bindings
+letnoinit.cool; 1; let expression with no initiatlization
+letparens.cool; 1; some lets with various parens
+multipleatdispatches.cool; 1; at dispatches with differing numbers of arguments
+multipleattributes.cool; 1; a class with multiple attributes
+multipledispatches.cool; 1; dispatches with differing numbers of arguments
+nestedblocks.cool; 1; nested expression blocks
+nestedlet.cool; 1; nested let expressions with different numbers of bindings
+staticdispatchnoargs.cool; 1; static dispatch with no args
+unaryassociativity.cool; 1; tests associativity of unary operators
+whileexpressionblock.cool; 1; a while with an expression block
+whileoneexpression.cool; 1; simple while with one expression

@@ -1,0 +1,36 @@
+anattributenamedself.cool; 1; An attribute named self
+assignnoconform.cool; 1; Assignment with non conforming expression
+attrbadinit.cool; 1; Init attribute with undefined expression
+attroverride.cool; 1; Attempt to override parent's attribute
+badargs1.cool; 1; Non-conforming parameter type in dispatch
+badarith.cool; 1; Addition with non-int argument
+baddispatch.cool; 1; Method only in child class, attempted dispatch from parent class
+badequalitytest.cool; 1; Int compared to String
+badequalitytest2.cool; 1; Int compared to Bool
+badmethodcallsitself.cool; 1; Method called with itself as parameter (wrong type)
+badredefineint.cool; 1; Redefinition of Int
+badstaticdispatch.cool; 1; Bad static dispatch
+badwhilebody.cool; 1; While body has error
+badwhilecond.cool; 1; While test has error
+caseidenticalbranch.cool; 1; Duplicate branch in a case expr
+dupformals.cool; 1; Duplicate name in formal param list
+inheritsbool.cool; 1; Class inherits Bool (illegal)
+inheritsselftype.cool; 1; Class inherits SELF_TYPE (illegal)
+inheritsstring.cool; 1; Class inherits String (illegal)
+letself.cool; 1; Let with self in binding (illegal)
+letbadinit.cool; 1; Let initization with nonconforming type
+lubtest.cool; 1; LUB test using if statements
+missingclass.cool; 1; Inheritance from an undefined class
+nomain.cool; 1; Missing Main class
+outofscope.cool; 1; Using a name that exists but is out of scope
+overridingmethod4.cool; 1; Illegal method override - different param types
+signaturechange.cool; 1; Method override with different number of params
+redefinedclass.cool; 1; Redefinition of a class (illegal)
+redefinedobject.cool; 1; Redefinition of basic class Object (illegal)
+returntypenoexist.cool; 1; Undefined return type
+self-assignment.cool; 1; Assignment to self (illegal)
+selfinformalparameter.cool; 1; Self as name of a formal parameter (illegal)
+selftypebadreturn.cool; 1; Non-conforming return type when SELF_TYPE is declared return type
+selftypeparameterposition.cool; 1; SELF_TYPE given as a parameter type (illegal)
+selftyperedeclared.cool; 1; SELF_TYPE redeclared (used a class name)
+trickyatdispatch2.cool; 1; Tricky (illegal) static dispatch

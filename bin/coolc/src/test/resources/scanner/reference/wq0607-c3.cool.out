@@ -1,0 +1,15 @@
+#name src/test/resources/scanner/input/wq0607-c3.cool
+#3 TStrConst "\\"
+#3 TStrConst "\"\""
+#3 ERROR "\\".
+#3 ERROR "\\".
+#3 TStrConst ""
+#3 ERROR "\\".
+#3 TStrConst "\\"
+#3 ERROR "\\".
+#3 TStrConst "\\"
+#3 TStrConst ""
+#3 ERROR "\\".
+#3 TStrConst "\""
+#3 ERROR "\\".
+#3 ERROR Unterminated string constant, EOL found.

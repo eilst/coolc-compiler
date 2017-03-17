@@ -1,0 +1,2 @@
+#name src/test/resources/scanner/input/s05.test.cool
+#1 TStrConst "other unescaped whitespace: \t\f\022\013"

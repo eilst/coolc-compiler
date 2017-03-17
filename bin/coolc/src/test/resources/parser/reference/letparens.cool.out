@@ -1,0 +1,36 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Foo
+        `- AMethodFeature
+           |- bar
+           |- Int
+           `- AListExpr
+              |- ALetExpr
+              |  |- ALetDecl
+              |  |  |- a
+              |  |  `- Int
+              |  `- APlusExpr
+              |     |- AObjectExpr
+              |     |  `- a
+              |     `- AObjectExpr
+              |        `- b
+              |- APlusExpr
+              |  |- ALetExpr
+              |  |  |- ALetDecl
+              |  |  |  |- a
+              |  |  |  `- Int
+              |  |  `- AObjectExpr
+              |  |     `- a
+              |  `- AObjectExpr
+              |     `- b
+              `- ALetExpr
+                 |- ALetDecl
+                 |  |- a
+                 |  `- Int
+                 `- APlusExpr
+                    |- AObjectExpr
+                    |  `- a
+                    `- AObjectExpr
+                       `- b
+

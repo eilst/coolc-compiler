@@ -1,0 +1,38 @@
+assignment.cool; 1; Valid assignments
+basic.cool; 1; Simple program with a sequence of expressions
+basicclassestree.cool; 1; Test of inheritance tree (Object as ansestor of everything)
+cells.cool; 1; Complex program
+classes.cool; 1; Various classes with inheritance and overriding (legal)
+compare.cool; 1; Legal equality comparison
+comparisons.cool; 1; Legal < and <= comparisons
+cycleinmethods.cool; 1; Methods call each other in a cycle (legal)
+dispatch.cool; 1; Simple dispatches
+expressionblock.cool; 1; Simple expression block (i.e. list)
+forwardinherits.cool; 1; Forward declaration in inherits clause (legal)
+hairyscary.cool; 1; Messy legal Cool program
+if.cool; 1; If statement
+inheritsObject.cool; 1; Class explicitly inherits Object (legal)
+initwithself.cool; 1; Attribute initialized with self (legal)
+io.cool; 1; IO methods
+isvoid.cool; 1; isvoid expressions
+letinit.cool; 1; Let with initialization (legal)
+letnoinit.cool; 1; Let without initialization (legal)
+letselftype.cool; 1; Let with SELF_TYPE variables (legal)
+letshadows.cool; 1; Let with a variable shadowing one in an outer scope
+list.cool; 1; List program
+methodcallsitself.cool; 1; Method calls itself legally
+methodnameclash.cool; 1; Two children define a function differently (allowed)
+neg.cool; 1; Negation of integer values
+newselftype.cool; 1; Using a new SELF_TYPE expression (legal)
+objectdispatchabort.cool; 1; Calling abort() method on an object
+overridingmethod.cool; 1; Overriding parent class's method
+overridingmethod2.cool; 1; Another method override example
+overridingmethod3.cool; 1; Method override example with SELF_TYPE
+overriderenamearg.cool; 1; Overriding parent's method with new param names (legal)
+scopes.cool; 1; Scope test (legal)
+simplearith.cool; 1; Some simple arithmetic exprs
+simplecase.cool; 1; A simple case expr
+staticdispatch.cool; 1; Simple static dispatch
+stringtest.cool; 1; String methods
+subtypemethodreturn.cool; 1; Returning a subtype of the declared return type (legal)
+trickyatdispatch.cool; 1; Tricky (legal) static dispatch

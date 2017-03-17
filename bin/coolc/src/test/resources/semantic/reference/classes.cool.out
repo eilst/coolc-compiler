@@ -1,0 +1,75 @@
+
+  >- AProgram
+     |- AClassDecl
+     |  |- A
+     |  |- Object
+     |  |- AAttributeFeature
+     |  |  |- a
+     |  |  |- Int
+     |  |  `- AIntExpr:Int
+     |  |     `- 0
+     |  |- AAttributeFeature
+     |  |  |- d
+     |  |  |- Int
+     |  |  `- AIntExpr:Int
+     |  |     `- 1
+     |  `- AMethodFeature
+     |     |- f
+     |     |- Int
+     |     `- AAssignExpr:Int
+     |        |- a
+     |        `- APlusExpr:Int
+     |           |- AObjectExpr:Int
+     |           |  `- a
+     |           `- AObjectExpr:Int
+     |              `- d
+     |- AClassDecl
+     |  |- B
+     |  |- A
+     |  |- AAttributeFeature
+     |  |  |- b
+     |  |  |- Int
+     |  |  `- AIntExpr:Int
+     |  |     `- 2
+     |  |- AMethodFeature
+     |  |  |- f
+     |  |  |- Int
+     |  |  `- AObjectExpr:Int
+     |  |     `- a
+     |  `- AMethodFeature
+     |     |- g
+     |     |- Int
+     |     `- AAssignExpr:Int
+     |        |- a
+     |        `- AMinusExpr:Int
+     |           |- AObjectExpr:Int
+     |           |  `- a
+     |           `- AObjectExpr:Int
+     |              `- b
+     |- AClassDecl
+     |  |- C
+     |  |- A
+     |  |- AAttributeFeature
+     |  |  |- c
+     |  |  |- Int
+     |  |  `- AIntExpr:Int
+     |  |     `- 3
+     |  `- AMethodFeature
+     |     |- h
+     |     |- Int
+     |     `- AAssignExpr:Int
+     |        |- a
+     |        `- AMinusExpr:Int
+     |           |- AObjectExpr:Int
+     |           |  `- a
+     |           `- AObjectExpr:Int
+     |              `- c
+     `- AClassDecl
+        |- Main
+        |- Object
+        `- AMethodFeature
+           |- main
+           |- Int
+           `- AIntExpr:Int
+              `- 6
+

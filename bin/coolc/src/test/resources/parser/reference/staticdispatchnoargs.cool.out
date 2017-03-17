@@ -1,0 +1,16 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Test
+        |- AAttributeFeature
+        |  |- foo
+        |  `- Int
+        `- AMethodFeature
+           |- bar
+           |- Object
+           `- AAtExpr
+              |- AObjectExpr
+              |  `- self
+              |- Test
+              `- bar
+

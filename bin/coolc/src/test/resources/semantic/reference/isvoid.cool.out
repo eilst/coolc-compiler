@@ -1,0 +1,22 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Main
+        |- IO
+        |- AAttributeFeature
+        |  |- x
+        |  `- Bool
+        `- AMethodFeature
+           |- main
+           |- Object
+           `- AListExpr:Bool
+              |- AIsvoidExpr:Bool
+              |  `- ABoolExpr:Bool
+              |     `- true
+              |- AIsvoidExpr:Bool
+              |  `- ABoolExpr:Bool
+              |     `- false
+              `- AIsvoidExpr:Bool
+                 `- AObjectExpr:Bool
+                    `- x
+

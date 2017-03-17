@@ -1,0 +1,20 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- Test
+        |- AAttributeFeature
+        |  |- foo
+        |  `- Test
+        `- AMethodFeature
+           |- bar
+           |- AFormal
+           |  |- x
+           |  `- Baz
+           |- Object
+           `- AAtExpr
+              |- AObjectExpr
+              |  `- foo
+              |- bar
+              `- AObjectExpr
+                 `- x
+

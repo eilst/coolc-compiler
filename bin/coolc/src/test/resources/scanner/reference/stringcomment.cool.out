@@ -1,0 +1,3 @@
+#name src/test/resources/scanner/input/stringcomment.cool
+#1 TStrConst "This is a string--and it's still a string"
+#4 TStrConst "(* not a comment *)"

@@ -1,0 +1,398 @@
+
+  >- AProgram
+     `- AClassDecl
+        |- A2I
+        |- AMethodFeature
+        |  |- c2i
+        |  |- AFormal
+        |  |  |- char
+        |  |  `- String
+        |  |- Int
+        |  `- AIfExpr
+        |     |- AEqExpr
+        |     |  |- AObjectExpr
+        |     |  |  `- char
+        |     |  `- AStrExpr
+        |     |     `- 0
+        |     |- AIntExpr
+        |     |  `- 0
+        |     `- AIfExpr
+        |        |- AEqExpr
+        |        |  |- AObjectExpr
+        |        |  |  `- char
+        |        |  `- AStrExpr
+        |        |     `- 1
+        |        |- AIntExpr
+        |        |  `- 1
+        |        `- AIfExpr
+        |           |- AEqExpr
+        |           |  |- AObjectExpr
+        |           |  |  `- char
+        |           |  `- AStrExpr
+        |           |     `- 2
+        |           |- AIntExpr
+        |           |  `- 2
+        |           `- AIfExpr
+        |              |- AEqExpr
+        |              |  |- AObjectExpr
+        |              |  |  `- char
+        |              |  `- AStrExpr
+        |              |     `- 3
+        |              |- AIntExpr
+        |              |  `- 3
+        |              `- AIfExpr
+        |                 |- AEqExpr
+        |                 |  |- AObjectExpr
+        |                 |  |  `- char
+        |                 |  `- AStrExpr
+        |                 |     `- 4
+        |                 |- AIntExpr
+        |                 |  `- 4
+        |                 `- AIfExpr
+        |                    |- AEqExpr
+        |                    |  |- AObjectExpr
+        |                    |  |  `- char
+        |                    |  `- AStrExpr
+        |                    |     `- 5
+        |                    |- AIntExpr
+        |                    |  `- 5
+        |                    `- AIfExpr
+        |                       |- AEqExpr
+        |                       |  |- AObjectExpr
+        |                       |  |  `- char
+        |                       |  `- AStrExpr
+        |                       |     `- 6
+        |                       |- AIntExpr
+        |                       |  `- 6
+        |                       `- AIfExpr
+        |                          |- AEqExpr
+        |                          |  |- AObjectExpr
+        |                          |  |  `- char
+        |                          |  `- AStrExpr
+        |                          |     `- 7
+        |                          |- AIntExpr
+        |                          |  `- 7
+        |                          `- AIfExpr
+        |                             |- AEqExpr
+        |                             |  |- AObjectExpr
+        |                             |  |  `- char
+        |                             |  `- AStrExpr
+        |                             |     `- 8
+        |                             |- AIntExpr
+        |                             |  `- 8
+        |                             `- AIfExpr
+        |                                |- AEqExpr
+        |                                |  |- AObjectExpr
+        |                                |  |  `- char
+        |                                |  `- AStrExpr
+        |                                |     `- 9
+        |                                |- AIntExpr
+        |                                |  `- 9
+        |                                `- AListExpr
+        |                                   |- ACallExpr
+        |                                   |  `- abort
+        |                                   `- AIntExpr
+        |                                      `- 0
+        |- AMethodFeature
+        |  |- i2c
+        |  |- AFormal
+        |  |  |- i
+        |  |  `- Int
+        |  |- String
+        |  `- AIfExpr
+        |     |- AEqExpr
+        |     |  |- AObjectExpr
+        |     |  |  `- i
+        |     |  `- AIntExpr
+        |     |     `- 0
+        |     |- AStrExpr
+        |     |  `- 0
+        |     `- AIfExpr
+        |        |- AEqExpr
+        |        |  |- AObjectExpr
+        |        |  |  `- i
+        |        |  `- AIntExpr
+        |        |     `- 1
+        |        |- AStrExpr
+        |        |  `- 1
+        |        `- AIfExpr
+        |           |- AEqExpr
+        |           |  |- AObjectExpr
+        |           |  |  `- i
+        |           |  `- AIntExpr
+        |           |     `- 2
+        |           |- AStrExpr
+        |           |  `- 2
+        |           `- AIfExpr
+        |              |- AEqExpr
+        |              |  |- AObjectExpr
+        |              |  |  `- i
+        |              |  `- AIntExpr
+        |              |     `- 3
+        |              |- AStrExpr
+        |              |  `- 3
+        |              `- AIfExpr
+        |                 |- AEqExpr
+        |                 |  |- AObjectExpr
+        |                 |  |  `- i
+        |                 |  `- AIntExpr
+        |                 |     `- 4
+        |                 |- AStrExpr
+        |                 |  `- 4
+        |                 `- AIfExpr
+        |                    |- AEqExpr
+        |                    |  |- AObjectExpr
+        |                    |  |  `- i
+        |                    |  `- AIntExpr
+        |                    |     `- 5
+        |                    |- AStrExpr
+        |                    |  `- 5
+        |                    `- AIfExpr
+        |                       |- AEqExpr
+        |                       |  |- AObjectExpr
+        |                       |  |  `- i
+        |                       |  `- AIntExpr
+        |                       |     `- 6
+        |                       |- AStrExpr
+        |                       |  `- 6
+        |                       `- AIfExpr
+        |                          |- AEqExpr
+        |                          |  |- AObjectExpr
+        |                          |  |  `- i
+        |                          |  `- AIntExpr
+        |                          |     `- 7
+        |                          |- AStrExpr
+        |                          |  `- 7
+        |                          `- AIfExpr
+        |                             |- AEqExpr
+        |                             |  |- AObjectExpr
+        |                             |  |  `- i
+        |                             |  `- AIntExpr
+        |                             |     `- 8
+        |                             |- AStrExpr
+        |                             |  `- 8
+        |                             `- AIfExpr
+        |                                |- AEqExpr
+        |                                |  |- AObjectExpr
+        |                                |  |  `- i
+        |                                |  `- AIntExpr
+        |                                |     `- 9
+        |                                |- AStrExpr
+        |                                |  `- 9
+        |                                `- AListExpr
+        |                                   |- ACallExpr
+        |                                   |  `- abort
+        |                                   `- AStrExpr
+        |                                      `- 
+        |- AMethodFeature
+        |  |- a2i
+        |  |- AFormal
+        |  |  |- s
+        |  |  `- String
+        |  |- Int
+        |  `- AIfExpr
+        |     |- AEqExpr
+        |     |  |- AAtExpr
+        |     |  |  |- AObjectExpr
+        |     |  |  |  `- s
+        |     |  |  `- length
+        |     |  `- AIntExpr
+        |     |     `- 0
+        |     |- AIntExpr
+        |     |  `- 0
+        |     `- AIfExpr
+        |        |- AEqExpr
+        |        |  |- AAtExpr
+        |        |  |  |- AObjectExpr
+        |        |  |  |  `- s
+        |        |  |  |- substr
+        |        |  |  |- AIntExpr
+        |        |  |  |  `- 0
+        |        |  |  `- AIntExpr
+        |        |  |     `- 1
+        |        |  `- AStrExpr
+        |        |     `- -
+        |        |- ANegExpr
+        |        |  `- ACallExpr
+        |        |     |- a2i_aux
+        |        |     `- AAtExpr
+        |        |        |- AObjectExpr
+        |        |        |  `- s
+        |        |        |- substr
+        |        |        |- AIntExpr
+        |        |        |  `- 1
+        |        |        `- AMinusExpr
+        |        |           |- AAtExpr
+        |        |           |  |- AObjectExpr
+        |        |           |  |  `- s
+        |        |           |  `- length
+        |        |           `- AIntExpr
+        |        |              `- 1
+        |        `- AIfExpr
+        |           |- AEqExpr
+        |           |  |- AAtExpr
+        |           |  |  |- AObjectExpr
+        |           |  |  |  `- s
+        |           |  |  |- substr
+        |           |  |  |- AIntExpr
+        |           |  |  |  `- 0
+        |           |  |  `- AIntExpr
+        |           |  |     `- 1
+        |           |  `- AStrExpr
+        |           |     `- +
+        |           |- ACallExpr
+        |           |  |- a2i_aux
+        |           |  `- AAtExpr
+        |           |     |- AObjectExpr
+        |           |     |  `- s
+        |           |     |- substr
+        |           |     |- AIntExpr
+        |           |     |  `- 1
+        |           |     `- AMinusExpr
+        |           |        |- AAtExpr
+        |           |        |  |- AObjectExpr
+        |           |        |  |  `- s
+        |           |        |  `- length
+        |           |        `- AIntExpr
+        |           |           `- 1
+        |           `- ACallExpr
+        |              |- a2i_aux
+        |              `- AObjectExpr
+        |                 `- s
+        |- AMethodFeature
+        |  |- a2i_aux
+        |  |- AFormal
+        |  |  |- s
+        |  |  `- String
+        |  |- Int
+        |  `- ALetExpr
+        |     |- ALetDecl
+        |     |  |- int
+        |     |  |- Int
+        |     |  `- AIntExpr
+        |     |     `- 0
+        |     `- AListExpr
+        |        |- ALetExpr
+        |        |  |- ALetDecl
+        |        |  |  |- j
+        |        |  |  |- Int
+        |        |  |  `- AAtExpr
+        |        |  |     |- AObjectExpr
+        |        |  |     |  `- s
+        |        |  |     `- length
+        |        |  `- ALetExpr
+        |        |     |- ALetDecl
+        |        |     |  |- i
+        |        |     |  |- Int
+        |        |     |  `- AIntExpr
+        |        |     |     `- 0
+        |        |     `- AWhileExpr
+        |        |        |- ALtExpr
+        |        |        |  |- AObjectExpr
+        |        |        |  |  `- i
+        |        |        |  `- AObjectExpr
+        |        |        |     `- j
+        |        |        `- AListExpr
+        |        |           |- AAssignExpr
+        |        |           |  |- int
+        |        |           |  `- APlusExpr
+        |        |           |     |- AMultExpr
+        |        |           |     |  |- AObjectExpr
+        |        |           |     |  |  `- int
+        |        |           |     |  `- AIntExpr
+        |        |           |     |     `- 10
+        |        |           |     `- ACallExpr
+        |        |           |        |- c2i
+        |        |           |        `- AAtExpr
+        |        |           |           |- AObjectExpr
+        |        |           |           |  `- s
+        |        |           |           |- substr
+        |        |           |           |- AObjectExpr
+        |        |           |           |  `- i
+        |        |           |           `- AIntExpr
+        |        |           |              `- 1
+        |        |           `- AAssignExpr
+        |        |              |- i
+        |        |              `- APlusExpr
+        |        |                 |- AObjectExpr
+        |        |                 |  `- i
+        |        |                 `- AIntExpr
+        |        |                    `- 1
+        |        `- AObjectExpr
+        |           `- int
+        |- AMethodFeature
+        |  |- i2a
+        |  |- AFormal
+        |  |  |- i
+        |  |  `- Int
+        |  |- String
+        |  `- AIfExpr
+        |     |- AEqExpr
+        |     |  |- AObjectExpr
+        |     |  |  `- i
+        |     |  `- AIntExpr
+        |     |     `- 0
+        |     |- AStrExpr
+        |     |  `- 0
+        |     `- AIfExpr
+        |        |- ALtExpr
+        |        |  |- AIntExpr
+        |        |  |  `- 0
+        |        |  `- AObjectExpr
+        |        |     `- i
+        |        |- ACallExpr
+        |        |  |- i2a_aux
+        |        |  `- AObjectExpr
+        |        |     `- i
+        |        `- AAtExpr
+        |           |- AStrExpr
+        |           |  `- -
+        |           |- concat
+        |           `- ACallExpr
+        |              |- i2a_aux
+        |              `- AMultExpr
+        |                 |- AObjectExpr
+        |                 |  `- i
+        |                 `- ANegExpr
+        |                    `- AIntExpr
+        |                       `- 1
+        `- AMethodFeature
+           |- i2a_aux
+           |- AFormal
+           |  |- i
+           |  `- Int
+           |- String
+           `- AIfExpr
+              |- AEqExpr
+              |  |- AObjectExpr
+              |  |  `- i
+              |  `- AIntExpr
+              |     `- 0
+              |- AStrExpr
+              |  `- 
+              `- ALetExpr
+                 |- ALetDecl
+                 |  |- next
+                 |  |- Int
+                 |  `- ADivExpr
+                 |     |- AObjectExpr
+                 |     |  `- i
+                 |     `- AIntExpr
+                 |        `- 10
+                 `- AAtExpr
+                    |- ACallExpr
+                    |  |- i2a_aux
+                    |  `- AObjectExpr
+                    |     `- next
+                    |- concat
+                    `- ACallExpr
+                       |- i2c
+                       `- AMinusExpr
+                          |- AObjectExpr
+                          |  `- i
+                          `- AMultExpr
+                             |- AObjectExpr
+                             |  `- next
+                             `- AIntExpr
+                                `- 10
+
