@@ -4,7 +4,7 @@ import java.util.EnumSet;
 import java.util.HashMap;
 import java.util.Map;
 
-public enum Errors {
+public enum Error {
 	REDEF_BASIC("redefBasic"),
 	INHERIT_BASIC("inheritBasic"),
 	INHERIT_SELF_TYPE("inheritSelfType"),
@@ -47,20 +47,20 @@ public enum Errors {
 	
 	private final String msg;
 	
-	Errors(String msg) {
+	Error(String msg) {
 		this.msg = msg;
 	}
 	
-    private static final Map<String, Errors> lookup = new HashMap<String, Errors>();
+    private static final Map<String, Error> lookup = new HashMap<String, Error>();
 
 	static {
-	    for(Errors s : EnumSet.allOf(Errors.class))
-	         lookup.put("CoolLexer.semant." + s.getMsg(), s);
+	    for(Error s : EnumSet.allOf(Error.class))
+	         lookup.put("Coolc.semant." + s.getMsg(), s);
 	}
 
 	public String getMsg() { return msg; }
 	
-    public static Errors get(String msg) { 
+    public static Error get(String msg) { 
          return lookup.get(msg); 
     }
 	
