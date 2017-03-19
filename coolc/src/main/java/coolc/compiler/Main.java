@@ -5,6 +5,10 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PushbackReader;
 
+import coolc.compiler.CoolcLexer;
+import coolc.compiler.autogen.node.Start;
+import coolc.compiler.autogen.parser.ParserException;
+import coolc.compiler.visitors.ASTPrinter;
 import coolc.compiler.autogen.lexer.LexerException;
 import coolc.compiler.autogen.node.EOF;
 import coolc.compiler.autogen.node.Token;
@@ -17,6 +21,7 @@ public class Main {
 	public static String file = "src/test/resources/test.cool";
 	
 	private CoolcLexer lexer;
+	private Parser parser;
 
 	
 	public CoolcLexer getLexer() {
@@ -31,7 +36,7 @@ public class Main {
 		}
 		
 		try {
-			m.lexerCheck(file, System.err);
+			m.parseCheck(file, System.err);
 		} catch (Exception e) {
 
 			System.err.format("Compilation halted due to parse errors.\n");
@@ -61,7 +66,16 @@ public class Main {
 		}
 
 	}
+	
+	public void parseCheck(String file, PrintStream out) throws LexerException, IOException, ParserException {
+		lexer = new CoolcLexer(new PushbackReader(new FileReader(file)), out);
+		parser = new Parser(lexer);
+		lexer.setParser(parser);
+		
+		Start start = parser.parse();		
 
+		start.apply(new ASTPrinter(out));		
+	}
 	
 
 }
