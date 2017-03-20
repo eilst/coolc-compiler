@@ -23,13 +23,9 @@ public class ExampleSemanticChecker implements SemanticFacade {
 
 	@Override
 	public void check() throws SemanticException {
-		Set<Error> set = EnumSet.noneOf(Error.class);		
-		
 		// Set the errors to print on whatever PrintStream we are working on
 		ErrorManager.getInstance().setOut(out);
-		// And 0 errors so far
-		ErrorManager.getInstance().setErrors(set);
-		
+
 		// Here instantiate and call whatever visitors you need
 		start.apply(new ExampleVisitor());
 		
