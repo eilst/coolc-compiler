@@ -111,7 +111,7 @@
 						<configuration>
 							<tasks>
 								<echo>Sobreescribiendo clases modificadas</echo>
-								<copy overwrite="true" todir="${basedir}/src/main/java/cool/compiler/autogen/node">
+								<copy overwrite="true" todir="${basedir}/src/main/java/coolc/compiler/autogen/node">
 									<fileset dir="${basedir}/src/main/resources/modified/">
 										<include name="**/*.java" />									
 								 	</fileset>
