@@ -1,4 +1,13 @@
-else       ElsE    
-
-
-  cASE      hola
+class Main inherits IO{
+ x: Int;
+ y: String;
+ f: Foo;
+ main(): Object {{ 
+                   x <- x; x <- 5; y <- y; f <- new Foo;
+                }};
+ foo(): String {"test"};
+};
+class Foo {
+ x:Int <- 3;
+}
+;

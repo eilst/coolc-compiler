@@ -9,6 +9,7 @@ import coolc.compiler.autogen.node.Start;
 import coolc.compiler.exceptions.SemanticException;
 import coolc.compiler.util.Error;
 import coolc.compiler.visitors.ExampleVisitor;
+import coolc.compiler.visitors.IdentifierValidator;
 
 public class ExampleSemanticChecker implements SemanticFacade {
 
@@ -28,6 +29,7 @@ public class ExampleSemanticChecker implements SemanticFacade {
 
 		// Here instantiate and call whatever visitors you need
 		start.apply(new ExampleVisitor());
+		start.apply(new IdentifierValidator());
 		
 		
 		

@@ -17,7 +17,7 @@ import coolc.compiler.util.Error;
 import coolc.compiler.visitors.ASTPrinterTypes;
 
 public class CompilerImpl implements Compiler {
-	public static String file = "src/test/resources/semantic/input/nomain.cool";
+	public static String file = "src/test/resources/test.cool";
 	//public static String outFile = "src/test/resources/main.cool.s";
 	
 	private CoolcLexer lexer;
