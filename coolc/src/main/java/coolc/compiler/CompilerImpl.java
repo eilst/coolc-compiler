@@ -17,7 +17,7 @@ import coolc.compiler.util.Error;
 import coolc.compiler.visitors.ASTPrinterTypes;
 
 public class CompilerImpl implements Compiler {
-	public static String file = "src/test/resources/semantic/input/nomain.cool";
+	public static String file = "src/test/resources/test.cool";
 	//public static String outFile = "src/test/resources/main.cool.s";
 	
 	private CoolcLexer lexer;
@@ -44,7 +44,7 @@ public class CompilerImpl implements Compiler {
 //		Instantiate YOUR concrete classes here!
 //		If semantic and codegen are null, you will only get NullPointerException
 //		Example:
-		compiler.setup(new ExampleSemanticChecker(), null);		
+		compiler.setup(new ExampleSemanticChecker(), new ARMCodegen());		
 		
 		try {
 			start = compiler.lexAndParse(new File(file), System.err);
@@ -64,12 +64,12 @@ public class CompilerImpl implements Compiler {
 		}
 		
 		// If no errors, print the AST WITH TYPES!!!
-		start.apply(new ASTPrinterTypes(System.out));
+		//start.apply(new ASTPrinterTypes(System.out));
 		
 		// When generating code, uncomment this:
 //		PrintStream out = new PrintStream(new FileOutputStream(outFile));
 //		compiler.genCode(start, out);
-//		compiler.genCode(start, System.out);
+		compiler.genCode(start, System.out);
 		
 	}
 	
