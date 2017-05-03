@@ -6,13 +6,13 @@
       <class name="coolc.compiler.ScannerTest" />
     </classes>
   </test>
-<!-- 
+ 
   <test name="Parser" enabled="true">
     <classes>
-      <class name="cool.compiler.ParserTest" />
+      <class name="coolc.compiler.ParserTest" />
     </classes>
   </test>
-
+<!--
   <test name="Semantic" enabled="false">
   	<parameter name="semanticFacade" value="cool.compiler.Semantic" />
     <classes>
