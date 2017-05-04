@@ -1,33 +1,6 @@
-else
-Else
-eLse
-elSe
-elsE
-ELse
-ElSe
-ElsE
-eLSe
-eLsE
-elSE
-eLSE
-ElSE
-ELsE
-ELSe
-ELSE
-
-true
-tRue
-trUe
-truE
-tRUe
-tRuE
-trUE
-tRUE
-True
-TRue
-TrUe
-TruE
-TRUe
-TRuE
-TrUE
-TRUE
+class Main inherits IO {
+  
+  main() : Object { 
+    534+2342+23+4+5
+   };
+};

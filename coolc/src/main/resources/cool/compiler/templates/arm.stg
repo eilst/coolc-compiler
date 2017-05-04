@@ -1,0 +1,140 @@
+base(strings, ints, text) ::= <<
+	@Global data declarations
+	.data
+	.align	2
+	.globl	class_nameTab
+	.globl	Main_protObj
+	.globl	Int_protObj
+	.globl	String_protObj
+	.globl	bool_const0
+	.globl	bool_const1
+	.globl	_int_tag
+	.globl	_bool_tag
+	.globl	_string_tag
+_int_tag:
+	.word	3
+_bool_tag:
+	.word	4
+_string_tag:
+	.word	5
+@String literals
+	<strings:stringLiteral()>
+@Int literals
+	<ints:intLiteral()>
+@Booleans
+bool_const0:
+	.word	4
+	.word	4
+	.word	Bool_dispTab
+	.word	0
+bool_const1:
+	.word	4
+	.word	4
+	.word	Bool_dispTab
+	.word	1
+
+	@ strings with the name of the classes, offset is the tag
+class_nameTab:
+	.word	str_const3
+	.word	str_const4
+	.word	str_const5
+	.word	str_const6
+	.word	str_const7
+	.word	str_const8
+	
+	@ addresses of prototype and constructor
+	@ offset:
+	@ tag*2 = prototype
+	@ tag*2+1 = constructor
+class_objTab:
+	.word	Object_protObj
+	.word	Object_init
+	.word	IO_protObj
+	.word	IO_init
+	.word	Main_protObj
+	.word	Main_init
+	.word	Int_protObj
+	.word	Int_init
+	.word	Bool_protObj
+	.word	Bool_init
+	.word	String_protObj
+	.word	String_init
+
+	@ dispatch tables for every class
+Object_dispTab:
+	.word	Object.abort
+	.word	Object.type_name
+	.word	Object.copy
+
+Object_protObj:
+	.word	0
+	.word	3
+	.word	Object_dispTab
+
+	@ global declarations of text segment
+	.text
+	.globl	Main_init
+	.globl	Int_init
+	.globl	String_init
+	.globl	Bool_init
+	.globl	Main.main
+
+	@ Constructors
+Object_init:
+	push {r0, lr}
+	pop {r0, pc}
+	bx lr
+	
+	@ Legaci MIPS code, not used, only here to compare size
+	@ addiu	$sp $sp -12
+	@ sw	$fp 12($sp)
+	@ sw	$s0 8($sp)
+	@ sw	$ra 4($sp)
+	@ addiu	$fp $sp 4
+	@ move	$s0 $a0
+	@ move	$a0 $s0
+	@ lw	$fp 12($sp)
+	@ lw	$s0 8($sp)
+	@ lw	$ra 4($sp)
+	@ addiu	$sp $sp 12
+	@ jr	$ra	
+	
+<text>
+
+>>
+
+stringLiteral(s) ::= << 
+str_const<s.idx>:
+    .word   <s.tag>
+    .word   <s.size>
+    .word   String_dispTab
+    .word   int_const<s.sizeIdx>
+    .asciz  "<s.value>"
+    .balign  4
+>>
+
+intLiteral(i) ::= <<
+int_const<i.idx>:
+    .word   <i.tag>
+    .word   4   
+    .word   Int_dispTab
+    .word   <i.value>
+>>
+
+intExpr(e) ::= <<
+	ldr r0, =<e>
+>>
+
+// I assume r0 was pushed into the stack on entry to this methdo, 
+// so I can overwrite it here so the standard is that subexpressions
+// leave result in r0
+addExpr(left, right) ::= <<
+<left>
+	mov r4, r0
+<right>
+	jl Object.copy
+	ldr r4, [r4, #12]
+	ldr r5, [r0, #12]
+	add r4, r4, r5
+	str r4, [r0, #12]	
+>>

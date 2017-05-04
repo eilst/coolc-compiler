@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite verbose="0" name="Set de pruebas para Cool">
-  <test name="Scanner" enabled="true">
+  <test name="Scanner" enabled="false">
     <classes>
       <class name="coolc.compiler.ScannerTest" />
     </classes>
   </test>
-<!-- 
-  <test name="Parser" enabled="true">
+
+  <test name="Parser" enabled="false">
     <classes>
-      <class name="cool.compiler.ParserTest" />
+      <class name="coolc.compiler.ParserTest" />
     </classes>
   </test>
 
-  <test name="Semantic" enabled="false">
-  	<parameter name="semanticFacade" value="cool.compiler.Semantic" />
+  <test name="Semantic" enabled="true">
+  	<parameter name="semanticFacade" value="coolc.compiler.Semantic" />
     <classes>
-      <class name="cool.compiler.SemanticTest" />
+      <class name="coolc.compiler.SemanticTest" />
     </classes>    
   </test>
-
+<!--
   <test name="Codegen" enabled="true">
-  	<parameter name="semanticFacade" value="cool.compiler.CoolSemantic" />
-  	<parameter name="codegenFacade" value="cool.compiler.MIPSCodegen" />
+  	<parameter name="semanticFacade" value="coolc.compiler.CoolSemantic" />
+  	<parameter name="codegenFacade" value="coolc.compiler.MIPSCodegen" />
     <classes>
       <class name="cool.compiler.CodegenTest" />
     </classes>    
