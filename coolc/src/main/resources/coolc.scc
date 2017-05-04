@@ -37,14 +37,7 @@ Helpers
     ucase = ['A'..'Z'];
     lcase = ['a'..'z'];
     digit = ['0'..'9'];
-        
-    eol =	[ [ cr + lf ] + [ cr + lf ] ];
     
-	comment_chr = [all - ['(' + '*' ] ] | '\' ')' | '\' '*' | '\' '('  ;
-	
-	str_char = [all - ['"' + [ '\' + [ 10 + 0  ] ] ] ];
-    
-    str_const = '\' [all - 0] | '\' '"' | '\' lf;
 
 
     // 8 - backspace
@@ -55,108 +48,6 @@ Helpers
     // 13 - cr
     blank = (' ' | 8 | 9 | lf | 11 | 12 | cr );
     
-<<<<<<< HEAD
-States
-	initial,
-	lcomment,
-	comment,
-	string,
-	strerr;
-	
-Tokens
-    // klass fi if in inherits isvoid let loop pool then else while case esac new of not
-    // lbrace rbrace lparen rparen semi colon 
-    // mult div plus minus neg lt le eq at
-    // assign darrow comma dot
-    // error_star_lpar int_const bool_const type_id object_id str_const str_err comment
-   
-    {initial} if = i f;
-	{initial} hola = 'hola';
-	{initial} klass = c l a s s;
-	{initial} fi = f i;
-	{initial} in = i n;
-	{initial} inherits = i n h e r i t s;
-	{initial} isvoid = i s v o i d;
-	{initial} let = l e t;
-	{initial} loop = l o o p;
-	{initial} pool = p o o l;
-	{initial} then = t h e n;
-	{initial} while = w h i l e;
-	{initial} case = c a s e;
-	{initial} esac = e s a c;
-	{initial} new = n e w;
-	{initial} of = o f;
-	{initial} not = n o t;
-	{initial} else = e l s e;
-	{initial} them = t h e m;
-	
-	{initial} lbrace = '{';
-	{initial} rbrace = '}';
-	{initial} lparen = '(';
-	{initial} rparen = ')';
-	{initial} semi = ';';
-	{initial} comma = ',';
-	{initial} colon = ':';
-	{initial} dot = '.' ;
-	
-	{initial} plus = '+' ;
-	{initial} minus = '-' ;
-	{initial} mult = '*' ;
-	{initial} div = '/';
-	{initial} at = '@';
-	{initial} neg = '~';
-	{initial} lt = '<';
-	{initial} eq = '=';
-	{initial} assign = '<-';
-	{initial} darrow = '=>';
-	{initial} le = '<=';
-	
-	{initial} blank = blank+;
-	{initial} bool_const = ('t' r u e )|('f' a l s e);
-	{initial} object_id = lcase (alpha | digit | '_')*;
-	{initial} type_id  = ucase (alpha | digit | '_')*;	
-	
-	{initial} int_const = digit+;
-
-	{initial} error_star_lpar = '*)';
-	
-	{initial->comment} comment_start = '(' '*';
-	{comment} comment_in = '(' '*';
-	{comment->initial} comment_end = '*' ')';
-	{comment} comment_txt = comment_chr*;
-	{comment} comment_star = '*';
-	{comment} comment_lpar = '(';
-	
-	
-	{initial->lcomment} lcomment_start = '-' '-';
-	{lcomment} lcomment_txt = ([all -10])*;
-	{lcomment->initial} lcomment_end = lf;
-	
-	
-	
-	{initial->string} str_start = '"';
-    {string} str_const = str_char+ | str_const; 	
-    {string->initial} str_error_eol = lf;
-    {string->strerr} str_error_null = 0;
-    {string->strerr} str_error_escaped_null = '\' 0;
-    {strerr} str_err = [all - [ lf +  '"' ] ]+;
-    {strerr->initial} str_err_quotesb= '"';
-    {strerr->initial} str_err_nlb = lf;    
-    {string->initial} str_end = '"';
-    
-    
-	{initial, comment, string}	errend = all;
-	
-	
-	
-Ignored Tokens
-
-	comment_start, comment_in, comment_end, comment_txt, comment_star, comment_lpar, lcomment_start, lcomment_txt,
-	lcomment_end,	blank, str_error_eol, error_star_lpar, errend, str_err_quotesb, str_err_nlb ;
-
-Productions
-	 source = hola;
-=======
     instr_char = [all - ['"' + [ '\' + [ 10 + 0  ] ] ] ];
     
     str_const2 = '\' [all - 0];
@@ -500,4 +391,3 @@ Abstract Syntax Tree
 		| {list} expr*
 		| {no}
 		; 
->>>>>>> coolcprofe/codegen_help
