@@ -1,6 +1,22 @@
+<<<<<<< HEAD
 class Main inherits IO {
   
   main() : Object { 
     534+2342+23+4+5
    };
 };
+=======
+class Main inherits IO{
+ x: Int;
+ y: String;
+ f: Foo;
+ main(): Object {{ 
+                   x <- x; x <- 5; y <- y; f <- new Foo;
+                }};
+ foo(): String {"test"};
+};
+class Foo {
+ x:Int <- 3;
+}
+;
+>>>>>>> refs/remotes/coolcprofe/validateIdentifiers
