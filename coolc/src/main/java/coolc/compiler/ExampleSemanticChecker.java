@@ -25,13 +25,15 @@ public class ExampleSemanticChecker implements SemanticFacade {
 	@Override
 	public void check() throws SemanticException {
 		// Set the errors to print on whatever PrintStream we are working on
-		ErrorManager.getInstance().setOut(out);
+		
 
 		// Here instantiate and call whatever visitors you need
 		start.apply(new ExampleVisitor());
 		start.apply(new IdentifierValidator());
 		
-		
+		if (ErrorManager.getInstance().getErrors().size() > 0) {
+			throw new SemanticException();
+		}
 		
 		// The visitors may have added erros to the set
 		if (ErrorManager.getInstance().getSemanticErrors() > 0) {
@@ -42,7 +44,7 @@ public class ExampleSemanticChecker implements SemanticFacade {
 	@Override
 	public Set<Error> getErrors() {
 		// TODO Auto-generated method stub
-		return null;
+		return ErrorManager.getInstance().getErrors();
 	}
 
 }

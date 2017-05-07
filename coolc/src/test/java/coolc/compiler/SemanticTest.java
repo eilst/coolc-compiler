@@ -167,7 +167,9 @@ public class SemanticTest {
 		} catch (SemanticException e) {
 			setResult = compiler.getErrors();
 			assert setResult.containsAll(setTest);
-		}				
+			return;
+		}			
+		assert false;
 	}
 	
 	/*************************************************
