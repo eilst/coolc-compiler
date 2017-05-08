@@ -1,5 +1,10 @@
 package coolc.compiler.visitors;
 
+
+import org.jgrapht.DirectedGraph;
+import org.jgrapht.graph.DefaultDirectedGraph;
+import org.jgrapht.graph.DefaultEdge;
+
 import coolc.compiler.ErrorManager;
 import coolc.compiler.autogen.analysis.DepthFirstAdapter;
 import coolc.compiler.autogen.node.AClassDecl;
@@ -14,6 +19,10 @@ public class ExampleVisitor extends DepthFirstAdapter {
 	boolean hasMain = false;
 	boolean flag1 = true;
 	boolean flag2 = true;
+	
+	
+	public DirectedGraph<String, DefaultEdge> directedGraph =
+            new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
 
 	
 	@Override
@@ -47,6 +56,26 @@ public class ExampleVisitor extends DepthFirstAdapter {
 			ErrorManager.getInstance().getErrors().add(Error.REDEF_BASIC);
 		}
 	}
+	
+	@Override
+	public void outAClassDecl(AClassDecl node)
+	{
+		if(node.getName().getText().equals("Object")    ||
+				node.getName().getText().equals("Int")  || 
+				node.getName().getText().equals("String")  || 
+				node.getName().getText().equals("Bool") || 
+				node.getName().getText().equals("IO")){
+			ErrorManager.getInstance().getErrors().add( Error.REDEF_BASIC);
+		}		
+		
+		if(node.getInherits() != null){			
+
+		}else{
+
+		}
+	}
+	
+	
 	/*
 	 * outAProgram is the last node visited, so we check here if there was no main method
 	 */

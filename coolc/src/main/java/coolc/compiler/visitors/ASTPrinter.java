@@ -9,6 +9,10 @@ import coolc.compiler.autogen.node.Node;
 import coolc.compiler.autogen.node.Start;
 import coolc.compiler.autogen.node.Token;
 
+import org.jgrapht.DirectedGraph;
+import org.jgrapht.UndirectedGraph;
+import org.jgrapht.graph.*;
+
 
 /**
  * Text display of the AST, with (optionally) color output.
@@ -21,7 +25,8 @@ import coolc.compiler.autogen.node.Token;
  * @author Abdul <jcordoba@itesm.mx> 02/02/2012 - Simplified for output to a custom PrintStream *no color*
  */
 public class ASTPrinter extends ReversedDepthFirstAdapter {
-
+	DirectedGraph<String, DefaultEdge> directedGraph =
+            new DefaultDirectedGraph<String, DefaultEdge>(DefaultEdge.class);
 	// variables. We use a stack to push on indent tokens...
 	protected String indent = "";
 	protected String output = "";
@@ -38,6 +43,9 @@ public class ASTPrinter extends ReversedDepthFirstAdapter {
 	 */
 	public void outStart(Start node) {
 		out.format("\n  >%s\n", output.substring(3, output.length()));
+		
+		//System.out.println(node.toString());
+		directedGraph.addVertex(node.toString());
 	}
 
 	/*
@@ -45,6 +53,9 @@ public class ASTPrinter extends ReversedDepthFirstAdapter {
 	 * node. The next node we visit will always be the last child of this node.
 	 */
 	public void defaultIn(Node node) {
+		//System.out.println(node.getClass().getName()+"HEYTHEREe");
+		//System.out.println(node.parent()+"Parent!!");
+		directedGraph.addVertex(node.getClass().getName());
 		if (last)
 			indentchar.push("`");
 		else

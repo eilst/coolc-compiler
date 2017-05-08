@@ -77,8 +77,9 @@ public class IdentifierValidator extends DepthFirstAdapter {
 		if (type == null) {
 			ErrorManager.getInstance().semanticError("Coolc.semant.undeclIdentifier");
 		} 
-			
 		node.setType(type);
+		System.out.println(node.getTypeAsString());
+
 		types.put(node, type);
 	}
 	

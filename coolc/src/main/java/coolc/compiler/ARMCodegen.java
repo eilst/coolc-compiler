@@ -69,12 +69,12 @@ public class ARMCodegen extends DepthFirstAdapter implements CodegenFacade {
 //		*** Methods
 		
 		// Note this is like instance some type of inner class to hold the values
-		st.addAggr("strings.{idx,tag,size,sizeIdx,value}", 1, 5, 8, 0, "String 1");
-		st.addAggr("strings.{idx,tag,size,sizeIdx,value}", 2, 5, 11, 0, "Hello World");
-		st.addAggr("strings.{idx,tag,size,sizeIdx,value}", 3, 5, 16, 0, "Cool compiler");
+	//	st.addAggr("strings.{idx,tag,size,sizeIdx,value}", 1, 5, 8, 0, "String 1");
+	//	st.addAggr("strings.{idx,tag,size,sizeIdx,value}", 2, 5, 11, 0, "Hello World");
+	//	st.addAggr("strings.{idx,tag,size,sizeIdx,value}", 3, 5, 16, 0, "Cool compiler");
 		
-		st.addAggr("ints.{idx,tag,value}", 1, 3, 15);
-		st.addAggr("ints.{idx,tag,value}", 1, 3, 28);
+	//	st.addAggr("ints.{idx,tag,value}", 1, 3, 15);
+	//	st.addAggr("ints.{idx,tag,value}", 1, 3, 28);
 		
 		
 		start.apply(this);

@@ -14,6 +14,7 @@ import coolc.compiler.autogen.parser.Parser;
 import coolc.compiler.autogen.parser.ParserException;
 import coolc.compiler.exceptions.SemanticException;
 import coolc.compiler.util.Error;
+import coolc.compiler.visitors.ASTPrinter;
 import coolc.compiler.visitors.ASTPrinterTypes;
 
 public class CompilerImpl implements Compiler {
@@ -64,12 +65,13 @@ public class CompilerImpl implements Compiler {
 		}
 		
 		// If no errors, print the AST WITH TYPES!!!
-		//start.apply(new ASTPrinterTypes(System.out));
+		//System.out.println("AASSTT");
+		start.apply(new ASTPrinter(System.out));
 		
 		// When generating code, uncomment this:
 //		PrintStream out = new PrintStream(new FileOutputStream(outFile));
 //		compiler.genCode(start, out);
-		compiler.genCode(start, System.out);
+	//	compiler.genCode(start, System.out);
 		
 	}
 	
