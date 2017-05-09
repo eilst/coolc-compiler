@@ -2,9 +2,8 @@
 
 package coolc.compiler.autogen.node;
 
-public abstract class PExpr extends Node
+public abstract class PFeature extends Node
 {
-    // Empty body
 	String inClass;
 
 	public String getInClass() {
@@ -14,4 +13,5 @@ public abstract class PExpr extends Node
 	public void setInClass(String inClass) {
 		this.inClass = inClass;
 	}
+    // Empty body
 }
