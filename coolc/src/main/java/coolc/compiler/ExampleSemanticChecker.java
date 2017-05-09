@@ -42,7 +42,7 @@ public class ExampleSemanticChecker implements SemanticFacade {
 		// Here instantiate and call whatever visitors you need
 		//start.apply(new ExampleVisitor());
 		//start.apply(new IdentifierValidator());
-		//1st
+				//1st
 				Simbols sv = new Simbols();
 				start.apply(sv);
 				
@@ -66,8 +66,14 @@ public class ExampleSemanticChecker implements SemanticFacade {
 				if(errorManager.getErrors().size() > 0){
 				throw new SemanticException();
 				}
+		
 				
-				
+				//3RD
+				VisitorF scv = new VisitorF();
+				start.apply(scv);
+				if(errorManager.getErrors().size() > 0){
+					throw new SemanticException();
+				}
 				
 		
 	}

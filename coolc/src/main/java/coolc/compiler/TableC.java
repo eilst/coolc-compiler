@@ -105,7 +105,13 @@ public class TableC {
 		this.table = table;
 	}
 	
-	
+	public Hashtable<String, LinkedList<Methods>> getMethodTable() {
+		return methodTable;
+	}
+
+	public void setMethodTable(Hashtable<String,LinkedList<Methods>> table) {
+		this.methodTable = table;
+	}
 	
 	public Graph getGraph() {
 		return graph;
@@ -122,8 +128,29 @@ public class TableC {
 		 
 		featList = new LinkedList<PFeature>();
 		 
-		
-	
+		pf = new AMethodFeature(
+		new TObjectId("abort"),
+		new LinkedList<PFormal>(),
+		new TTypeId("Object"),
+		new ANoExpr()
+		);
+		featList.add(pf);
+		 
+		pf = new AMethodFeature(
+		new TObjectId("type_name"),
+		new LinkedList<PFormal>(),
+		new TTypeId("String"),
+		new ANoExpr()
+		);
+		featList.add(pf);
+		 
+		pf = new AMethodFeature(
+		new TObjectId("copy"),
+		new LinkedList<PFormal>(),
+		new TTypeId("SELF_TYPE"),
+		new ANoExpr()
+		);
+		featList.add(pf);
 		 
 		AClassDecl ObjectClass = new AClassDecl(
 		new TTypeId("Object"),
@@ -133,7 +160,42 @@ public class TableC {
 		
 		featList = new LinkedList<PFeature>();
 		 
-		
+		formalList = new LinkedList<PFormal>();
+		formalList.add(new AFormal(new TObjectId("arg"), new TTypeId("String")));
+		pf = new AMethodFeature(
+		new TObjectId("out_string"),
+		formalList,
+		new TTypeId("SELF_TYPE"),
+		new ANoExpr()
+		);
+		featList.add(pf);
+		 
+		formalList = new LinkedList<PFormal>();
+		formalList.add(new AFormal(new TObjectId("arg"), new TTypeId("Int")));
+		pf = new AMethodFeature(
+		new TObjectId("out_int"),
+		formalList,
+		new TTypeId("SELF_TYPE"),
+		new ANoExpr()
+		);
+		featList.add(pf);
+		 
+		formalList = new LinkedList<PFormal>();
+		pf = new AMethodFeature(
+		new TObjectId("in_string"),
+		formalList,
+		new TTypeId("String"),
+		new ANoExpr()
+		);
+		featList.add(pf);
+		 
+		pf = new AMethodFeature(
+		new TObjectId("in_int"),
+		formalList,
+		new TTypeId("Int"),
+		new ANoExpr()
+		);
+		featList.add(pf);
 		 
 		AClassDecl IOClass = new AClassDecl(
 		new TTypeId("IO"),
@@ -191,9 +253,34 @@ public class TableC {
 		);
 		featList.add(pf);
 		 
-		
+		pf = new AMethodFeature(
+		new TObjectId("length"),
+		new LinkedList<PFormal>(),
+		new TTypeId("Int"),
+		new ANoExpr()
+		);
+		featList.add(pf);
 		 
-		
+		formalList = new LinkedList<PFormal>();
+		formalList.add(new AFormal(new TObjectId("arg"), new TTypeId("String")));
+		pf = new AMethodFeature(
+		new TObjectId("concat"),
+		formalList,
+		new TTypeId("String"),
+		new ANoExpr()
+		);
+		featList.add(pf);
+		 
+		formalList = new LinkedList<PFormal>();
+		formalList.add(new AFormal(new TObjectId("arg"), new TTypeId("Int")));
+		formalList.add(new AFormal(new TObjectId("arg2"), new TTypeId("Int")));
+		pf = new AMethodFeature(
+		new TObjectId("substr"),
+		formalList,
+		new TTypeId("Str"),
+		new ANoExpr()
+		);
+		featList.add(pf);
 		 
 		 
 		AClassDecl StringClass = new AClassDecl(
@@ -212,9 +299,75 @@ public class TableC {
 		infos.add(new Methods("Int","String",formals));
 		methodTable.put("length", infos);
 		
+		formals = new LinkedList<Formals>();
+		formals.add(new Formals("arg","String"));
+		infos = new LinkedList<Methods>();
+		infos.add(new Methods("String","String",formals));
+		methodTable.put("concat", infos);
+		
+		formals = new LinkedList<Formals>();
+		formals.add(new Formals("arg","Int"));
+		formals.add(new Formals("arg2","Int"));
+		infos = new LinkedList<Methods>();
+		infos.add(new Methods("String","String",formals));
+		methodTable.put("substr", infos);
 		
 	
+		formals = new LinkedList<Formals>();
+		infos = new LinkedList<Methods>();
+		infos.add( new Methods("String","IO",formals));
+		methodTable.put("in_string",infos);
 		
+		formals = new LinkedList<Formals>();
+		infos = new LinkedList<Methods>();
+		infos.add(new Methods("Int","IO",formals));
+		methodTable.put("in_int", infos);
+		
+		formals = new LinkedList<Formals>();
+		infos = new LinkedList<Methods>();
+		infos.add(new Methods("Object","Object",formals));
+		methodTable.put("abort", infos);
+		
+		
+		formals = new LinkedList<Formals>();
+		infos = new LinkedList<Methods>();
+		infos.add(new Methods("String","Object",formals));
+		methodTable.put("type_name", infos);
+		
+
+		Methods info;
+		formals = new LinkedList<Formals>();
+		info = new Methods("Int","String",formals);
+		methodTableC.put("String.length", info);
+		
+		formals = new LinkedList<Formals>();
+		formals.add(new Formals("arg","String"));
+		info = new Methods("String","String",formals);
+		methodTableC.put("String.concat", info);
+		
+		formals = new LinkedList<Formals>();
+		formals.add(new Formals("arg","Int"));
+		formals.add(new Formals("arg2","Int"));
+		info = new Methods("String","String",formals);
+		methodTableC.put("String.substr", info);
+		
+		
+		formals = new LinkedList<Formals>();
+		info = new Methods("String","IO",formals);
+		methodTableC.put("IO.in_string",info);
+		
+		formals = new LinkedList<Formals>();
+		info = new Methods("Int","IO",formals);
+		methodTableC.put("IO.in_int", info);
+		
+		formals = new LinkedList<Formals>();
+		info = new Methods("Object","Object",formals);
+		methodTableC.put("Object.abort", info);
+		
+		
+		formals = new LinkedList<Formals>();
+		info = new Methods("String","Object",formals);
+		methodTableC.put("Object.type_name", info);
 		
 	}
 	
