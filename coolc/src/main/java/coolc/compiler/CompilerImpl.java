@@ -66,7 +66,7 @@ public class CompilerImpl implements Compiler {
 		
 		// If no errors, print the AST WITH TYPES!!!
 		//System.out.println("AASSTT");
-		start.apply(new ASTPrinter(System.out));
+		start.apply(new ASTPrinterTypes(System.out));
 		
 		// When generating code, uncomment this:
 //		PrintStream out = new PrintStream(new FileOutputStream(outFile));

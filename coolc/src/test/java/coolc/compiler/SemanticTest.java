@@ -130,7 +130,10 @@ public class SemanticTest {
 
 		compiler.setup(semanticFacade, null);
 		Start start = compiler.lexAndParse(new File(inputPath + file), out);
-		compiler.semanticCheck(start, out);
+		if(start != null){
+			compiler.semanticCheck(start, out);
+		}
+		
 		
 		start.apply(new ASTPrinterTypes(out));
 		out.close();

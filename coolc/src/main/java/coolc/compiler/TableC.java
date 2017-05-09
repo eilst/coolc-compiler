@@ -218,6 +218,7 @@ public class TableC {
 		featList
 		);
 		 
+		// Bool also has only the "val" slot.
 		featList = new LinkedList<PFeature>();
 		pf = new AAttributeFeature(
 		new TObjectId("val"),
@@ -312,7 +313,18 @@ public class TableC {
 		infos.add(new Methods("String","String",formals));
 		methodTable.put("substr", infos);
 		
-	
+		formals = new LinkedList<Formals>();
+		formals.add(new Formals("arg","String"));
+		infos = new LinkedList<Methods>();
+		infos.add(new Methods("SELF_TYPE","IO",formals));
+		methodTable.put("out_string", infos);
+		
+		formals = new LinkedList<Formals>();
+		formals.add(new Formals("arg","Int"));
+		infos = new LinkedList<Methods>();
+		infos.add(new Methods("SELF_TYPE","IO",formals));
+		methodTable.put("out_int", infos);
+		
 		formals = new LinkedList<Formals>();
 		infos = new LinkedList<Methods>();
 		infos.add( new Methods("String","IO",formals));
@@ -334,7 +346,12 @@ public class TableC {
 		infos.add(new Methods("String","Object",formals));
 		methodTable.put("type_name", infos);
 		
-
+		formals = new LinkedList<Formals>();
+		infos = new LinkedList<Methods>();
+		infos.add(new Methods("SELF_TYPE","Object",formals));
+		methodTable.put("copy", infos);
+		
+		
 		Methods info;
 		formals = new LinkedList<Formals>();
 		info = new Methods("Int","String",formals);
@@ -351,6 +368,15 @@ public class TableC {
 		info = new Methods("String","String",formals);
 		methodTableC.put("String.substr", info);
 		
+		formals = new LinkedList<Formals>();
+		formals.add(new Formals("arg","String"));
+		info = new Methods("SELF_TYPE","IO",formals);
+		methodTableC.put("IO.out_string", info);
+		
+		formals = new LinkedList<Formals>();
+		formals.add(new Formals("arg","Int"));
+		info = new Methods("SELF_TYPE","IO",formals);
+		methodTable.put("IO.out_int", infos);
 		
 		formals = new LinkedList<Formals>();
 		info = new Methods("String","IO",formals);
@@ -369,6 +395,9 @@ public class TableC {
 		info = new Methods("String","Object",formals);
 		methodTableC.put("Object.type_name", info);
 		
+		formals = new LinkedList<Formals>();
+		info = new Methods("SELF_TYPE","Object",formals);
+		methodTableC.put("Object.copy", info);
 	}
 	
 	public void addClassToTable(AClassDecl node){
