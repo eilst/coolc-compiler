@@ -4,6 +4,7 @@ Helpers
     all = [0 .. 0xFFFF];
     cr = 13;
     lf = 10;
+    comment_chr =  [all - ['(' + '*' ] ] | '\' ')' | '\' '*' | '\' '(' ;
     
     a = ['a' + 'A'];
     b = ['b' + 'B'];
@@ -36,14 +37,7 @@ Helpers
     ucase = ['A'..'Z'];
     lcase = ['a'..'z'];
     digit = ['0'..'9'];
-        
-    eol =	[ [ cr + lf ] + [ cr + lf ] ];
     
-	comment_chr = [all - ['(' + '*' ] ] | '\' ')' | '\' '*' | '\' '('  ;
-	
-	str_char = [all - ['"' + [ '\' + [ 10 + 0  ] ] ] ];
-    
-    str_const = '\' [all - 0] | '\' '"' | '\' lf;
 
 
     // 8 - backspace
@@ -54,103 +48,346 @@ Helpers
     // 13 - cr
     blank = (' ' | 8 | 9 | lf | 11 | 12 | cr );
     
+    instr_char = [all - ['"' + [ '\' + [ 10 + 0  ] ] ] ];
+    
+    str_const2 = '\' [all - 0];
+    str_const3 = '\' '"';
+    str_const4 = '\' lf;
+    
 States
-	initial,
-	lcomment,
-	comment,
-	string,
-	strerr;
-	
+    initial, instra, instrb, comment, scomment, strerr;
+    
 Tokens
-    // klass fi if in inherits isvoid let loop pool then else while case esac new of not
-    // lbrace rbrace lparen rparen semi colon 
-    // mult div plus minus neg lt le eq at
-    // assign darrow comma dot
-    // error_star_lpar int_const bool_const type_id object_id str_const str_err comment
-   
-    {initial} if = i f;
-	{initial} hola = 'hola';
-	{initial} klass = c l a s s;
-	{initial} fi = f i;
-	{initial} in = i n;
-	{initial} inherits = i n h e r i t s;
-	{initial} isvoid = i s v o i d;
-	{initial} let = l e t;
-	{initial} loop = l o o p;
-	{initial} pool = p o o l;
-	{initial} then = t h e n;
-	{initial} while = w h i l e;
-	{initial} case = c a s e;
-	{initial} esac = e s a c;
-	{initial} new = n e w;
-	{initial} of = o f;
-	{initial} not = n o t;
-	{initial} else = e l s e;
-	{initial} them = t h e m;
+	{initial} blanks = blank+;
 	
-	{initial} lbrace = '{';
-	{initial} rbrace = '}';
-	{initial} lparen = '(';
-	{initial} rparen = ')';
-	{initial} semi = ';';
-	{initial} comma = ',';
-	{initial} colon = ':';
-	{initial} dot = '.' ;
-	
-	{initial} plus = '+' ;
-	{initial} minus = '-' ;
-	{initial} mult = '*' ;
-	{initial} div = '/';
-	{initial} at = '@';
-	{initial} neg = '~';
-	{initial} lt = '<';
-	{initial} eq = '=';
-	{initial} assign = '<-';
-	{initial} darrow = '=>';
-	{initial} le = '<=';
-	
-	{initial} blank = blank+;
-	{initial} bool_const = ('t' r u e )|('f' a l s e);
-	{initial} object_id = lcase (alpha | digit | '_')*;
-	{initial} type_id  = ucase (alpha | digit | '_')*;	
-	
-	{initial} int_const = digit+;
-
-	{initial} error_star_lpar = '*)';
-	
-	{initial->comment} comment_start = '(' '*';
-	{comment} comment_in = '(' '*';
-	{comment->initial} comment_end = '*' ')';
-	{comment} comment_txt = comment_chr*;
-	{comment} comment_star = '*';
-	{comment} comment_lpar = '(';
-	
-	
-	{initial->lcomment} lcomment_start = '-' '-';
-	{lcomment} lcomment_txt = ([all -10])*;
-	{lcomment->initial} lcomment_end = lf;
-	
-	
-	
-	{initial->string} str_start = '"';
-    {string} str_const = str_char+ | str_const; 	
-    {string->initial} str_error_eol = lf;
-    {string->strerr} str_error_null = 0;
-    {string->strerr} str_error_escaped_null = '\' 0;
+    {initial} klass = c l a s s;
+    {initial} fi = f i ;
+    {initial} if = i f ;
+    {initial} in = i n ;
+    {initial} inherits = i n h e r i t s;
+    {initial} isvoid = i s v o i d;
+    {initial} let = l e t;
+    {initial} loop = l o o p;
+    {initial} pool = p o o l;
+    {initial} then = t h e n;
+    {initial} else = e l s e;
+    {initial} while = w h i l e;
+    {initial} case = c a s e;
+    {initial} esac = e s a c;
+    {initial} new = n e w; 
+    {initial} of = o f;
+    {initial} not = n o t;
+    
+    {initial} lbrace = '{';
+    {initial} rbrace = '}';
+    
+    {initial} lparen = '(';
+    {initial} rparen = ')';
+    {initial} semi = ';';
+    {initial} colon = ':';
+    
+    {initial} mult = '*';
+    {initial} div = '/';
+    {initial} plus = '+';
+    {initial} minus = '-';
+    
+    {initial} neg = '~';
+    {initial} lt = '<';
+    {initial} le = '<=';
+    {initial} eq = '=';
+    {initial} at = '@';
+    
+    {initial} assign = '<-';
+    {initial} darrow = '=>';
+    {initial} comma = ',';
+    {initial} dot = '.';
+    
+    {initial} error_star_lpar = '*)';    
+    
+    {initial} int_const = digit+;
+    {initial} bool_const = ('t' r u e ) | ('f' a l s e);
+    {initial} type_id = ucase (alpha | digit | '_') *;
+    {initial} object_id = lcase (alpha | digit | '_')*;
+    
+    {initial->instra} str_begin = '"';
+    {instra} str_const = instr_char+ | str_const2 | str_const3 | str_const4;
+    	
+    {instra->initial} str_error_eol = lf;
+    {instra->strerr} str_error_null = 0;
+    {instra->strerr} str_error_escaped_null = '\' 0;
+    
     {strerr} str_err = [all - [ lf +  '"' ] ]+;
-    {strerr->initial} str_err_quotesb= '"';
-    {strerr->initial} str_err_nlb = lf;    
-    {string->initial} str_end = '"';
+    {strerr->initial} str_err_out_dq = '"';
+    {strerr->initial} str_err_out_nl = lf;    
     
+    {instra->initial} str_end = '"';
     
-	{initial, comment, string}	errend = all;
+    // 39 es el quote
+    {initial->instrb} str_begin_single = 39;
+    {instrb->initial} error_eol_single = lf;
+    {instra->initial} str_end_single = 39;
+    
+	{initial->comment} comment_begin = '(' '*';
+	{comment} comment_nest = '(' '*';	
+	{comment->initial} comment_end = '*' ')';
+	{comment} comment_txt =  comment_chr*;
+	{comment} comment_star =  '*';
+	{comment} comment_lpar =  '(';
 	
-	
-	
-Ignored Tokens
+	{initial->scomment} scomment_begin = '-' '-'; 
+	{scomment} scomment_txt = ( [all - 10 ] )*; 
+	{scomment->initial} scomment_end = lf;
 
-	comment_start, comment_in, comment_end, comment_txt, comment_star, comment_lpar, lcomment_start, lcomment_txt,
-	lcomment_end,	blank, str_error_eol, error_star_lpar, errend, str_err_quotesb, str_err_nlb ;
+	{initial, comment, instra, instrb} errend = all;
+    
+Ignored Tokens
+    blanks, comment_begin, comment_nest, comment_end, comment_txt, 
+    comment_star, comment_lpar, scomment_begin, scomment_txt, scomment_end;
 
 Productions
-	 source = hola;
+
+	program {-> program } = class_decl+ {-> New program([class_decl]) }
+		;
+
+	inheritance {-> type_id} = 
+		inherits type_id {-> type_id }
+		;
+		
+	class_decl {-> class_decl } = 
+		{single} klass type_id inheritance? lbrace feature* rbrace semi 
+		{-> New class_decl(type_id, inheritance.type_id, [feature]) }
+		;
+
+
+
+	feature {-> feature }=
+		{field} field semi {-> field.feature }
+		| method semi {-> method.feature }
+		;
+
+	init_field {-> expr } = 
+		assign expr1 {-> expr1.expr }
+		;
+
+	objtype = object_id colon type_id ;
+
+	field {-> feature } = 
+		object_id colon type_id init_field? 
+		{-> New feature.attribute(object_id, type_id, init_field.expr ) }
+		;
+	
+	method {-> feature} =
+		object_id lparen formals? rparen colon type_id lbrace expr1 rbrace
+		{-> New feature.method(object_id, [formals.formal], type_id, expr1.expr) } 
+		;
+		//object_id formal* type_id expr
+		
+		
+	formal_p {-> formal } = object_id colon type_id
+		{-> New formal(object_id, type_id) }
+		;
+	
+	formals {-> formal* }=
+		{single} formal_p {-> [formal_p.formal] }
+		| {list} formals comma formal_p {-> [formals.formal, formal_p.formal] }
+		;
+		
+	expr_list {-> expr* } =
+		{single} expr1 semi {-> [expr1.expr] }
+		| {list} expr_list expr1 semi {-> [expr_list.expr, expr1.expr] }
+		;
+
+	branch_list {-> branch+} =
+		{single} branch {-> [branch] }
+		| {list} branch_list branch {-> [branch_list.branch, branch.branch] }
+		;
+		
+	branch {-> branch } = 
+		object_id colon type_id darrow expr1 semi 
+		{-> New branch(object_id, type_id, expr1.expr) }
+		;
+
+	actuals {-> expr* } =
+		{single} expr1 {-> [expr1.expr] }
+		| {list} actuals comma expr1 {-> [actuals.expr, expr1.expr] }
+		| {empty} {-> [] }
+		;
+
+	op_assign {-> expr} = 
+		assign expr1 {-> expr1.expr }
+		;
+		
+	let_decl {-> let_decl } = 
+		object_id colon type_id op_assign? 
+		{-> New let_decl(object_id, type_id, op_assign.expr) }
+		;
+	
+	let_decls {-> let_decl* } = 
+		{simple} let_decl {-> [let_decl] }
+		| {more} let_decls comma let_decl {-> [let_decls.let_decl, let_decl.let_decl] }
+		;
+
+	expr1 {-> expr } =
+		{let} let let_decls in object_id assign expr1 {-> New expr.let([let_decls.let_decl], New expr.assign(object_id, expr1.expr)) } 
+		| {assign} object_id assign expr1 {-> New expr.assign(object_id, expr1.expr) }
+		| {other} expr2 {-> expr2.expr }
+		;
+
+/*
+	expr3 {-> expr } = 
+		{not} not expr3 {-> New expr.not(expr3.expr) }
+		| {other} expr4_let {-> expr4_let.expr }
+		;
+		
+	expr2 {-> expr } = 
+		{le} [l]:expr3 le [r]:expr3 {-> New expr.le(l.expr, r.expr)}
+		| {lt} [l]:expr3 lt [r]:expr3 {-> New expr.lt(l.expr, r.expr)}
+		| {eq} [l]:expr3 eq [r]:expr3 {-> New expr.eq(l.expr, r.expr)}
+		| {other} expr3 {-> expr3.expr }
+		; */ 
+		
+	expr2 {-> expr } = 
+		{not} not expr2 {-> New expr.not(expr2.expr) }
+		| {other} expr3 {-> expr3.expr }
+		;
+		
+	expr3 {-> expr } = 
+		{le} [l]:expr4_let le [r]:expr4_let {-> New expr.le(l.expr, r.expr)}
+		| {lt} [l]:expr4_let lt [r]:expr4_let {-> New expr.lt(l.expr, r.expr)}
+		| {eq} [l]:expr4_let eq [r]:expr4_let {-> New expr.eq(l.expr, r.expr)}
+		| {other} expr4_let {-> expr4_let.expr }
+		; 
+				
+	expr4_let {-> expr } =
+		let let_decls in expr4_let {-> New expr.let([let_decls.let_decl], expr4_let.expr) }
+		| {other} expr4 {-> expr4.expr}
+		;
+
+	expr4 {-> expr } = 
+		{plus} [l]:expr4 plus [r]:expr5_let {-> New expr.plus(l.expr, r.expr)}
+		| {minus} [l]:expr4 minus [r]:expr5_let {-> New expr.minus(l.expr, r.expr)}
+		| {other} expr5 {-> expr5.expr }
+		;
+
+	expr5_let {-> expr } =
+		let let_decls in expr5_let {-> New expr.let([let_decls.let_decl], expr5_let.expr) }
+		| {other} expr5 {-> expr5.expr}
+		;
+
+	expr5 {-> expr } = 
+		{mult} [l]:expr5 mult [r]:expr6_let {-> New expr.mult(l.expr, r.expr)}
+		| {div} [l]:expr5 div [r]:expr6_let {-> New expr.div(l.expr, r.expr)}
+		| {other} expr6 {-> expr6.expr }
+		;
+		
+	expr6_let {-> expr } =
+		let let_decls in expr6_let {-> New expr.let([let_decls.let_decl], expr6_let.expr) }
+		| {other} expr6 {-> expr6.expr}
+		;
+
+	expr6 {-> expr } =
+		{isvoid} isvoid expr6 {-> New expr.isvoid(expr6.expr) }
+		| {other} expr7 {-> expr7.expr }
+		;
+
+	expr7 {-> expr } = 
+		{neg_l} neg expr7_let {-> New expr.neg(expr7_let.expr) }
+		| {other} expr8 {-> expr8.expr }
+		;
+	
+	expr7_let {-> expr } =
+		let let_decls in expr7_let {-> New expr.let([let_decls.let_decl], expr7_let.expr) }
+		| {other} expr8 {-> expr8.expr}
+		;
+
+	expr8 {-> expr } =
+		{at} expr8 atopt? dot object_id lparen actuals rparen
+		{-> New expr.at(expr8.expr, atopt.type_id, object_id, [actuals.expr]) }
+		| {other} expr10 {-> expr10.expr }
+		;
+		
+	atopt {-> type_id } =
+		{at} at type_id {-> type_id }
+		;
+		
+	expr10 {-> expr } =
+        {case} case expr1 of branch_list esac 
+        	{-> New expr.case(expr1.expr, [branch_list.branch]) }
+        | {while} while [test]:expr1 loop [expr]:expr1 pool 
+        	{-> New expr.while(test.expr, expr.expr) }
+        | {if} if [test]:expr1 then [true]:expr1 else [false]:expr1 fi
+        	{-> New expr.if(test.expr, true.expr, false.expr) }
+        | {call} object_id lparen actuals rparen 
+        	{-> New expr.call(object_id, [actuals.expr]) }        
+        | {simple} expr99 
+        	{-> expr99.expr }         
+        ;
+
+	expr99 {-> expr } =
+	    {bool} bool_const
+	    	{-> New expr.bool(bool_const) }
+        | {str} str_const
+        	{-> New expr.str(str_const) }
+        | {int} int_const
+        	{-> New expr.int(int_const) }
+        | {object} object_id
+        	{-> New expr.object(object_id) }
+        | {parens} lparen expr1 rparen
+        	{-> expr1.expr }        		
+        | {new} new type_id
+        	{-> New expr.new(type_id) }
+        | {list} lbrace expr_list rbrace
+        	{-> New expr.list( [expr_list.expr] ) }
+		;	
+
+Abstract Syntax Tree
+	program = class_decl+
+		;
+	
+	class_decl = 
+		[name]:type_id [inherits]:type_id? feature*
+		;
+		
+	feature = 
+		{method} object_id formal* type_id expr
+		| {attribute} object_id type_id expr?
+		;
+
+	formal =
+		object_id type_id
+		;
+	
+	let_decl =
+		object_id type_id expr?
+		;
+		
+	branch =
+		object_id type_id expr
+		;
+		
+	expr = 
+		{assign} object_id expr
+		| {not} expr
+		| {le} [l]:expr [r]:expr
+		| {lt} [l]:expr [r]:expr
+		| {eq} [l]:expr [r]:expr
+		| {plus} [l]:expr [r]:expr
+		| {minus} [l]:expr [r]:expr
+		| {mult} [l]:expr [r]:expr
+		| {div} [l]:expr [r]:expr
+		| {isvoid} expr
+		| {neg} expr
+		| {at} expr type_id? object_id [list]:expr+
+		| {let} let_decl+ expr
+		| {case} [test]:expr branch+
+		| {while} [test]:expr [loop]:expr
+		| {if} [test]:expr [true]:expr [false]:expr
+		| {call} object_id expr+		
+		| {bool} bool_const
+		| {str} str_const
+		| {int} int_const
+		| {object} object_id
+		| {new} type_id
+		| {list} expr*
+		| {no}
+		; 

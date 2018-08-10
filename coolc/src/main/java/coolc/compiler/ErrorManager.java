@@ -4,27 +4,27 @@ import java.io.PrintStream;
 import java.util.EnumSet;
 import java.util.Set;
 
-import coolc.compiler.util.Errors;
+import coolc.compiler.util.Error;
 import coolc.compiler.util.Messages;
 
 public class ErrorManager {
 	private static ErrorManager instance;
 	private int semantic;
 	private PrintStream out;
-	private Set<Errors> errors;
+	private Set<Error> errors;
 	
-	public Set<Errors> getErrors() {
+	public Set<Error> getErrors() {
 		return errors;
 	}
 
-	public void setErrors(Set<Errors> errors) {
+	public void setErrors(Set<Error> errors) {
 		this.errors = errors;
 	}
 
 	private ErrorManager() {
 	}
 	
-	public int getSemantic() {
+	public int getSemanticErrors() {
 		return semantic;
 	}
 	
@@ -35,21 +35,21 @@ public class ErrorManager {
 	public static ErrorManager getInstance() {
 		if (instance == null) {
 			instance = new ErrorManager();
-			instance.setErrors(EnumSet.noneOf(Errors.class));	
+			instance.setErrors(EnumSet.noneOf(Error.class));	
 		}
 		
 		return instance;
 	}
 	
-	public void semantic(String msg, Object ... args) {
+	public void semanticError (String msg, Object ... args) {
 		semantic++;
 		if (out != null) {			
-			errors.add(Errors.get(msg));
+			errors.add(Error.get(msg));
 			out.format(Messages.getString(msg), args);
 		}
 	}
 	
-	public void fatal(String msg, Object ... args) {
+	public void fatalError (String msg, Object ... args) {
 		if (out != null) {
 			out.format(Messages.getString(msg), args);
 		}
@@ -58,6 +58,6 @@ public class ErrorManager {
 	
 	public void reset() {
 		semantic = 0;
-		errors = EnumSet.noneOf(Errors.class);	
+		errors = EnumSet.noneOf(Error.class);	
 	}
 }

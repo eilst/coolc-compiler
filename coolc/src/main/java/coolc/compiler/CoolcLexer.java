@@ -4,37 +4,33 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.io.PushbackReader;
 import java.lang.reflect.Method;
+
 import coolc.compiler.autogen.lexer.Lexer;
 import coolc.compiler.autogen.lexer.LexerException;
 import coolc.compiler.autogen.node.EOF;
+import coolc.compiler.autogen.node.TCommentBegin;
 import coolc.compiler.autogen.node.TCommentEnd;
-import coolc.compiler.autogen.node.TCommentIn;
-import coolc.compiler.autogen.node.TCommentStart;
+import coolc.compiler.autogen.node.TCommentNest;
 import coolc.compiler.autogen.node.TErrend;
 import coolc.compiler.autogen.node.TErrorStarLpar;
+import coolc.compiler.autogen.node.TStrBegin;
 import coolc.compiler.autogen.node.TStrConst;
 import coolc.compiler.autogen.node.TStrEnd;
-import coolc.compiler.autogen.node.TStrErrNlb;
-import coolc.compiler.autogen.node.TStrErrQuotesb;
+import coolc.compiler.autogen.node.TStrErrOutDq;
+import coolc.compiler.autogen.node.TStrErrOutNl;
 import coolc.compiler.autogen.node.TStrErrorEol;
 import coolc.compiler.autogen.node.TStrErrorEscapedNull;
 import coolc.compiler.autogen.node.TStrErrorNull;
-import coolc.compiler.autogen.node.TStrStart;
 import coolc.compiler.autogen.node.Token;
 import coolc.compiler.autogen.parser.Parser;
 import coolc.compiler.util.Messages;
-import coolc.compiler.util.*;
+import coolc.compiler.util.Util;
 
 public class CoolcLexer extends Lexer {
 	private Parser parser;
 	private Method index;
-	private Token lastToken;
 	private PrintStream out;
-	int comments = 0;
-	boolean strst = false;
-	boolean pass = false; 
-	boolean errorNulInStr = false;
-	TStrConst buffer = null;
+	private Token lastToken;
 
 	public CoolcLexer(PushbackReader in, PrintStream out) {
 		super(in);
@@ -52,147 +48,145 @@ public class CoolcLexer extends Lexer {
 			}
 		} catch (Exception e) {
 			/* Never actually reached */
-		}		
+		}
+		
 		return false;
 	}
-	
-	@Override
-	public Token next() throws LexerException, IOException {
-		return super.next();
-	}
-	
-	protected void lexx(){
-		//comments
-		//to handle nested comments
-		if (token instanceof TCommentStart) {
+
+	int comments = 0;
+	boolean inStr = false, jumpOne = false, errorNulInStr = false;
+	TStrConst tempStr = null;
+
+	protected void checks() {
+		// Comentarios anidados.
+		if (token instanceof TCommentBegin) {
 			comments++;
 		}
-		else if (token instanceof TCommentIn) {
-			comments++; //for nested comments
+
+		else if (token instanceof TCommentNest) {
+			comments++;
 		} 
+
 		else if (token instanceof TCommentEnd) {
-			comments--; //closing nested comments until the  initial commentstart is matched
+			comments--;
 			if (comments == 0) {
 				state = State.INITIAL;
 			} else {
 				state = State.COMMENT;
 			}
+		} 
+
+			
+		// Comienzo de string
+		else if (token instanceof TStrBegin) {
+			inStr = true;
 		}
-		
-		//comment errors
-		commenterrors();//
-		
-		//strings
-		 if (token instanceof TStrStart) {
-			strst = true;
-		}
+			
+		// Composici�n final del string
 		else if (token instanceof TStrEnd) {
-			if (strst) {
-				if (buffer != null) {
-					buffer.setText(unescape(buffer.getText()));
-					token = buffer;
+			if (inStr) {
+				if (tempStr == null) {
+					token = new TStrConst("", token.getLine(), token.getPos()); //$NON-NLS-1$
 				} else {
-					token = new TStrConst("", token.getLine(), token.getPos()); //as seen in class
-					
-				}
-				if (errorNulInStr) {
-					out.format(Messages.getString("Coolc.lexer.nullInString"), 
-							token.getLine());
-					errorNulInStr = false;
+					tempStr.setText(unescape(tempStr.getText()));
+					token = tempStr;
 				}
 				if (token.getText().length() > 1024) {
-					out.format(Messages.getString("Coolc.lexer.longString"), token.getLine()); 
-					pass = true; //pass s will have effect when reaching the while loop on ignore tokens
+					out.format(Messages.getString("Coolc.lexer.longString"), token.getLine()); //$NON-NLS-1$
+					jumpOne = true;
 				}
-				strst = false;
-				buffer = null;
+				if (errorNulInStr) {
+					out.format(Messages.getString("Coolc.lexer.nullInString"), //$NON-NLS-1$
+							token.getLine());
+					errorNulInStr = false;
+					jumpOne = true;					
+				}
+				tempStr = null;
+				inStr = false;
 			}
 		}
-		 else if (token instanceof TStrConst) {
-			if (buffer == null) {
-				buffer = (TStrConst) token;
+
+		// Acumulaci�n en strings intermedios del string
+		else if (token instanceof TStrConst) {
+			if (tempStr == null) {
+				tempStr = (TStrConst) token;
 			} else {
-				buffer.setText(buffer.getText() + token.getText());
+				tempStr.setText(tempStr.getText() + token.getText());
 			}
 		}
-		stringErrors();
-	}
-	
-	protected void stringErrors(){
-		if (token instanceof TStrErrorEol) {
-			out.format(Messages.getString("Coolc.lexer.unterminatedString"), token.getLine()); 
-			buffer = null;
-			strst = false;
+
+		// Errores en medio del string
+		else if (token instanceof TStrErrorEol) {
+			out.format(Messages.getString("Coolc.lexer.unterminatedString"), token.getLine()); //$NON-NLS-1$
+			tempStr = null;
+			inStr = false;
+			jumpOne = true;			
 		}
-	
+
 		else if (token instanceof TStrErrorNull) {
-			out.format(Messages.getString("Coolc.lexer.nullInString"), token.getLine()); 
+			out.format(Messages.getString("Coolc.lexer.nullInString"), token.getLine()); //$NON-NLS-1$
 		}
 		
 		else if (token instanceof TStrErrorEscapedNull) {
-			out.format(Messages.getString("Coolc.lexer.escapedNullString"), token.getLine()); 
+			out.format(Messages.getString("Coolc.lexer.escapedNullString"), token.getLine()); //$NON-NLS-1$
 		} 
-		else if (token instanceof TStrErrNlb) {
-			buffer = null;
-			strst = false;
+		else if (token instanceof TStrErrOutNl) {
+			tempStr = null;
+			inStr = false;
+			jumpOne = true;
 		}
-		else if (token instanceof TStrErrQuotesb) {
-			buffer = null;
-			strst = false;
+		else if (token instanceof TStrErrOutDq) {
+			tempStr = null;
+			inStr = false;
+			jumpOne = true;
 		}
-		else if (token instanceof EOF && strst ) {
-				out.format(Messages.getString("Coolc.lexer.EOFInString"), 
+
+
+		// Errores por fin de archivo
+		else if (token instanceof EOF) {
+			if (inStr) {
+				out.format(Messages.getString("Coolc.lexer.EOFInString"), //$NON-NLS-1$
 						token.getLine());
-				strst = false;
+				inStr = false;
+			}
+			if (comments > 0) {
+				out.format(Messages.getString("Coolc.lexer.EOFInComment"), token.getLine()); //$NON-NLS-1$
+				comments = 0;
+			}
 		}
-		else if ( token instanceof EOF && comments > 0) {
-			out.format(Messages.getString("Coolc.lexer.EOFInComment"), token.getLine()); 
-			comments = 0;
-		}
+		
+		// Error por fin de comentario encontrado		
+		else if (token instanceof TErrorStarLpar) {
+			out.format(Messages.getString("Coolc.lexer.unmatchedCloseComment"), token.getLine()); //$NON-NLS-1$
+			jumpOne = true;
+		} 
+		
+		// Error sobre cualquier token extra�o al final
 		else if (token instanceof TErrend) {
-			if (token.getText().contains("\\") ){ //fas seen in class, \ is a special character 
-												  //and needs to be represented as \\ to be recognized
-				token.setText("\\\\");
-			}
-			if (token.getText().contains("\001") ){//for invisisible characters on tests
-				token.setText("\\001");
-			}
-			if (token.getText().contains("\002") ){
-				token.setText("\\002");
-			}
-			if (token.getText().contains("\003") ){
-				token.setText("\\003");
-			}
-			if (token.getText().contains("\004") ){
-				token.setText("\\004");
-			}
-			if (token.getText().contains("\000") ){ // for null character
-				token.setText("\\000");
-			}
-			out.format(Messages.getString("Coolc.lexer.generalError"), token.getLine(), token.getText());	
+			out.format(Messages.getString("Coolc.lexer.generalError"), token.getLine(), Util.escapeString(token.getText())); //$NON-NLS-1$
+			jumpOne = true;
 		}
 	}
 	
-	protected void commenterrors(){
-		 if (token instanceof TErrorStarLpar) {
-			out.format(Messages.getString("Coolc.lexer.unmatchedCloseComment"), token.getLine()); 
-		 }
+	@Override
+	public Token next() throws LexerException, IOException {
+		lastToken = token;
+		return super.next();
 	}
 
 	@Override
-	protected void filter() throws LexerException, IOException {
-			lexx();
-			while (ignore(token) || strst || pass) {//enter ignoreloop if token belongs to ignore Tokens, text in string or if 
-												
+	protected void filter() throws LexerException, IOException {		
+		checks();
+		while (ignore(token) || inStr || jumpOne) {
 			token = getToken();
-			pass=false;
-			lexx();
-			}
+			jumpOne = false;
+			checks();
+		}
 	}
 
 	public void setParser(Parser p) {
 		parser = p;
-		/* Children, do not do reflection without supervision */
+		/* Ni�os, no hagan esto sin la supervisi�n de un adulto */
 
 		try {
 			for (Method m : parser.getClass().getDeclaredMethods()) {

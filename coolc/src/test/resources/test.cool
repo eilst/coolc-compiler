@@ -1,33 +1,6 @@
-else
-Else
-eLse
-elSe
-elsE
-ELse
-ElSe
-ElsE
-eLSe
-eLsE
-elSE
-eLSE
-ElSE
-ELsE
-ELSe
-ELSE
+class Main { main() : Int {0 }; };
 
-true
-tRue
-trUe
-truE
-tRUe
-tRuE
-trUE
-tRUE
-True
-TRue
-TrUe
-TruE
-TRUe
-TRuE
-TrUE
-TRUE
+class A {
+  foo(x:Int) : Object {case x of a:Int => a; b:Int => b; esac};
+};
+
